@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Tutorial
+    public class Tutorial : BaseEntity
     {
         public Tutorial()
         {
@@ -16,9 +16,11 @@
         public string Description { get; set; }
         public string Content { get; set; }
 
+
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }
         public Course Course { get; set; }
+
 
         [ForeignKey(nameof(TutorialCategory))]
         public int TutorialCategoryId { get; set; }

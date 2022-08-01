@@ -1,7 +1,7 @@
 ﻿namespace CSharpNet_Web_System.Models.Models
 {   
     using System.Collections.Generic;
-    public class Course
+    public class Course : BaseEntity
     {
         public Course()
         {        

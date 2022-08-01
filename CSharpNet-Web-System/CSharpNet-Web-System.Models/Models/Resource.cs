@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Resource
+    public class Resource : BaseEntity
     {
         [Key]
         public int Id { get; set; }

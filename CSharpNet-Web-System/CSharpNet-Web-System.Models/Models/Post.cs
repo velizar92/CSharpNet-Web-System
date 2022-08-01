@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
-    public class Post
+    public class Post : BaseEntity
     {
         public Post()
         {
