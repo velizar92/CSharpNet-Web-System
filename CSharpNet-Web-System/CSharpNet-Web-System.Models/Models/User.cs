@@ -1,9 +1,9 @@
 ﻿namespace CSharpNet_Web_System.Models.Models
 {
+    using Microsoft.AspNetCore.Identity;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Microsoft.AspNet.Identity.EntityFramework;
  
     public class User : IdentityUser
     {

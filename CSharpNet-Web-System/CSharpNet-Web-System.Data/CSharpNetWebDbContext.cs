@@ -1,10 +1,11 @@
 ﻿namespace CSharpNet_Web_System.Data
 {
-    using CSharpNet_Web_System.Models.Models;
+    using CSharpNet_Web_System.Models.Models;  
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using System.Collections.Generic;
 
-    public class CSharpNetWebDbContext : DbContext
+    public class CSharpNetWebDbContext : IdentityDbContext<User>
     {
         public CSharpNetWebDbContext(DbContextOptions<CSharpNetWebDbContext> options)
            : base(options)
