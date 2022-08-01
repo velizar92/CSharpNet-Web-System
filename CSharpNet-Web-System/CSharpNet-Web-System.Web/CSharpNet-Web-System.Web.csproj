@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-CSharpNet_Web_System.Web-7DF07F53-55D9-4B15-A057-B20035060CD4</UserSecretsId>
+    <RootNamespace>CSharpNet_Web_System.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpNet-Web-System.Data\CSharpNet-Web-System.Data.csproj" />
+    <ProjectReference Include="..\CSharpNet-Web-System.Infrastructure\CSharpNet-Web-System.Infrastructure.csproj" />
+    <ProjectReference Include="..\CSharpNet-Web-System.Models\CSharpNet-Web-System.Models.csproj" />
+    <ProjectReference Include="..\CSharpNet-Web-System.Services\CSharpNet-Web-System.Services.csproj" />
+  </ItemGroup>
+
+</Project>
