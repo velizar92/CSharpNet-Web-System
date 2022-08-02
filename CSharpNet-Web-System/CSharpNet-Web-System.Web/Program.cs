@@ -24,9 +24,6 @@ builder.Services.AddDefaultIdentity<User>(options =>
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CSharpNetWebDbContext>();
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<CSharpNetWebDbContext>();
-
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
