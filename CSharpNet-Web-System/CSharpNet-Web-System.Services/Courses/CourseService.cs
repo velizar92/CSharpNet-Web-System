@@ -4,9 +4,9 @@
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using CSharpNet_Web_System.Data;
+    using Microsoft.EntityFrameworkCore;
     using CSharpNet_Web_System.Models.Models;
     using CSharpNet_Web_System.Services.Courses.Models;
-    using Microsoft.EntityFrameworkCore;
 
     public class CourseService : ICourseService
     {
@@ -79,6 +79,24 @@
                  .ToListAsync();
 
             return allCourses;
+        }
+
+
+        public async Task<CourseDetailsServiceModel> GetCourseDetails(int courseId)
+        {
+           var courseDetails = 
+                await _dbContext.Courses
+                          .Where(c => c.Id == courseId)
+                          .Select(x => new CourseDetailsServiceModel
+                          {
+                              Id = x.Id,
+                              Name = x.Name,
+                              Description = x.Description,
+                              ImageUrl = x.ImageUrl,
+                          })
+                          .FirstOrDefaultAsync();
+
+            return courseDetails;
         }
     }
 }

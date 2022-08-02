@@ -12,5 +12,7 @@
         Task<ResultServiceModel> DeleteCourse(int courseId);
 
         Task<IEnumerable<CourseServiceModel>> GetAllCourses();
+
+        Task<CourseDetailsServiceModel> GetCourseDetails(int courseId);
     }
 }
