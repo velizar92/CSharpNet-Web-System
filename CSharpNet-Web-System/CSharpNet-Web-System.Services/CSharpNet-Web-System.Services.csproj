@@ -11,7 +11,6 @@
     <Folder Include="Comments\Models\" />
     <Folder Include="Issues\Models\" />
     <Folder Include="Resources\Models\" />
-    <Folder Include="Tutorials\Models\" />
   </ItemGroup>
 
   <ItemGroup>

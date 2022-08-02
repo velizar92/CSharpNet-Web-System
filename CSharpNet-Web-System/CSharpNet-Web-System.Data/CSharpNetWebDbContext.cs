@@ -3,7 +3,6 @@
     using CSharpNet_Web_System.Models.Models;  
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using System.Collections.Generic;
 
     public class CSharpNetWebDbContext : IdentityDbContext<User>
     {
@@ -13,7 +12,7 @@
         }
 
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Tutorial> Tutorial { get; set; }
+        public DbSet<Tutorial> Tutorials { get; set; }
         public DbSet<TutorialCategory> TutorialCategories { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<ResourceType> ResourceTypes { get; set; }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSharpNet_Web_System.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,8 +28,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ProfileImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -57,8 +57,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -74,7 +74,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,7 +87,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,7 +100,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -219,7 +219,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<int>(type: "int", maxLength: 300, nullable: false),
                     Content = table.Column<int>(type: "int", nullable: false),
                     PostCategoryId = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -237,13 +237,13 @@ namespace CSharpNet_Web_System.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tutorial",
+                name: "Tutorials",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CourseId = table.Column<int>(type: "int", nullable: false),
                     TutorialCategoryId = table.Column<int>(type: "int", nullable: false),
@@ -252,15 +252,15 @@ namespace CSharpNet_Web_System.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tutorial", x => x.Id);
+                    table.PrimaryKey("PK_Tutorials", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tutorial_Courses_CourseId",
+                        name: "FK_Tutorials_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tutorial_TutorialCategories_TutorialCategoryId",
+                        name: "FK_Tutorials_TutorialCategories_TutorialCategoryId",
                         column: x => x.TutorialCategoryId,
                         principalTable: "TutorialCategories",
                         principalColumn: "Id",
@@ -273,7 +273,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TutorialId = table.Column<int>(type: "int", nullable: false),
                     PostId = table.Column<int>(type: "int", nullable: false),
@@ -296,9 +296,9 @@ namespace CSharpNet_Web_System.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Comments_Tutorial_TutorialId",
+                        name: "FK_Comments_Tutorials_TutorialId",
                         column: x => x.TutorialId,
-                        principalTable: "Tutorial",
+                        principalTable: "Tutorials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -309,8 +309,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ResolvingDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -328,9 +328,9 @@ namespace CSharpNet_Web_System.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Issues_Tutorial_TutorialId",
+                        name: "FK_Issues_Tutorials_TutorialId",
                         column: x => x.TutorialId,
-                        principalTable: "Tutorial",
+                        principalTable: "Tutorials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -341,7 +341,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
                     TutorialId = table.Column<int>(type: "int", nullable: false),
                     PostId = table.Column<int>(type: "int", nullable: false),
@@ -364,9 +364,9 @@ namespace CSharpNet_Web_System.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Resources_Tutorial_TutorialId",
+                        name: "FK_Resources_Tutorials_TutorialId",
                         column: x => x.TutorialId,
-                        principalTable: "Tutorial",
+                        principalTable: "Tutorials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -456,13 +456,13 @@ namespace CSharpNet_Web_System.Data.Migrations
                 column: "TutorialId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tutorial_CourseId",
-                table: "Tutorial",
+                name: "IX_Tutorials_CourseId",
+                table: "Tutorials",
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tutorial_TutorialCategoryId",
-                table: "Tutorial",
+                name: "IX_Tutorials_TutorialCategoryId",
+                table: "Tutorials",
                 column: "TutorialCategoryId");
         }
 
@@ -505,7 +505,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "ResourceTypes");
 
             migrationBuilder.DropTable(
-                name: "Tutorial");
+                name: "Tutorials");
 
             migrationBuilder.DropTable(
                 name: "PostCategories");
