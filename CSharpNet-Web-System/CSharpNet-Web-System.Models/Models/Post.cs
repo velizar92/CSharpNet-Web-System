@@ -19,10 +19,10 @@
 
         [Required]
         [MaxLength(PostTitleMaxLength)]
-        public int Title { get; set; }
+        public string Title { get; set; }
 
         [Required]
-        public int Content { get; set; }
+        public string Content { get; set; }
 
         [ForeignKey(nameof(PostCategory))]
         public int PostCategoryId { get; set; }

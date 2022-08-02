@@ -3,6 +3,7 @@ using CSharpNet_Web_System.Models.Models;
 using CSharpNet_Web_System.Services.Comments;
 using CSharpNet_Web_System.Services.Courses;
 using CSharpNet_Web_System.Services.Issues;
+using CSharpNet_Web_System.Services.Posts;
 using CSharpNet_Web_System.Services.Resources;
 using CSharpNet_Web_System.Services.Tutorials;
 using Microsoft.AspNetCore.Identity;
@@ -34,6 +35,7 @@ builder.Services.AddTransient<ITutorialService, TutorialService>();
 builder.Services.AddTransient<IResourceService, ResourceService>();
 builder.Services.AddTransient<ICommentService, CommentService>();
 builder.Services.AddTransient<IIssueService, IssueService>();
+builder.Services.AddTransient<IPostService, PostService>();
 
 builder.Services.AddControllersWithViews();
 

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220802192423_InitialCreate")]
+    [Migration("20220802202832_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -151,8 +151,9 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Content")
-                        .HasColumnType("int");
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -160,9 +161,10 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Property<int>("PostCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Title")
+                    b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(300)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
