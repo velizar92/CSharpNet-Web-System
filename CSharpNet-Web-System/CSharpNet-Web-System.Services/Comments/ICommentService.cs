@@ -1,12 +1,17 @@
 ﻿namespace CSharpNet_Web_System.Services.Comments
-{
-    using System;
+{  
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
+    using CSharpNet_Web_System.Services.Comments.Models;
 
     public interface ICommentService
     {
+        Task<ResultServiceModel> CreateComment(int lectureId, string userId, string content);
+
+        Task<ResultServiceModel> DeleteComment(int commentId);
+
+        Task<CommentServiceModel> GetCommentById(int commentId);
+
+        Task<IEnumerable<CommentDetailsServiceModel>> GetTutorialComments(int lectureId);
     }
 }
