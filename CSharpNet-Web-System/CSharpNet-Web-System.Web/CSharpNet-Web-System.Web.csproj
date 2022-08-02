@@ -24,4 +24,9 @@
     <ProjectReference Include="..\CSharpNet-Web-System.Services\CSharpNet-Web-System.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\" />
+  </ItemGroup>
+
 </Project>
