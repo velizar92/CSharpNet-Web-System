@@ -4,7 +4,10 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
- 
+
+
+    using static DataConstants.User;
+
     public class User : IdentityUser
     {
         public User()
@@ -13,10 +16,12 @@
             Issues = new HashSet<Issue>();
         }
 
-        [Required]       
+        [Required]
+        [MaxLength(FirstNameMaxLength)]
         public string FirstName { get; set; }
 
-        [Required]       
+        [Required]
+        [MaxLength(LastNameMaxLength)]
         public string LastName { get; set; }
 
         [Required]

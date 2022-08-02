@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using static DataConstants.PostCategory;
+
     public class PostCategory
     {
         public PostCategory()
@@ -14,6 +16,7 @@
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(PostCategoryNameMaxLength)]
         public string Name { get; set; }
 
         public ICollection<Post> Posts { get; set; }

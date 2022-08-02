@@ -2,15 +2,19 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    using static DataConstants.Issue;
     public class Issue : BaseEntity
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(IssueTitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
+        [MaxLength(IssueDescriptionMaxLength)]
         public string Description { get; set; }
 
         public string UserId { get; set; }

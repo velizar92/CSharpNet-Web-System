@@ -1,6 +1,9 @@
 ﻿namespace CSharpNet_Web_System.Models.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    using static DataConstants.Tutorial;
 
     public class Tutorial : BaseEntity
     {
@@ -11,9 +14,18 @@
             Comments = new HashSet<Comment>();
         }
 
+        [Key]
         public int Id { get; set; }
+
+        [Required]
+        [MaxLength(TutorialTitleMaxLength)]
         public string Title { get; set; }
+
+        [Required]
+        [MaxLength(TutorialDescriptionMaxLength)]
         public string Description { get; set; }
+
+        [Required]      
         public string Content { get; set; }
 
 

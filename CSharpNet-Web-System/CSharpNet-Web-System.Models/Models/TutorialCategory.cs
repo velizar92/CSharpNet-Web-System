@@ -2,6 +2,9 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using static DataConstants.TutorialCategory;
+
     public class TutorialCategory
     {
         public TutorialCategory()
@@ -13,6 +16,7 @@
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(TutorialCategoryNameMaxLength)]
         public string Name { get; set; }
 
         public ICollection<Tutorial> Tutorials { get; set; }

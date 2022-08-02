@@ -1,7 +1,11 @@
 ﻿namespace CSharpNet_Web_System.Models.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    using static DataConstants.Post;
+
     public class Post : BaseEntity
     {
         public Post()
@@ -9,8 +13,15 @@
             Comments = new HashSet<Comment>();
             Resources = new HashSet<Resource>();
         }
+
+        [Key]
         public int Id { get; set; }
+
+        [Required]
+        [MaxLength(PostTitleMaxLength)]
         public int Title { get; set; }
+
+        [Required]
         public int Content { get; set; }
 
         [ForeignKey(nameof(PostCategory))]
