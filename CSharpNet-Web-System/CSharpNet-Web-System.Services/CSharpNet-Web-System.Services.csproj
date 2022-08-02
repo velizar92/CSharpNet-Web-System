@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Comments\Models\" />
-    <Folder Include="Issues\Models\" />
     <Folder Include="Resources\Models\" />
   </ItemGroup>
 
