@@ -9,10 +9,13 @@
 
   <ItemGroup>
     <Folder Include="Comments\Models\" />
-    <Folder Include="Courses\Models\" />
     <Folder Include="Issues\Models\" />
     <Folder Include="Resources\Models\" />
     <Folder Include="Tutorials\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpNet-Web-System.Data\CSharpNet-Web-System.Data.csproj" />
   </ItemGroup>
 
 </Project>
