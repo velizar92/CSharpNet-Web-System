@@ -1,5 +1,10 @@
 using CSharpNet_Web_System.Data;
 using CSharpNet_Web_System.Models.Models;
+using CSharpNet_Web_System.Services.Comments;
+using CSharpNet_Web_System.Services.Courses;
+using CSharpNet_Web_System.Services.Issues;
+using CSharpNet_Web_System.Services.Resources;
+using CSharpNet_Web_System.Services.Tutorials;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +28,12 @@ builder.Services.AddDefaultIdentity<User>(options =>
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CSharpNetWebDbContext>();
+
+builder.Services.AddTransient<ICourseService, CourseService>();
+builder.Services.AddTransient<ITutorialService, TutorialService>();
+builder.Services.AddTransient<IResourceService, ResourceService>();
+builder.Services.AddTransient<ICommentService, CommentService>();
+builder.Services.AddTransient<IIssueService, IssueService>();
 
 builder.Services.AddControllersWithViews();
 
