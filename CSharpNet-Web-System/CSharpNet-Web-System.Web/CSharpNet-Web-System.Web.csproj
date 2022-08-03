@@ -26,6 +26,8 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Views\Tutorials\" />
+    <Folder Include="Views\Posts\" />
     <Folder Include="wwwroot\assets\images\courses\" />
     <Folder Include="wwwroot\assets\resources\" />
   </ItemGroup>

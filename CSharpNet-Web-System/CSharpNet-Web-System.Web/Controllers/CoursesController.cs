@@ -25,7 +25,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> CourseDetails(int courseId)
+        public async Task<IActionResult> Details(int courseId)
         {
             var courseDetails = await _courseService.GetCourseDetails(courseId);
             return View(courseDetails);

@@ -1,9 +1,9 @@
-﻿using CSharpNet_Web_System.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-
-namespace CSharpNet_Web_System.Web.Controllers
+﻿namespace CSharpNet_Web_System.Web.Controllers
 {
+    using CSharpNet_Web_System.Web.Models;
+    using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,12 +17,7 @@ namespace CSharpNet_Web_System.Web.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+    
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
