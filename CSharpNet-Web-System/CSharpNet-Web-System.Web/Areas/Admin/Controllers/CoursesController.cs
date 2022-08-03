@@ -41,6 +41,29 @@
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> EditCourse(int courseId)
+        {
+
+            var course = await _courseService.GetCourseDetails(courseId);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            CourseFormModel courseFormModel = new CourseFormModel
+            {
+                Name = course.Name,
+                Description = course.Description,
+            };
+
+            return View(courseFormModel);
+        }
+
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditCourse(int courseId, CourseFormModel courseFormModel)
