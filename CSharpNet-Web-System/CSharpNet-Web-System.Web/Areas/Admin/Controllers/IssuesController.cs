@@ -13,6 +13,7 @@
         }
 
 
+        [HttpGet]
         public async Task<IActionResult> FixIssue(int issueId, int tutorialId)
         {
             var resultServiceModel = await _issueService.DeleteIssue(issueId);
@@ -26,6 +27,7 @@
         }
 
 
+        [HttpGet]
         public async Task<IActionResult> MyIssues()
         {
             var allReportedIssues = await _issueService.GetAllReportedIssues();
