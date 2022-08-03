@@ -1,4 +1,5 @@
 using CSharpNet_Web_System.Data;
+using CSharpNet_Web_System.Infrastructure.Seed;
 using CSharpNet_Web_System.Models.Models;
 using CSharpNet_Web_System.Services.Comments;
 using CSharpNet_Web_System.Services.Courses;
@@ -36,6 +37,7 @@ builder.Services.AddTransient<IResourceService, ResourceService>();
 builder.Services.AddTransient<ICommentService, CommentService>();
 builder.Services.AddTransient<IIssueService, IssueService>();
 builder.Services.AddTransient<IPostService, PostService>();
+builder.Services.AddTransient<IDbInitializer, DbInitializer>();
 
 builder.Services.AddControllersWithViews();
 
@@ -54,6 +56,9 @@ else
 }
 
 app.UseHttpsRedirection();
+
+SeedDatabase();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -71,3 +76,13 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.InitializeDatabase(app);
+    }
+}
