@@ -62,8 +62,6 @@
         }
 
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditCourse(int courseId, CourseFormModel courseFormModel)
@@ -95,6 +93,14 @@
         {
             var allCourses = await _courseService.GetAllCourses();
             return View(allCourses);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> CourseDetails(int courseId)
+        {
+            var courseDetails = await _courseService.GetCourseDetails(courseId);
+            return View(courseDetails);
         }
     }
 }
