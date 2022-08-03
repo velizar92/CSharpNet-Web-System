@@ -10,6 +10,10 @@
 
         Task<ResultServiceModel> DeletePost(int postId);
 
+        Task<PostServiceModel> GetPost(int postId);
+
         Task<IEnumerable<PostServiceModel>> GetAllPosts();
+
+        Task<IEnumerable<PostServiceModel>> GetPostsByCategoryId(int postCategoryId);
     }
 }

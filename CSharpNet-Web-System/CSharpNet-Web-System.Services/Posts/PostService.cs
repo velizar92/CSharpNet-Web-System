@@ -49,7 +49,7 @@
 
         public async Task<ResultServiceModel> EditPost(int postId, string title, string content)
         {
-           var postForEditing = await _dbContext.Posts.FirstOrDefaultAsync(post => post.Id == postId);
+            var postForEditing = await _dbContext.Posts.FirstOrDefaultAsync(post => post.Id == postId);
 
             if (postForEditing == null)
             {
@@ -76,6 +76,33 @@
                                      .ToListAsync();
 
             return allPosts;
+        }
+
+        public async Task<PostServiceModel> GetPost(int postId)
+        {
+            var post = await _dbContext.Posts
+                                     .Select(p => new PostServiceModel
+                                     {
+                                         Title = p.Title,
+                                         Content = p.Content,
+                                     })
+                                     .FirstOrDefaultAsync();
+
+            return post;
+        }
+
+        public async Task<IEnumerable<PostServiceModel>> GetPostsByCategoryId(int postCategoryId)
+        {
+            var posts = await _dbContext.Posts
+                                     .Where(p => p.PostCategoryId == postCategoryId)
+                                     .Select(p => new PostServiceModel
+                                     {
+                                         Title = p.Title,
+                                         Content = p.Content,
+                                     })
+                                     .ToListAsync();
+
+            return posts;
         }
     }
 }
