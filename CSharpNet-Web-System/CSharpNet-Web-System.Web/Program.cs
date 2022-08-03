@@ -6,6 +6,7 @@ using CSharpNet_Web_System.Services.Courses;
 using CSharpNet_Web_System.Services.Issues;
 using CSharpNet_Web_System.Services.Posts;
 using CSharpNet_Web_System.Services.Resources;
+using CSharpNet_Web_System.Services.Storage;
 using CSharpNet_Web_System.Services.Tutorials;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ builder.Services.AddTransient<IResourceService, ResourceService>();
 builder.Services.AddTransient<ICommentService, CommentService>();
 builder.Services.AddTransient<IIssueService, IssueService>();
 builder.Services.AddTransient<IPostService, PostService>();
+builder.Services.AddTransient<IStorageService, FileStorageService>();
 builder.Services.AddTransient<IDbInitializer, DbInitializer>();
 
 builder.Services.AddControllersWithViews();
