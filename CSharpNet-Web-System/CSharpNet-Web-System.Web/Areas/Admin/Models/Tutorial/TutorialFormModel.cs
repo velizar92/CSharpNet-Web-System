@@ -16,7 +16,7 @@ namespace CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial
         [StringLength(
             TutorialTitleMaxLength,
             MinimumLength = TutorialTitleMinLength,
-            ErrorMessage = "The field Content must be a string with a minimum length of {2} and maximum length of {1}.")]
+            ErrorMessage = "The field Title must be a string with a minimum length of {2} and maximum length of {1}.")]
         public string Title { get; set; }
 
 
@@ -24,7 +24,7 @@ namespace CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial
         [StringLength(
             TutorialDescriptionMaxLength,
             MinimumLength = TutorialDescriptionMinLength,
-            ErrorMessage = "The field Content must be a string with a minimum length of {2} and maximum length of {1}.")]
+            ErrorMessage = "The field Description must be a string with a minimum length of {2} and maximum length of {1}.")]
         public string Description { get; set; }
 
         public Resource[]? Resources { get; set; }
