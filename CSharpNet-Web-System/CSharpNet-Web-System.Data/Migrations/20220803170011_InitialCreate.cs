@@ -95,19 +95,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TutorialCategories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TutorialCategories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -214,6 +201,30 @@ namespace CSharpNet_Web_System.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tutorials",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tutorials", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tutorials_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Posts",
                 columns: table => new
                 {
@@ -237,32 +248,33 @@ namespace CSharpNet_Web_System.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tutorials",
+                name: "Issues",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CourseId = table.Column<int>(type: "int", nullable: false),
-                    TutorialCategoryId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ResolvingDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TutorialId = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tutorials", x => x.Id);
+                    table.PrimaryKey("PK_Issues", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tutorials_Courses_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Courses",
+                        name: "FK_Issues_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tutorials_TutorialCategories_TutorialCategoryId",
-                        column: x => x.TutorialCategoryId,
-                        principalTable: "TutorialCategories",
+                        name: "FK_Issues_Tutorials_TutorialId",
+                        column: x => x.TutorialId,
+                        principalTable: "Tutorials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -297,38 +309,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comments_Tutorials_TutorialId",
-                        column: x => x.TutorialId,
-                        principalTable: "Tutorials",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Issues",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ResolvingDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    TutorialId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Issues", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Issues_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Issues_Tutorials_TutorialId",
                         column: x => x.TutorialId,
                         principalTable: "Tutorials",
                         principalColumn: "Id",
@@ -459,11 +439,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "IX_Tutorials_CourseId",
                 table: "Tutorials",
                 column: "CourseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tutorials_TutorialCategoryId",
-                table: "Tutorials",
-                column: "TutorialCategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -512,9 +487,6 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Courses");
-
-            migrationBuilder.DropTable(
-                name: "TutorialCategories");
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220802202832_InitialCreate")]
+    [Migration("20220803170011_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -279,9 +279,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("TutorialCategoryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
 
@@ -289,27 +286,7 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("TutorialCategoryId");
-
                     b.ToTable("Tutorials");
-                });
-
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.TutorialCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TutorialCategories");
                 });
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.User", b =>
@@ -616,15 +593,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CSharpNet_Web_System.Models.Models.TutorialCategory", "TutorialCategory")
-                        .WithMany("Tutorials")
-                        .HasForeignKey("TutorialCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Course");
-
-                    b.Navigation("TutorialCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -707,11 +676,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Navigation("Issues");
 
                     b.Navigation("Resources");
-                });
-
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.TutorialCategory", b =>
-                {
-                    b.Navigation("Tutorials");
                 });
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.User", b =>

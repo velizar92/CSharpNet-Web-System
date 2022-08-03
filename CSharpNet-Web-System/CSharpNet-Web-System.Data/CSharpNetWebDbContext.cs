@@ -12,8 +12,7 @@
         }
 
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Tutorial> Tutorials { get; set; }
-        public DbSet<TutorialCategory> TutorialCategories { get; set; }
+        public DbSet<Tutorial> Tutorials { get; set; }     
         public DbSet<Resource> Resources { get; set; }
         public DbSet<ResourceType> ResourceTypes { get; set; }
         public DbSet<Comment> Comments { get; set; }

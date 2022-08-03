@@ -34,10 +34,6 @@
         public Course Course { get; set; }
 
 
-        [ForeignKey(nameof(TutorialCategory))]
-        public int TutorialCategoryId { get; set; }
-        public TutorialCategory TutorialCategory { get; set; }
-
         public ICollection<Issue> Issues { get; set; }
         public ICollection<Resource> Resources { get; set; }
         public ICollection<Comment> Comments { get; set; }

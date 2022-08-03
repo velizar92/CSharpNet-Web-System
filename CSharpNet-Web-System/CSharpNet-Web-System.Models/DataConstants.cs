@@ -28,12 +28,6 @@
             public const int TutorialDescriptionMaxLength = 1000;
         }
 
-        public class TutorialCategory
-        {
-            public const int TutorialCategoryNameMinLength = 5;
-            public const int TutorialCategoryNameMaxLength = 100;
-        }
-
         public class Resource
         {
             public const int ResourceNameMinLength = 10;
