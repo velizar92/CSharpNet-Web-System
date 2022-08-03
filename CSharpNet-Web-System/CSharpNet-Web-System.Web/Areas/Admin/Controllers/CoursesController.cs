@@ -4,14 +4,17 @@
     using Microsoft.AspNetCore.Authorization;
     using CSharpNet_Web_System.Services.Courses;
     using CSharpNet_Web_System.Web.Areas.Admin.Models.Course;
+    using CSharpNet_Web_System.Services.Storage;
 
     public class CoursesController : AdminController
     {
         private readonly ICourseService _courseService;
+        private readonly IStorageService _fileStorageService;
 
-        public CoursesController(ICourseService courseService)
+        public CoursesController(ICourseService courseService, IStorageService fileStorageService)
         {
             _courseService = courseService;
+            _fileStorageService = fileStorageService;
         }
 
 
@@ -35,7 +38,7 @@
         
             await _courseService.CreateCourse(courseModel.Name, courseModel.Description, courseModel.PictureFile.FileName);
 
-            //await this.storageService.SaveFile(@"\assets\img\courses", courseModel.PictureFile);
+            await _fileStorageService.SaveFile(@"\assets\img\courses", courseModel.PictureFile);
 
             return RedirectToAction(nameof(AllCourses));
         }
@@ -52,7 +55,7 @@
 
             await _courseService.EditCourse(courseId, courseModel.Name, courseModel.Description, courseModel.PictureFile.FileName);
 
-            //await this.storageService.SaveFile(@"\assets\img\courses", courseModel.PictureFile);
+            await _fileStorageService.SaveFile(@"\assets\img\courses", courseModel.PictureFile);
 
             return RedirectToAction(nameof(AllCourses));
         }
