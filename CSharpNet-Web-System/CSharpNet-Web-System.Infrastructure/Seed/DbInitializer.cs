@@ -61,7 +61,7 @@
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
 
-            if (!roleManager.RoleExistsAsync("Admin").Result == false)
+            if (roleManager.RoleExistsAsync("Admin").Result == false)
             {
                 IdentityRole adminRole = new IdentityRole();
                 adminRole.Name = "Admin";
