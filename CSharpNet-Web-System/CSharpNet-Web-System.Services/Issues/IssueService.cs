@@ -131,11 +131,11 @@
         }
 
 
-        public async Task<IEnumerable<IssueDetailsServiceModel>> GetMyReportedIssues(string userId, int courseId)
+        public async Task<IEnumerable<IssueDetailsServiceModel>> GetMyReportedIssues(string userId)
         {
             var myReportedIssues = await _dbContext
                                 .Issues
-                                .Where(i => i.UserId == userId && i.TutorialId == courseId)
+                                .Where(i => i.UserId == userId)
                                 .Select(i => new IssueDetailsServiceModel
                                 {
                                     TutorialId = i.TutorialId,
