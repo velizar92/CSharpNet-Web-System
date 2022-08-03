@@ -1,7 +1,6 @@
 ﻿namespace CSharpNet_Web_System.Web.Areas.Admin.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Authorization;
     using CSharpNet_Web_System.Services.Courses;
     using CSharpNet_Web_System.Web.Areas.Admin.Models.Course;
     using CSharpNet_Web_System.Services.Storage;
@@ -18,54 +17,61 @@
         }
 
 
-        [HttpGet]
-        [Authorize]
+        [HttpGet]    
         public IActionResult CreateCourse()
         {
             return View();
         }
 
 
-        [HttpPost]
-        [Authorize]
+        [HttpPost]      
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateCourse(CourseFormModel courseModel)
+        public async Task<IActionResult> CreateCourse(CourseFormModel courseFormModel)
         {         
             if (!ModelState.IsValid)
             {              
                 return View();
             }
         
-            await _courseService.CreateCourse(courseModel.Name, courseModel.Description, courseModel.PictureFile.FileName);
+            await _courseService.CreateCourse(courseFormModel.Name, courseFormModel.Description, courseFormModel.PictureFile.FileName);
 
-            await _fileStorageService.SaveFile(@"\assets\img\courses", courseModel.PictureFile);
+            await _fileStorageService.SaveFile(@"\assets\images\courses", courseFormModel.PictureFile);
 
             return RedirectToAction(nameof(AllCourses));
         }
 
+
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditCourse(int courseId, CourseFormModel courseModel)
+        public async Task<IActionResult> EditCourse(int courseId, CourseFormModel courseFormModel)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            await _courseService.EditCourse(courseId, courseModel.Name, courseModel.Description, courseModel.PictureFile.FileName);
+            await _courseService.EditCourse(courseId, courseFormModel.Name, courseFormModel.Description, courseFormModel.PictureFile.FileName);
 
-            await _fileStorageService.SaveFile(@"\assets\img\courses", courseModel.PictureFile);
+            await _fileStorageService.SaveFile(@"\assets\images\courses", courseFormModel.PictureFile);
 
             return RedirectToAction(nameof(AllCourses));
         }
 
 
-        [HttpGet]
-        [Authorize]
-        public IActionResult AllCourses()
+        [HttpGet]       
+        public async Task<IActionResult> DeleteCourse(int courseId)
+        {        
+            await _courseService.DeleteCourse(courseId);
+
+            return RedirectToAction(nameof(AllCourses));
+        }
+
+
+        [HttpGet]       
+        public async Task<IActionResult> AllCourses()
         {
-            return View();
+            var allCourses = await _courseService.GetAllCourses();
+            return View(allCourses);
         }
     }
 }
