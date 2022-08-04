@@ -1,6 +1,20 @@
 ﻿@using CSharpNet_Web_System.Web.Areas.Admin.Models.Course
 @model CourseFormModel
 
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/assets//images/csharp_basics.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Създай курс</h5>
+                <p class="card-text">В тази секция можеш да създадеш курс, който след това ще даде нови знания на твоите последователи.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <form method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
@@ -11,15 +25,15 @@
 
     <div class="mb-3">
         <label asp-for="Description" class="form-label">Description</label>
-        <textarea asp-for="Description" class="form-control"></textarea> 
+        <textarea asp-for="Description" class="form-control"></textarea>
         <span asp-validation-for="Description" class="small text-danger"></span>
     </div>
- 
+
     <div class="mb-3">
         <label asp-for="PictureFile" class="form-label">Image Url</label>
-        <input asp-for="PictureFile" type="file" name="PictureFile" class="form-control">  
+        <input asp-for="PictureFile" type="file" name="PictureFile" class="form-control">
         <span asp-validation-for="PictureFile" class="small text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Потвърди</button>
 </form>

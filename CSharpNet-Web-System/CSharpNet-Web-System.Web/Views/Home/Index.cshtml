@@ -11,11 +11,15 @@
     {
         <div class="col">
             <div class="card">
-                <img src="/assets//images/courses/@course.ImageUrl" class="card-img-top" height="300" alt="C# course">
+                <img src="/assets//images/courses/@course.ImageUrl" class="card-img-top" height="300" alt="C# course"/>
                 <div class="card-body">
                     <h5 class="card-title">@course.Name</h5>
                     <p class="card-text">@course.Description</p>
-                    <button type="button" class="btn text-white" style="background-color: purple">Към курса</button>
+                    <button type="button" class="btn text-white" style="background-color: purple">
+                        <a class="text-white text-decoration-none" asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">
+                            Към курса
+                        </a>
+                    </button>
                 </div>
             </div>
         </div>

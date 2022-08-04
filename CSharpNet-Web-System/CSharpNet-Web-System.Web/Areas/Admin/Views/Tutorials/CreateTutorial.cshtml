@@ -1,5 +1,19 @@
 ﻿@model TutorialFormModel
 
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/assets//images/tutorial_creation.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Създай урок</h5>
+                <p class="card-text">В тази секция можеш да създадеш урок, който да е още една стъпка към успеха на последователите ти.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <form method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
@@ -26,5 +40,5 @@
         <span asp-validation-for="Files" class="small text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Потвърди</button>
 </form>

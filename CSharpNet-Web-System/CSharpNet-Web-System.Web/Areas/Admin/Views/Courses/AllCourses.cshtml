@@ -1,1 +1,32 @@
-﻿
+﻿@model IEnumerable<CourseServiceModel>
+
+@{
+    int lineIndex = 1;
+}
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Име на курс</th>                            
+            <th scope="col">Опция</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <th scope="row">@lineIndex</th>
+                <td>@course.Name</td>                             
+                <td>                  
+                    <a asp-area="Admin" asp-controller="Courses" asp-action="EditCourse" asp-route-courseId="@course.Id" class="btn btn-warning">Редактирай курс</a>
+                    <a asp-area="Admin" asp-controller="Courses" asp-action="DeleteCourse" asp-route-courseId="@course.Id" class="btn btn-danger">Изтрий курс</a>                
+                </td>
+            </tr>
+
+            lineIndex++;
+        }
+
+    </tbody>
+</table>
