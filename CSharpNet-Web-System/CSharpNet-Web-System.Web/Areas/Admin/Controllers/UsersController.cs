@@ -82,7 +82,7 @@
 
             await _userManager.DeleteAsync(user);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AllUsers));
         }
 
 
