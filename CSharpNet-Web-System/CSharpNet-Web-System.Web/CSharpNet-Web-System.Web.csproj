@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\images\courses\" />
     <Folder Include="wwwroot\assets\images\users\" />
     <Folder Include="wwwroot\assets\resources\" />
   </ItemGroup>

@@ -1,8 +1,25 @@
-﻿@{
+﻿@using CSharpNet_Web_System.Services.Courses.Models;
+@model IEnumerable<CourseServiceModel>
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach (var course in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <img src="/assets//images/courses/@course.ImageUrl" class="card-img-top" height="300" alt="C# course">
+                <div class="card-body">
+                    <h5 class="card-title">@course.Name</h5>
+                    <p class="card-text">@course.Description</p>
+                    <button type="button" class="btn text-white" style="background-color: purple">Към курса</button>
+                </div>
+            </div>
+        </div>
+    }
 </div>
+
+

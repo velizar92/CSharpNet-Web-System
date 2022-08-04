@@ -1,21 +1,25 @@
 ﻿namespace CSharpNet_Web_System.Web.Controllers
 {
+    using CSharpNet_Web_System.Services.Courses;
     using CSharpNet_Web_System.Web.Models;
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
 
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ICourseService _courseService;
+
+        public HomeController(ICourseService courseService)
         {
-            _logger = logger;
+            _courseService = courseService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var allCourses = await _courseService.GetAllCourses();
+
+            return View(allCourses);
         }
     
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
