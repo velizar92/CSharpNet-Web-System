@@ -27,6 +27,10 @@ namespace CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial
             ErrorMessage = "The field Description must be a string with a minimum length of {2} and maximum length of {1}.")]
         public string Description { get; set; }
 
+
+        [Required(ErrorMessage = "Field {0} is required.")]     
+        public string Content { get; set; }
+
         public Resource[]? Resources { get; set; }
 
         public IEnumerable<IFormFile> Files { get; set; }

@@ -93,6 +93,7 @@
                               Name = x.Name,
                               Description = x.Description,
                               ImageUrl = x.ImageUrl,
+                              Tutorials = x.Tutorials
                           })
                           .FirstOrDefaultAsync();
 

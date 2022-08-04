@@ -17,13 +17,15 @@
             _dbContext = dbContext;
         }
 
-        public async Task<ResultServiceModel> AddTutorialToCourse(int courseId, string title, string description, List<Resource> resources)
+        public async Task<ResultServiceModel> AddTutorialToCourse(int courseId, string title, string description,
+            string content, List<Resource> resources)
         {
             var tutorial = new Tutorial
             {
                 Title = title,
                 Description = description,
-                Resources = resources,
+                Content = content,
+                Resources = resources 
             };
 
             var course = await _dbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
@@ -63,7 +65,7 @@
         }
 
 
-        public async Task<ResultServiceModel> EditTutorial(int tutorialId, string title, string description, List<Resource> resources)
+        public async Task<ResultServiceModel> EditTutorial(int tutorialId, string title, string description, string content, List<Resource> resources)
         {
             var tutorial = await _dbContext.Tutorials.FindAsync(tutorialId);
             if (tutorial == null)
@@ -73,6 +75,7 @@
 
             tutorial.Title = title;
             tutorial.Description = description;
+            tutorial.Content = content;
 
             foreach (var resourceItem in resources)
             {
@@ -121,7 +124,7 @@
             return tutorialDetails;
         }
 
-        public async Task<int> GetTutorialIdByResourceId(int resourceId)
+        public async Task<int?> GetTutorialIdByResourceId(int resourceId)
         {
             var resource = await _dbContext.Resources
                           .FirstOrDefaultAsync(r => r.Id == resourceId);
