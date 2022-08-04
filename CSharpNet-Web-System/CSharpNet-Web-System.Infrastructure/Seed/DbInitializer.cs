@@ -22,6 +22,7 @@
                 await SeedResourceTypes(services);
                 await SeedRoles(services);
                 await SeedAdminUsers(services);
+                await SeedCourses(services);
             }
         }
 
@@ -93,6 +94,61 @@
             if (dbContext.ResourceTypes.Any() == false)
             {
                 await dbContext.ResourceTypes.AddRangeAsync(resourceTypes);
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
+        private async Task SeedCourses(IServiceProvider services)
+        {
+            var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
+
+            List<Course> courses = new List<Course>()
+            {
+                new Course
+                {
+                    Name = "C# Basics",
+                    ImageUrl = "csharp_basics.jpeg",
+                    Description = "Курсът C# Basics ще ви даде основни познания в програмирането със C#." +
+                    "Започва се от самото начало с това \"Що е то програмен език?\", \"Какво е .NET?\" " +
+                    "\"Какво е IDE\"?, \"Какво е Visual Studio и как да го използвате\", \"Какво е променлива?\", " +
+                    "Кои са if/else конструкциите, for/while/do while и foreach циклите и куп други интересни неща. " +
+                    "\nНека започнем! :)"
+                },
+                new Course
+                {
+                    Name = "C# Fundamentals",
+                    ImageUrl = "csharp_fund.jpg",
+                    Description = "Курсът C# Fundamentals стъпва върху наученото от вас в C# Basics. Тук ще се запознаете с листове, масиви," +
+                    "асоциативни масиви и ще разберете какво са класовете и обектите и как те ви помагат. Ще разберете също какво са" +
+                    "методите и как се работи с тях. " +
+                    "\nНека започнем! :)"
+
+                },
+                new Course
+                {
+                    Name = "C# Advanced",
+                    ImageUrl = "csharp_advanced.jpg",
+                    Description = "Курсът C# Advanced ще ви даде познания за работата с различни структури от данни като: Стек, Опашка, Хешсет, Речник и др. " +
+                    "Ще обърнем внимание на работата с многомерни масиви, а също така и с файлове. Ще се запознаете с функционалното програмиране в C# и какво е това LINQ." +
+                    "Ще затвърдите знаният си, които вече имате за класовете и обектите. Ще се научите също да създавате шаблонни класове. " +
+                    "\nНека започнем! :)"
+                },
+                new Course
+                {
+                    Name = "C# OOP",
+                    ImageUrl = "csharp_oop.jpg",
+                    Description = "Курсът C# OOP ще ви даде познания в Обектно Ориентираното Програмиране. Ще се запознаете с основните стълбове " +
+                    "на OOП: Абстракция, Енкапсулация, Наследяване и Полиморфизъм. Ще разберете какво е това \"Exception\" и как да използвате try/catch/finally конструцията за обработване на изключения" +
+                    "(Exceptions). Ще разберете що е то Interface и защо е толкова полезен. Ще научите SOLID принципите и ще затвърдите знанията си за това как да ги прилагате. Ще се запознаете с" +
+                    "Unit тестването и с възможността да Mock-вате обекти. Ще се запознаете и с някои Design Patterns. " +
+                    "\nНека започнем! :)"                  
+                },
+
+            };
+
+            if (dbContext.Courses.Any() == false) 
+            {
+                await dbContext.Courses.AddRangeAsync(courses);
                 await dbContext.SaveChangesAsync();
             }
         }
