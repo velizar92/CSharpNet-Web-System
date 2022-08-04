@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220804170541_InitialCreate")]
+    [Migration("20220804193221_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
