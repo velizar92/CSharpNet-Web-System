@@ -36,7 +36,8 @@
             var resources = GetResources(tutorialFormModel.Files);
 
             var resultServiceModel = await _tutorialService.AddTutorialToCourse
-                                                (courseId, tutorialFormModel.Title,
+                                                (courseId, 
+                                                tutorialFormModel.Title,
                                                 tutorialFormModel.Description,
                                                 tutorialFormModel.Content,
                                                 resources);
@@ -47,7 +48,7 @@
             }
 
             await _fileStorageService.SaveFiles(@"\assets\resources", tutorialFormModel.Files);
-            return RedirectToAction("Details", "Details", new { courseId });
+            return RedirectToAction("Details", "Courses", new { courseId });
         }
 
 
@@ -61,16 +62,17 @@
                 return NotFound();
             }
 
-            TutorialFormModel lectureFormModel = new TutorialFormModel()
+            TutorialFormModel tutorialFormModel = new TutorialFormModel()
             {
                 Id = tutorial.Id,
                 CourseId = tutorial.CourseId,
                 Title = tutorial.Title,
                 Description = tutorial.Description,
+                Content = tutorial.Content,
                 Resources = tutorial.Resources.ToArray(),
             };
 
-            return View(lectureFormModel);
+            return View(tutorialFormModel);
         }
 
 
@@ -115,7 +117,7 @@
 
             if (resultServiceModel.Result == true)
             {            
-                return RedirectToAction("Details", new { courseId });
+                return RedirectToAction("Details", "Courses", new { courseId });
             }
 
             return BadRequest();
