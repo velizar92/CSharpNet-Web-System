@@ -136,22 +136,22 @@ namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account
                 user.LastName = Input.LastName;
                 user.ProfileImageUrl = file.FileName;
 
-                //string detailPath = Path.Combine(@"\assets\img\users", file.FileName);
-                //using (var stream = new FileStream(_webHostEnvironment.WebRootPath + detailPath, FileMode.Create))
-                //{
-                //    await file.CopyToAsync(stream);
-                //}
+                string detailPath = Path.Combine(@"\assets\images\users", file.FileName);
+                using (var stream = new FileStream(_webHostEnvironment.WebRootPath + detailPath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
-               // await _userManager.AddToRoleAsync(user, "LearnerRole");
+                await _userManager.AddToRoleAsync(user, "Learner");
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    //await _userManager.AddClaimAsync(user, new Claim(ProfileImageUrl, user.ProfileImageUrl));
+                    await _userManager.AddClaimAsync(user, new Claim("ProfileImageUrl", user.ProfileImageUrl));
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
