@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220803170011_InitialCreate")]
+    [Migration("20220804152524_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -210,13 +210,13 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
                         .HasColumnType("int");
 
                     b.Property<int>("ResourceTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TutorialId")
+                    b.Property<int?>("TutorialId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedOn")
@@ -562,9 +562,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 {
                     b.HasOne("CSharpNet_Web_System.Models.Models.Post", "Post")
                         .WithMany("Resources")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostId");
 
                     b.HasOne("CSharpNet_Web_System.Models.Models.ResourceType", "ResourceType")
                         .WithMany("Resources")
@@ -574,9 +572,7 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.HasOne("CSharpNet_Web_System.Models.Models.Tutorial", "Tutorial")
                         .WithMany("Resources")
-                        .HasForeignKey("TutorialId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TutorialId");
 
                     b.Navigation("Post");
 

@@ -323,8 +323,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
-                    TutorialId = table.Column<int>(type: "int", nullable: false),
-                    PostId = table.Column<int>(type: "int", nullable: false),
+                    TutorialId = table.Column<int>(type: "int", nullable: true),
+                    PostId = table.Column<int>(type: "int", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -335,8 +335,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                         name: "FK_Resources_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Resources_ResourceTypes_ResourceTypeId",
                         column: x => x.ResourceTypeId,
@@ -347,8 +346,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                         name: "FK_Resources_Tutorials_TutorialId",
                         column: x => x.TutorialId,
                         principalTable: "Tutorials",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
