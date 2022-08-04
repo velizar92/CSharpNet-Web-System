@@ -346,7 +346,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                         name: "FK_Resources_Tutorials_TutorialId",
                         column: x => x.TutorialId,
                         principalTable: "Tutorials",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

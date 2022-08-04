@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220804152524_InitialCreate")]
+    [Migration("20220804170541_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -572,7 +572,8 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.HasOne("CSharpNet_Web_System.Models.Models.Tutorial", "Tutorial")
                         .WithMany("Resources")
-                        .HasForeignKey("TutorialId");
+                        .HasForeignKey("TutorialId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Post");
 

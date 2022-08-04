@@ -570,7 +570,8 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.HasOne("CSharpNet_Web_System.Models.Models.Tutorial", "Tutorial")
                         .WithMany("Resources")
-                        .HasForeignKey("TutorialId");
+                        .HasForeignKey("TutorialId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Post");
 
