@@ -35,11 +35,11 @@
                 @if (User.IsInRole(AdminRole))
                 {
                     <a asp-area="Admin" asp-controller="Tutorials" asp-action="EditTutorial"
-               asp-route-courseId="@Model.Id" class="btn btn-secondary text-decoration-none text-white">
+               asp-route-id="@tutorial.Id" class="btn btn-secondary text-decoration-none text-white">
                         Редактирай урок
                     </a>
                     <a asp-area="Admin" asp-controller="Tutorials" asp-action="DeleteTutorial"
-               asp-route-courseId="@Model.Id" class="btn btn-danger text-decoration-none text-white">
+               asp-route-id="@tutorial.Id" class="btn btn-danger text-decoration-none text-white">
                         Изтрий урок
                     </a>
 
