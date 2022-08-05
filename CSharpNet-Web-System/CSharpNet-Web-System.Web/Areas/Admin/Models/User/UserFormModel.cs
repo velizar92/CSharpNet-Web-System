@@ -23,7 +23,7 @@
         [Required]
         [StringLength(100, ErrorMessage = MIN_MAX_STRING_VALIDATION, MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Паола")]
+        [Display(Name = "Парола")]
         public string Password { get; set; }
 
         [Required]
