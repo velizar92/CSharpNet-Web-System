@@ -3,22 +3,25 @@
     using System.ComponentModel.DataAnnotations;
 
     using static CSharpNet_Web_System.Models.DataConstants.Course;
+    using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
 
     public class CourseFormModel
     {
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Име")]
         public string Name { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Описание")]
         [StringLength(
             CourseDescriptionMaxLength,
             MinimumLength = CourseDescriptionMinLength,
-            ErrorMessage = "The field Description must be a string with a minimum length of {2} and maximum length of {1}.")]
+            ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         public string Description { get; set; }
 
-
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Display(Name = "Снимка аватар")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
         public IFormFile PictureFile { get; set; }
     }
 }

@@ -5,34 +5,35 @@ namespace CSharpNet_Web_System.Web.Models.Comment
 
     using static CSharpNet_Web_System.Models.DataConstants.Comment;
     using static CSharpNet_Web_System.Models.DataConstants.User;
+    using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
 
     public class CommentFormModel
     {
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
         [StringLength(
            CommentContentMaxLength,
            MinimumLength = CommentContentMinLength,
-           ErrorMessage = "The field Content must be a string with a minimum length of {2} and maximum length of {1}.")]
+           ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         public string Content { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
         [StringLength(
             FirstNameMaxLength,
             MinimumLength = FirstNameMinLength,
-            ErrorMessage = "The field FirstName must be a string with a minimum length of {2} and maximum length of {1}.")]
+            ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         public string FirstName { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
         [StringLength(
            LastNameMaxLength,
            MinimumLength = LastNameMinLength,
-           ErrorMessage = "The field LastName must be a string with a minimum length of {2} and maximum length of {1}.")]      
+           ErrorMessage = MIN_MAX_STRING_VALIDATION)]      
         public string LastName { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
         public string ProfileImageUrl { get; set; }
 
 

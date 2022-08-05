@@ -6,8 +6,8 @@
         <div class="col-md-4">
             <img src="/assets//images/csharp_basics.png" class="img-fluid rounded-start" alt="...">
         </div>
-        <div class="col-md-8">
-            <div class="card-body">
+        <div class="col-md-8" style="background-color: rebeccapurple">
+            <div class="card-body text-white">
                 <h5 class="card-title">Създай курс</h5>
                 <p class="card-text">В тази секция можеш да създадеш курс, който след това ще даде нови знания на твоите последователи.</p>
             </div>
@@ -18,21 +18,21 @@
 <form method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
-        <label asp-for="Name" class="form-label">Name</label>
-        <input asp-for="Name" class="form-control" placeholder="Some Name">
-        <span asp-validation-for="Name" class="small text-danger"></span>
+        <label asp-for="Name" class="form-label text-white">Име</label>
+        <input asp-for="Name" class="form-control text-white" placeholder="" style="background-color: rebeccapurple">
+        <span asp-validation-for="Name" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Description" class="form-label">Description</label>
-        <textarea rows="20" asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="small text-danger"></span>
+        <label asp-for="Description" class="form-label text-white">Описание</label>
+        <textarea rows="20" asp-for="Description" class="form-control text-white" style="background-color: rebeccapurple"></textarea>
+        <span asp-validation-for="Description" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="PictureFile" class="form-label">Image Url</label>
-        <input asp-for="PictureFile" type="file" name="PictureFile" class="form-control">
-        <span asp-validation-for="PictureFile" class="small text-danger"></span>
+        <label asp-for="PictureFile" class="form-label text-white">Снимка аватар</label>
+        <input asp-for="PictureFile" type="file" name="PictureFile" class="form-control text-white" style="background-color: rebeccapurple">
+        <span asp-validation-for="PictureFile" class="small text-warning"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Потвърди</button>

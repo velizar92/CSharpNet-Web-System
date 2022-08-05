@@ -1,10 +1,10 @@
-﻿using CSharpNet_Web_System.Models.Models;
-using System.ComponentModel.DataAnnotations;
-
-using static CSharpNet_Web_System.Models.DataConstants.Tutorial;
-
-namespace CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial
+﻿namespace CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial
 {
+    using CSharpNet_Web_System.Models.Models;
+    using System.ComponentModel.DataAnnotations;
+
+    using static CSharpNet_Web_System.Models.DataConstants.Tutorial;
+    using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
     public class TutorialFormModel
     {
         public int Id { get; set; }
@@ -12,27 +12,33 @@ namespace CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial
         public int CourseId { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Заглавие")]
         [StringLength(
             TutorialTitleMaxLength,
             MinimumLength = TutorialTitleMinLength,
-            ErrorMessage = "The field Title must be a string with a minimum length of {2} and maximum length of {1}.")]
+            ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         public string Title { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]
+        [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Описание")]
         [StringLength(
             TutorialDescriptionMaxLength,
             MinimumLength = TutorialDescriptionMinLength,
-            ErrorMessage = "The field Description must be a string with a minimum length of {2} and maximum length of {1}.")]
+            ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         public string Description { get; set; }
 
 
-        [Required(ErrorMessage = "Field {0} is required.")]     
+        [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Съдържание")]
         public string Content { get; set; }
 
+        [Display(Name = "Ресурси")]
         public Resource[]? Resources { get; set; }
 
+        [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Ресурси")]
         public IEnumerable<IFormFile> Files { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model TutorialFormModel
 
-<div class="card mb-3">
+<div class="card mb-3 text-white" style="background-color: rebeccapurple">
     <div class="row g-0">
         <div class="col-md-4">
             <img src="/assets//images/tutorial_creation.jpg" class="img-fluid rounded-start" alt="...">
@@ -17,27 +17,27 @@
 <form method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
-        <label asp-for="Title" class="form-label">Name</label>
-        <input asp-for="Title" class="form-control" placeholder="Some Name">
-        <span asp-validation-for="Title" class="small text-danger"></span>
+        <label asp-for="Title" class="form-label text-white">Име</label>
+        <input asp-for="Title" class="form-control text-white" placeholder="" style="background-color: rebeccapurple">
+        <span asp-validation-for="Title" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Description" class="form-label">Description</label>
-        <textarea rows= "10" asp-for="Description" class="form-control" placeholder="Some Description"></textarea> 
-        <span asp-validation-for="Description" class="small text-danger"></span>
+        <label asp-for="Description" class="form-label text-white">Описание</label>
+        <textarea rows= "10" asp-for="Description" class="form-control text-white" placeholder="" style="background-color: rebeccapurple"></textarea> 
+        <span asp-validation-for="Description" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Content" class="form-label">Content</label>
-        <textarea rows= "20" asp-for="Content" class="form-control" placeholder="Some Content"></textarea> 
-        <span asp-validation-for="Content" class="small text-danger"></span>
+        <label asp-for="Content" class="form-label text-white">Съдържание</label>
+        <textarea rows= "20" asp-for="Content" class="form-control text-white" placeholder="" style="background-color: rebeccapurple"></textarea> 
+        <span asp-validation-for="Content" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Files" class="form-label">Resource URLs</label>
-        <input asp-for="Files" type="file" name="Files" class="form-control" multiple>
-        <span asp-validation-for="Files" class="small text-danger"></span>
+        <label asp-for="Files" class="form-label text-white">Ресурси</label>
+        <input asp-for="Files" type="file" name="Files" class="form-control text-white" style="background-color: rebeccapurple" multiple>
+        <span asp-validation-for="Files" class="small text-warning"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Потвърди</button>
