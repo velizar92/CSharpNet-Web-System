@@ -24,6 +24,7 @@
                 <td>@user.LastName</td>
                 <td>@user.Email.ToString()</td>        
                 <td>
+                    <a asp-area="Admin" asp-controller="Users" asp-action="EditUser" asp-route-email="@user.Email" class="btn btn-secondary">Редактирай потребител</a>                 
                     <a asp-area="Admin" asp-controller="Users" asp-action="DeleteUser" asp-route-email="@user.Email" class="btn btn-danger">Изтрий потребител</a>                 
                 </td>
             </tr>
