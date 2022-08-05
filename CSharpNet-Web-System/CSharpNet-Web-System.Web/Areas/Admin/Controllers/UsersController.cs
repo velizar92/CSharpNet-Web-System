@@ -8,6 +8,7 @@
     using Microsoft.EntityFrameworkCore;
     using System.Security.Claims;
 
+    using static CSharpNet_Web_System.Infrastructure.Constants.IdentityConstants;
     public class UsersController : AdminController
     {
 
@@ -38,12 +39,12 @@
                                 userFormModel.Email, userFormModel.ProfileImage.FileName);
 
             await _userManager.CreateAsync(user, userFormModel.Password);
-            await _userManager.AddToRoleAsync(user, "Learner");
+            await _userManager.AddToRoleAsync(user, LearnerRole);
             await _userManager.AddClaimAsync(user, new Claim("ProfileImageUrl", user.ProfileImageUrl));
 
             await _fileStorageService.SaveFile(@"\assets\images\users", userFormModel.ProfileImage);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AllUsers));
         }
 
 

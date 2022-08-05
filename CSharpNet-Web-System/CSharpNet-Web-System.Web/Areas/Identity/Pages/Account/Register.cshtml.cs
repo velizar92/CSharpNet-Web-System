@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
 using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
-
+using static CSharpNet_Web_System.Infrastructure.Constants.IdentityConstants;
 
 namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account
 {
@@ -141,7 +141,7 @@ namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                await _userManager.AddToRoleAsync(user, "Learner");
+                await _userManager.AddToRoleAsync(user, LearnerRole);
 
                 if (result.Succeeded)
                 {
