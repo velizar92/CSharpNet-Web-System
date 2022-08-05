@@ -6,6 +6,8 @@
     using CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial;
     using CSharpNet_Web_System.Models.Models;
 
+    using static CSharpNet_Web_System.Infrastructure.Constants.HttpMimeTypeConstants;
+
     public class TutorialsController : AdminController
     {
         private readonly ITutorialService _tutorialService;
@@ -143,11 +145,11 @@
 
             foreach (var resourceFile in resourceFiles)
             {
-                if (resourceFile.ContentType == "pdf")
+                if (resourceFile.ContentType == PDF)
                 {
                     tempResourceId = 3;
                 }
-                else if (resourceFile.ContentType == "mp4")
+                else if (resourceFile.ContentType == MP4)
                 {
                     tempResourceId = 2;
                 }
