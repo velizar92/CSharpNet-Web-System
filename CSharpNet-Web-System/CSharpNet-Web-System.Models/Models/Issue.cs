@@ -1,5 +1,6 @@
 ﻿namespace CSharpNet_Web_System.Models.Models
 {
+    using CSharpNet_Web_System.Models.Enums;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,6 +23,8 @@
         public DateTime? CreationDate { get; set; }
 
         public DateTime? ResolvingDate { get; set; }
+
+        public IssueStatuses Status { get; set; }
 
 
         [ForeignKey(nameof(Tutorial))]

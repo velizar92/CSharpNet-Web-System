@@ -10,6 +10,7 @@
         public int TutorialId { get; set; }
 
         [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Заглавие")]
         [StringLength(
             IssueTitleMaxLength,
             MinimumLength = IssueTitleMinLength,
@@ -18,11 +19,13 @@
 
 
         [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Описание")]
         [StringLength(
             IssueDescriptionMaxLength,
             MinimumLength = IssueDescriptionMinLength,
             ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         
         public string Description { get; set; }
+
     }
 }

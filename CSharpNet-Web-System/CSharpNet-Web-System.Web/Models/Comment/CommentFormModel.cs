@@ -10,6 +10,7 @@ namespace CSharpNet_Web_System.Web.Models.Comment
     public class CommentFormModel
     {
         [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Съдържание")]
         [StringLength(
            CommentContentMaxLength,
            MinimumLength = CommentContentMinLength,
@@ -18,6 +19,7 @@ namespace CSharpNet_Web_System.Web.Models.Comment
 
 
         [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Име")]
         [StringLength(
             FirstNameMaxLength,
             MinimumLength = FirstNameMinLength,
@@ -26,6 +28,7 @@ namespace CSharpNet_Web_System.Web.Models.Comment
 
 
         [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Фамилия")]
         [StringLength(
            LastNameMaxLength,
            MinimumLength = LastNameMinLength,
@@ -34,6 +37,7 @@ namespace CSharpNet_Web_System.Web.Models.Comment
 
 
         [Required(ErrorMessage = FIELD_REQUIRED)]
+        [Display(Name = "Профилна снимка")]
         public string ProfileImageUrl { get; set; }
 
 

@@ -12,6 +12,14 @@
         <a asp-controller="Comments" asp-action="CreateComment" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: purple">
             Остави коментар
         </a>
+
+        <a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: purple">
+            Виж всички коментари
+        </a>
+
+        <a asp-controller="Issues" asp-action="CreateIssue" asp-route-tutorialId="@Model.Id" class="btn btn-danger btn-lg">
+            Докладвай проблем
+        </a>
     }
 </div>
 
@@ -53,10 +61,6 @@
 </div>
 
 
-<a asp-controller="Courses" asp-action="Details" asp-route-id="@Model.CourseId" class="btn text-white" style="background-color: purple">
+<a asp-controller="Courses" asp-action="Details" asp-route-courseId="@Model.CourseId" class="btn btn-lg text-white" style="background-color: purple">
     Назад
-</a>
-
-<a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-secondary">
-    Виж всички коментари
 </a>

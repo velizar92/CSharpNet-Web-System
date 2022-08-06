@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using CSharpNet_Web_System.Data;
+    using CSharpNet_Web_System.Models.Enums;
     using CSharpNet_Web_System.Models.Models;
     using CSharpNet_Web_System.Services.Issues.Models;
     using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,7 @@
                 Description = description,
                 TutorialId = tutorialId,
                 UserId = userId,
+                Status = IssueStatuses.Pending
             };
 
             tutorial.Issues.Add(issue);
@@ -87,7 +89,7 @@
                                   TutorialTitle = i.Tutorial.Title,
                                   IssueId = i.Id,
                                   Title = i.Title,
-                                  Description = i.Description,
+                                  Description = i.Description,                                
                               })
                               .ToListAsync();
 
@@ -105,7 +107,7 @@
                                      TutorialTitle = i.Tutorial.Title,
                                      IssueId = i.Id,
                                      Title = i.Title,
-                                     Description = i.Description,
+                                     Description = i.Description,                                   
                                  })
                                  .ToListAsync();
 
@@ -123,7 +125,7 @@
                                         {
                                             TutorialId = issue.TutorialId,
                                             Title = issue.Title,
-                                            Description = issue.Description,
+                                            Description = issue.Description,                                           
                                         })
                                         .FirstOrDefault();
 
@@ -142,7 +144,9 @@
                                     TutorialTitle = i.Tutorial.Title,
                                     IssueId = i.Id,
                                     Title = i.Title,
-                                    Description = i.Description,
+                                    Description = i.Description,   
+                                    CreatedOn = i.CreatedOn,
+                                    Status = i.Status
                                 })
                                 .ToListAsync();
 

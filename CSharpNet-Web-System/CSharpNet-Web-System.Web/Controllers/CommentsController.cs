@@ -38,7 +38,7 @@
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateComment(int tutorialId, CommentFormModel commentModel)
+        public async Task<IActionResult> CreateComment(CommentFormModel commentModel)
         {
             string userId = User.Id();
             var user = await _userManagerService.GetUserAsync(HttpContext.User);
@@ -56,7 +56,7 @@
                 return View(commentModel);
             }
 
-            var resultServiceModel = await _commentService.CreateComment(tutorialId, userId, commentModel.Content);
+            var resultServiceModel = await _commentService.CreateComment(commentModel.TutorialId, userId, commentModel.Content);
 
             if (resultServiceModel.Result == false)
             {

@@ -1,1 +1,33 @@
-﻿
+﻿@model IssueFormModel
+
+
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold text-white">Докладвай проблем</h1>
+    <p class="col-md-8 fs-4 text-white">
+        Тук може да докладвате проблем свързан с курса като цяло или със урока.
+        Вашата обратна връзка е важна за мен. Всички проблеми ще бъдат разгледани и оправени
+        във възможно най-кратък срок.
+    </p>
+</div>
+
+
+<form method="post"
+      asp-controller="Issues" asp-action="CreateIssue">
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label text-white">Заглавие</label>
+        <input asp-for="Title" class="form-control">
+        <span asp-validation-for="Title" class="small text-warning"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label text-white">Описание на проблема</label>
+        <textarea rows="20" asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="small text-warning"></span>
+    </div>
+
+    <button asp-controller="Issues" asp-action="CreateIssue" asp-route-tutorialId="@Model.TutorialId"
+            class="btn btn-sm shadow-none text-white" style="background-color: purple" type="submit">
+        Потвърди
+    </button>
+</form>

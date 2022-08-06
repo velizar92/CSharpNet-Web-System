@@ -1,1 +1,47 @@
-﻿
+﻿@model IEnumerable<IssueViewModel>
+
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold text-white">
+        Тук може да намерите докладваните от вас проблеми и статусът им
+        към момента.
+    </h1>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">               
+                <div class="comment-widgets m-b-20">
+                    @foreach (var issueModel in Model)
+                    {
+                        <div class="d-flex flex-row comment-row">
+                            <div class="p-2">
+                                <span class="round">
+                                    <img src="~/assets/images/users/@issueModel.UserProfileImageUrl" alt="user" width="50">
+                                </span>
+                            </div>
+                            <div class="comment-text w-100">
+                                <h5>@issueModel.Title</h5>
+                                <div class="comment-footer">
+                                    <span class="date">@issueModel.CreatedOn</span>
+                                </div>
+                                <p class="m-b-5 m-t-10">@issueModel.Description</p>
+                                @if (issueModel.Status.ToString() == "Pending")
+                                {
+                                    <p class="m-b-5 m-t-10">Статус: Изчакващ</p>
+                                }
+                                else
+                                {
+                                    <p class="m-b-5 m-t-10">Статус: Оправен</p>
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

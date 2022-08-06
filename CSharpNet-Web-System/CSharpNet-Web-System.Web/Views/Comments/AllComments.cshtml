@@ -8,26 +8,36 @@
 </div>
 
 
-<div class="container mt-5 mb-5">
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-7">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
             <div class="card">
-                <div class="mt-2">
+                <div class="card-body">
+                    <h4 class="card-title">Коментари за този урок</h4>
+                </div>
+
+                <div class="comment-widgets m-b-20">
                     @foreach (var commentModel in Model)
                     {
-                        <div class="d-flex flex-row p-6">
-                            <img src="~/assets/images/users/@commentModel.ProfileImageUrl" width="40" height="40" class="rounded-circle mr-3">
-                            <div class="w-100">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex flex-row align-items-center"> <span class="mr-2">@commentModel.FirstName @commentModel.LastName</span> </div> <small>@commentModel.CreatedOn</small>
+                        <div class="d-flex flex-row comment-row">
+                            <div class="p-2">
+                                <span class="round">
+                                    <img src="~/assets/images/users/@commentModel.ProfileImageUrl" alt="user" width="50">
+                                </span>
+                            </div>
+                            <div class="comment-text w-100">
+                                <h5>@commentModel.FirstName @commentModel.LastName</h5>
+                                <div class="comment-footer">
+                                    <span class="date">@commentModel.CreatedOn</span>
                                 </div>
-                                <p class="text-justify comment-text mb-0">@commentModel.Content</p>
-                                <div class="d-flex flex-row user-feed"></div>
+                                <p class="m-b-5 m-t-10">@commentModel.Content</p>
                             </div>
                         </div>
                     }
                 </div>
             </div>
+
         </div>
     </div>
 </div>
