@@ -112,6 +112,9 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Property<DateTime?>("ResolvingDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)

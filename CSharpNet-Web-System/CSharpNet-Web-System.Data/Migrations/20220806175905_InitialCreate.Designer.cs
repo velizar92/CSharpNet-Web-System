@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220806153018_InitialCreate")]
+    [Migration("20220806175905_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,6 +113,9 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.Property<DateTime?>("ResolvingDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
