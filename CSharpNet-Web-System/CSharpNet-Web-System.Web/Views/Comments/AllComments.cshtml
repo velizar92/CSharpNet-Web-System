@@ -1,14 +1,22 @@
 ﻿@model IEnumerable<CommentViewModel>
 
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold text-white">Благодаря ви за обратната връзка! Вашето мнение е важно за мен.</h1>
+    <p class="col-md-8 fs-4 text-white">
+        Вижте всички коментари към този урок.
+    </p>
+</div>
+
+
 <div class="container mt-5 mb-5">
     <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-7">
-            <div class="card">              
+            <div class="card">
                 <div class="mt-2">
                     @foreach (var commentModel in Model)
                     {
-                        <div class="d-flex flex-row p-3">
-                            <img src="~/assets/img/users/@commentModel.ProfileImageUrl" width="40" height="40" class="rounded-circle mr-3">
+                        <div class="d-flex flex-row p-6">
+                            <img src="~/assets/images/users/@commentModel.ProfileImageUrl" width="40" height="40" class="rounded-circle mr-3">
                             <div class="w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-row align-items-center"> <span class="mr-2">@commentModel.FirstName @commentModel.LastName</span> </div> <small>@commentModel.CreatedOn</small>
