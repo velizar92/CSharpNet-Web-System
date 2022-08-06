@@ -13,12 +13,13 @@
 </head>
 <body style="background-color: darkslateblue">
     <header>
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3" style="background-color: purple">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                     <img src="/assets//images//logos/index.png" alt="" width="30" height="24" class="d-inline-block align-text-top">    
+                    <img src="/assets//images//logos/index.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                     C# Learning System
-                    </a>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -55,7 +56,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="Admin" asp-controller="Users" asp-action="AllUsers">Всички потребители</a>
                                 </li>
-                                 <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="Admin" asp-controller="Issues" asp-action="MyIssues">Всички проблеми</a>
                                 </li>
                             }
@@ -64,14 +65,20 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Courses" asp-action="AllCourses">Курсове</a>
-                                </li>       
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Contact">Контакти</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" asp-controller="Courses" asp-action="AllCourses">Курсове</a>
+                                    <ul class="dropdown-menu" style="background-color: purple">
+                                        <li><a class="dropdown-item text-white" asp-controller="Courses" asp-action="Details" asp-route-courseId="1">C# Basics</a></li>
+                                        <li><a class="dropdown-item text-white" asp-controller="Courses" asp-action="Details" asp-route-courseId="2">C# Fundamentals</a></li>
+                                        <li><a class="dropdown-item text-white" asp-controller="Courses" asp-action="Details" asp-route-courseId="3">C# Advanced</a></li>
+                                        <li><a class="dropdown-item text-white" asp-controller="Courses" asp-action="Details" asp-route-courseId="4">C# OOP</a></li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">За мен</a>
+                                    <a class="nav-link text-white" asp-controller="Home" asp-action="Contact">Контакти</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Home" asp-action="About">За мен</a>
                                 </li>
                             }
                         }

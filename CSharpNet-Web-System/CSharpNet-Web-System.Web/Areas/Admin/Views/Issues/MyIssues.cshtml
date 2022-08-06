@@ -22,7 +22,7 @@
                 <td>@issue.Title</td>                             
                 <td>@issue.Description</td>                             
                 <td>                  
-                    <a asp-area="Admin" asp-controller="Issues" asp-action="FixIssue" asp-route-issueId="@issue.Id" class="btn btn-success">Поправи</a>
+                    <a asp-area="Admin" asp-controller="Issues" asp-action="FixIssue" asp-route-issueId="@issue.Id" class="btn btn-success">Поправи</a>                  
                 </td>
                 @if(issue.Status.ToString() == "Pending")
                 {

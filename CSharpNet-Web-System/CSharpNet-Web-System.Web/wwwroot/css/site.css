@@ -25,6 +25,17 @@ body {
     font-family: 'Calibri', sans-serif !important;
 }
 
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: rebeccapurple;
+    color: #1976d2
+}
+
+
+
+
+
+
 .card-no-border .card {
     border: 0px;
     border-radius: 4px;
