@@ -24,10 +24,7 @@
         [Required]
         [MaxLength(TutorialDescriptionMaxLength)]
         public string Description { get; set; }
-
-        [Required]      
-        public string Content { get; set; }
-
+     
 
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }

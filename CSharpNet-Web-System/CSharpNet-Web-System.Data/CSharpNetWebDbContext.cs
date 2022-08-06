@@ -15,9 +15,7 @@
         public DbSet<Tutorial> Tutorials { get; set; }     
         public DbSet<Resource> Resources { get; set; }
         public DbSet<ResourceType> ResourceTypes { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<PostCategory> PostCategories { get; set; }
+        public DbSet<Comment> Comments { get; set; }    
         public DbSet<Issue> Issues { get; set; }
 
 

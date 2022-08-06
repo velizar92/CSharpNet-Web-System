@@ -1,1 +1,25 @@
-﻿
+﻿@model IEnumerable<CommentViewModel>
+
+<div class="container mt-5 mb-5">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-7">
+            <div class="card">              
+                <div class="mt-2">
+                    @foreach (var commentModel in Model)
+                    {
+                        <div class="d-flex flex-row p-3">
+                            <img src="~/assets/img/users/@commentModel.ProfileImageUrl" width="40" height="40" class="rounded-circle mr-3">
+                            <div class="w-100">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row align-items-center"> <span class="mr-2">@commentModel.FirstName @commentModel.LastName</span> </div> <small>@commentModel.CreatedOn</small>
+                                </div>
+                                <p class="text-justify comment-text mb-0">@commentModel.Content</p>
+                                <div class="d-flex flex-row user-feed"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

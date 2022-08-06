@@ -17,7 +17,7 @@
             public const int CourseNameMinLength = 5;
             public const int CourseNameMaxLength = 150;
             public const int CourseDescriptionMinLength = 20;
-            public const int CourseDescriptionMaxLength = 1000;
+            public const int CourseDescriptionMaxLength = 2000;
         }
 
         public class Tutorial
@@ -56,18 +56,6 @@
 
             public const int IssueDescriptionMinLength = 20;
             public const int IssueDescriptionMaxLength = 1000;
-        }
-
-        public class Post
-        {
-            public const int PostTitleMinLength = 2;
-            public const int PostTitleMaxLength = 300;          
-        }
-
-        public class PostCategory
-        {
-            public const int PostCategoryNameMinLength = 2;
-            public const int PostCategoryNameMaxLength = 300;
         }
     }
 }

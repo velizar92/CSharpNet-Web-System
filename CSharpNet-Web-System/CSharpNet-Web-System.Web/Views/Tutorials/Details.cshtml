@@ -6,7 +6,13 @@
 <div class="container-fluid py-5">
     <h1 class="display-5 fw-bold text-white">@Model.Title</h1>
     <p class="col-md-8 fs-4 text-white">@Model.Description</p>
-    <button class="btn btn-primary btn-lg" type="button">Остави коментар</button>
+
+    @if (User.IsInRole(LearnerRole))
+    {
+        <a asp-controller="Comments" asp-action="CreateComment" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: purple">
+            Остави коментар
+        </a>
+    }
 </div>
 
 
@@ -47,11 +53,10 @@
 </div>
 
 
-<a asp-controller="Courses" asp-action="Details" asp-route-id="@Model.CourseId" class="btn btn-warning">Назад към Лекции</a>
+<a asp-controller="Courses" asp-action="Details" asp-route-id="@Model.CourseId" class="btn text-white" style="background-color: purple">
+    Назад
+</a>
 
-@if (User.IsInRole(LearnerRole))
-{
-    <a asp-controller="Comments" asp-action="CreateComment" asp-route-lectureId="@Model.Id" class="btn btn-primary">Остави коментар</a>
-}
-
-<a asp-controller="Comments" asp-action="AllComments" asp-route-lectureId="@Model.Id" class="btn btn-secondary">Виж всички коментари</a>
+<a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-secondary">
+    Виж всички коментари
+</a>

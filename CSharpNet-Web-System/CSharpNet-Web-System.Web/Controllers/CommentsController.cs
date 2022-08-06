@@ -21,15 +21,24 @@
 
         [HttpGet]
         [Authorize]
-        public IActionResult CreateComment()
-        {         
-            return View();
+        public async Task<IActionResult> CreateComment(int tutorialId)
+        {
+            var user = await _userManagerService.GetUserAsync(HttpContext.User);
+
+            return View(new CommentFormModel
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                ProfileImageUrl = user.ProfileImageUrl,
+                TutorialId = tutorialId
+            });
+           
         }
 
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateComment(int id, CommentFormModel commentModel)
+        public async Task<IActionResult> CreateComment(int tutorialId, CommentFormModel commentModel)
         {
             string userId = User.Id();
             var user = await _userManagerService.GetUserAsync(HttpContext.User);
@@ -47,7 +56,7 @@
                 return View(commentModel);
             }
 
-            var resultServiceModel = await _commentService.CreateComment(commentModel.TutorialId, userId, commentModel.Content);
+            var resultServiceModel = await _commentService.CreateComment(tutorialId, userId, commentModel.Content);
 
             if (resultServiceModel.Result == false)
             {

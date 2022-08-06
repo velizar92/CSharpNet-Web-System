@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20220804193221_InitialCreate")]
+    [Migration("20220806153018_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,9 +40,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TutorialId")
                         .HasColumnType("int");
 
@@ -54,8 +51,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PostId");
 
                     b.HasIndex("TutorialId");
 
@@ -77,8 +72,8 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -143,57 +138,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.ToTable("Issues");
                 });
 
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Post", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PostCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<DateTime?>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostCategoryId");
-
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.PostCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PostCategories");
-                });
-
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Resource", b =>
                 {
                     b.Property<int>("Id")
@@ -210,9 +154,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int?>("PostId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ResourceTypeId")
                         .HasColumnType("int");
 
@@ -223,8 +164,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PostId");
 
                     b.HasIndex("ResourceTypeId");
 
@@ -258,10 +197,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
@@ -507,12 +442,6 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Comment", b =>
                 {
-                    b.HasOne("CSharpNet_Web_System.Models.Models.Post", "Post")
-                        .WithMany("Comments")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CSharpNet_Web_System.Models.Models.Tutorial", "Tutorial")
                         .WithMany("Comments")
                         .HasForeignKey("TutorialId")
@@ -524,8 +453,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Post");
 
                     b.Navigation("Tutorial");
                 });
@@ -547,23 +474,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Navigation("Tutorial");
                 });
 
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Post", b =>
-                {
-                    b.HasOne("CSharpNet_Web_System.Models.Models.PostCategory", "PostCategory")
-                        .WithMany("Posts")
-                        .HasForeignKey("PostCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PostCategory");
-                });
-
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Resource", b =>
                 {
-                    b.HasOne("CSharpNet_Web_System.Models.Models.Post", "Post")
-                        .WithMany("Resources")
-                        .HasForeignKey("PostId");
-
                     b.HasOne("CSharpNet_Web_System.Models.Models.ResourceType", "ResourceType")
                         .WithMany("Resources")
                         .HasForeignKey("ResourceTypeId")
@@ -574,8 +486,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .WithMany("Resources")
                         .HasForeignKey("TutorialId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Post");
 
                     b.Navigation("ResourceType");
 
@@ -647,18 +557,6 @@ namespace CSharpNet_Web_System.Data.Migrations
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Course", b =>
                 {
                     b.Navigation("Tutorials");
-                });
-
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Post", b =>
-                {
-                    b.Navigation("Comments");
-
-                    b.Navigation("Resources");
-                });
-
-            modelBuilder.Entity("CSharpNet_Web_System.Models.Models.PostCategory", b =>
-                {
-                    b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.ResourceType", b =>

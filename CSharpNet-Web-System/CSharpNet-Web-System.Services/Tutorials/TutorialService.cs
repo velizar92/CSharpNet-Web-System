@@ -18,13 +18,12 @@
         }
 
         public async Task<ResultServiceModel> AddTutorialToCourse(int courseId, string title, string description,
-            string content, List<Resource> resources)
+            List<Resource> resources)
         {
             var tutorial = new Tutorial
             {
                 Title = title,
-                Description = description,
-                Content = content,
+                Description = description,              
                 Resources = resources 
             };
 
@@ -65,7 +64,7 @@
         }
 
 
-        public async Task<ResultServiceModel> EditTutorial(int tutorialId, string title, string description, string content, List<Resource> resources)
+        public async Task<ResultServiceModel> EditTutorial(int tutorialId, string title, string description, List<Resource> resources)
         {
             var tutorial = await _dbContext.Tutorials.FindAsync(tutorialId);
             if (tutorial == null)
@@ -74,8 +73,7 @@
             }
 
             tutorial.Title = title;
-            tutorial.Description = description;
-            tutorial.Content = content;
+            tutorial.Description = description;           
 
             foreach (var resourceItem in resources)
             {
@@ -96,8 +94,7 @@
                                    Id = t.Id,
                                    CourseId = t.CourseId,
                                    Title = t.Title,
-                                   Description = t.Description,
-                                   Content = t.Content,
+                                   Description = t.Description,                                  
                                    Resources = t.Resources.ToArray(),
                                })
                                .FirstOrDefaultAsync();
@@ -115,8 +112,7 @@
                          Id = t.Id,
                          CourseId = t.CourseId,
                          Title = t.Title,
-                         Description = t.Description,
-                         Content = t.Content,
+                         Description = t.Description,                     
                          ResourceUrls = t.Resources.Select(x => x.Name).ToArray()
                      })
                      .FirstOrDefaultAsync();

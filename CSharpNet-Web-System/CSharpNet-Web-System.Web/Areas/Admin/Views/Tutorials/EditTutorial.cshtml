@@ -17,28 +17,22 @@
 <form method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
-        <label asp-for="Title" class="form-label">Name</label>
-        <input asp-for="Title" class="form-control text-white" placeholder="Some Name" style="background-color: rebeccapurple">
+        <label asp-for="Title" class="form-label text-white">Име</label>
+        <input asp-for="Title" class="form-control text-white" placeholder="" style="background-color: rebeccapurple">
         <span asp-validation-for="Title" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Description" class="form-label">Description</label>
+        <label asp-for="Description" class="form-label text-white">Описание</label>
         <textarea rows= "10" asp-for="Description" class="form-control text-white" placeholder="Some Description" style="background-color: rebeccapurple"></textarea> 
         <span asp-validation-for="Description" class="small text-warning"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Content" class="form-label">Content</label>
-        <textarea rows= "20" asp-for="Content" class="form-control text-white" placeholder="Some Content" style="background-color: rebeccapurple"></textarea> 
-        <span asp-validation-for="Content" class="small text-warning"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Files" class="form-label">Resource URLs</label>
+        <label asp-for="Files" class="form-label text-white">Ресурси</label>
         <input asp-for="Files" type="file" name="Files" class="form-control text-white" style="background-color: rebeccapurple" multiple>
         <span asp-validation-for="Files" class="small text-warning"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Потвърди</button>
+    <button type="submit" class="btn text-white" style="background-color: purple">Потвърди</button>
 </form>

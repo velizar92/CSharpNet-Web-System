@@ -30,10 +30,6 @@
         public string Description { get; set; }
 
 
-        [Required(ErrorMessage = FIELD_REQUIRED)]
-        [Display(Name = "Съдържание")]
-        public string Content { get; set; }
-
         [Display(Name = "Ресурси")]
         public Resource[]? Resources { get; set; }
 
