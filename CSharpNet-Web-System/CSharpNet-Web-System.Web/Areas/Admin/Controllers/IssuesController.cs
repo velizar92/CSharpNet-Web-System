@@ -1,6 +1,7 @@
 ﻿namespace CSharpNet_Web_System.Web.Areas.Admin.Controllers
 {
     using CSharpNet_Web_System.Services.Issues;
+    using CSharpNet_Web_System.Web.Areas.Admin.Models;
     using Microsoft.AspNetCore.Mvc;
 
     public class IssuesController : AdminController
@@ -14,25 +15,40 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> FixIssue(int issueId, int tutorialId)
+        public async Task<IActionResult> FixIssue(int issueId)
         {
-            var resultServiceModel = await _issueService.DeleteIssue(issueId);
+            var resultServiceModel = await _issueService.FixIssue(issueId);
 
             if (resultServiceModel.Result == false)
             {
                 return BadRequest(resultServiceModel.Message);
             }
 
-            return RedirectToAction(nameof(MyIssues), new { tutorialId });
+            return RedirectToAction(nameof(MyIssues));
         }
 
 
         [HttpGet]
         public async Task<IActionResult> MyIssues()
         {
-            var allReportedIssues = await _issueService.GetAllReportedIssues();
+            var allReportedIssuesServiceModel = await _issueService.GetAllReportedIssues();
+            List<IssueAdminViewModel> allIssuesAdminViewModel = new List<IssueAdminViewModel>();
 
-            return View(allReportedIssues);
+            foreach (var issueServiceModel in allReportedIssuesServiceModel)
+            {
+                allIssuesAdminViewModel.Add(
+                    new IssueAdminViewModel
+                    {
+                        Id = issueServiceModel.IssueId,
+                        Title = issueServiceModel.Title,
+                        Description = issueServiceModel.Description,
+                        CreatedOn = issueServiceModel.CreatedOn,
+                        Status = issueServiceModel.Status
+                    }
+                );
+            }
+
+            return View(allIssuesAdminViewModel);
         }
 
     }

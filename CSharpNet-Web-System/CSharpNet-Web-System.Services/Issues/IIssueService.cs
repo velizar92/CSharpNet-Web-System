@@ -11,6 +11,7 @@
 
         Task<ResultServiceModel> DeleteIssue(int issueId);
 
+        Task<ResultServiceModel> FixIssue(int issueId);
         Task<IssueDetailsServiceModel> GetIssueDetails(int issueId);
 
         Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssues();

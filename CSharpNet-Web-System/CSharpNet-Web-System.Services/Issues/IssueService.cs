@@ -62,6 +62,22 @@
         }
 
 
+        public async Task<ResultServiceModel> FixIssue(int issueId)
+        {
+            var issue = await _dbContext.Issues.FirstOrDefaultAsync(i => i.Id == issueId);
+
+            if (issue == null)
+            {
+                return new ResultServiceModel(false, "Invalid issue id.");
+            }
+
+            issue.Status = IssueStatuses.Fixed;
+            await _dbContext.SaveChangesAsync();
+
+            return new ResultServiceModel(true, "OK");
+        }
+
+
         public async Task<ResultServiceModel> EditIssue(int issueId, string title, string description)
         {
             var issue = await _dbContext.Issues.FirstOrDefaultAsync(i => i.Id == issueId);
@@ -83,13 +99,15 @@
         public async Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssues()
         {
             var allReportedIssues = await _dbContext.Issues
+                              .OrderByDescending(i => i.CreatedOn)
                               .Select(i => new IssueDetailsServiceModel
                               {
                                   TutorialId = i.TutorialId,
                                   TutorialTitle = i.Tutorial.Title,
                                   IssueId = i.Id,
                                   Title = i.Title,
-                                  Description = i.Description,                                
+                                  Description = i.Description,      
+                                  Status = i.Status
                               })
                               .ToListAsync();
 
@@ -138,6 +156,7 @@
             var myReportedIssues = await _dbContext
                                 .Issues
                                 .Where(i => i.UserId == userId)
+                                .OrderByDescending(i => i.CreatedOn)
                                 .Select(i => new IssueDetailsServiceModel
                                 {
                                     TutorialId = i.TutorialId,
