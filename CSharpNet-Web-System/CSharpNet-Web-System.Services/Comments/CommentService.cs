@@ -82,6 +82,7 @@
         {
             var tutorialComments = await _dbContext.Comments
                                  .Where(c => c.TutorialId == tutorialId)
+                                 .OrderByDescending(i => i.CreatedOn)
                                  .Select(c => new CommentDetailsServiceModel
                                  {
                                      Id = c.Id,
