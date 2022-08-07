@@ -3,11 +3,13 @@ using CSharpNet_Web_System.Infrastructure.Seed;
 using CSharpNet_Web_System.Models.Models;
 using CSharpNet_Web_System.Services.Comments;
 using CSharpNet_Web_System.Services.Courses;
+using CSharpNet_Web_System.Services.Email;
 using CSharpNet_Web_System.Services.Issues;
 using CSharpNet_Web_System.Services.Resources;
 using CSharpNet_Web_System.Services.Storage;
 using CSharpNet_Web_System.Services.Tutorials;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,6 +40,8 @@ builder.Services.AddTransient<ICommentService, CommentService>();
 builder.Services.AddTransient<IIssueService, IssueService>();
 builder.Services.AddTransient<IStorageService, FileStorageService>();
 builder.Services.AddTransient<IDbInitializer, DbInitializer>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 builder.Services.AddControllersWithViews();
 

@@ -12,6 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.7" />
+    <PackageReference Include="SendGrid" Version="9.28.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CSharpNet-Web-System.Data\CSharpNet-Web-System.Data.csproj" />
   </ItemGroup>
 
