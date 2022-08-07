@@ -46,6 +46,7 @@ namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
+            [Display(Name = "Имейл")]
             [EmailAddress]
             public string Email { get; set; }
         }
