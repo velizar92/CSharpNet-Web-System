@@ -32,7 +32,7 @@
         {
             var client = new SendGridClient(apiKey);
 
-            var from = new EmailAddress("velizar9209@gmail.com", "Password Recovery");
+            var from = new EmailAddress("velizar9209@gmail.com", subject);
             var to = new EmailAddress(toEmail);          
 
             var msg = MailHelper.CreateSingleEmail(
