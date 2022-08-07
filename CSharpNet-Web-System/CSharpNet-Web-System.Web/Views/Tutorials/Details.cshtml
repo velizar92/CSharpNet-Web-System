@@ -9,11 +9,11 @@
 
     @if (User.IsInRole(LearnerRole))
     {
-        <a asp-controller="Comments" asp-action="CreateComment" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: purple">
+        <a asp-controller="Comments" asp-action="CreateComment" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #672079">
             Остави коментар
         </a>
 
-        <a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: purple">
+        <a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #672079">
             Виж всички коментари
         </a>
 
@@ -35,7 +35,7 @@
     {
         <div class="col">
             <div class="card">
-                <div class="card-body" style="background-color: rebeccapurple">
+                <div class="card-body" style="background-color: #223463">
                     @if (resourceUrl.EndsWith(".pptx"))
                     {
                         <img src="~/pptxIcon.png" class="card-img-top" width="100" height="300" />
@@ -52,7 +52,7 @@
                             <source src="~/assets/resources/@resourceUrl" type="video/mp4" width="100" height="300">
                         </video>
                     }
-                    <h5 class="card-title text-white" style="background-color: rebeccapurple">@Model.Title</h5>
+                    <h5 class="card-title text-white" style="background-color: #223463">@Model.Title</h5>
                     <p><a href="~/assets/resources/@resourceUrl" frameborder='0' class="text-decoration-none text-white">@resourceUrl</a></p>
                 </div>
             </div>

@@ -27,13 +27,9 @@ body {
 
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: rebeccapurple;
+    background-color: #223463;
     color: #1976d2
 }
-
-
-
-
 
 
 .card-no-border .card {
