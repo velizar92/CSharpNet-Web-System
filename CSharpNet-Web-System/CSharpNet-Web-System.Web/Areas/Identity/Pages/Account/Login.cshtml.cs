@@ -127,7 +127,7 @@ namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Невалиден опит за влизане.");
                     return Page();
                 }
             }
