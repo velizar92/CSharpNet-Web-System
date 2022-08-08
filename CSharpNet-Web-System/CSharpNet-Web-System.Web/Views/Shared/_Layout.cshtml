@@ -48,14 +48,14 @@
                                     <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Курсове</a>
                                     <ul class="dropdown-menu" style="background-color: #672079">
                                         <li><a class="dropdown-item text-white" asp-area="Admin" asp-controller="Courses" asp-action="CreateCourse">Създай курс</a></li>
-                                        <li><a class="dropdown-item text-white" asp-area="Admin" asp-controller="Courses" asp-action="AllCourses">Всички курсове</a></li>                                    
+                                        <li><a class="dropdown-item text-white" asp-area="Admin" asp-controller="Courses" asp-action="AllCourses">Всички курсове</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">                                 
+                                <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Потребители</a>
                                     <ul class="dropdown-menu" style="background-color: #672079">
                                         <li><a class="dropdown-item text-white" asp-area="Admin" asp-controller="Users" asp-action="CreateUser">Създай потребител</a></li>
-                                        <li><a class="dropdown-item text-white" asp-area="Admin" asp-controller="Users" asp-action="AllUsers">Всички потребители</a></li>                                    
+                                        <li><a class="dropdown-item text-white" asp-area="Admin" asp-controller="Users" asp-action="AllUsers">Всички потребители</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -96,11 +96,14 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted text-white">
+    <footer class="text-center text-white fixed-bottom">     
         <div class="container">
-            &copy; 2022 - C# Learning System
-        </div>
+            <div class="text-center p-3" style="background-color: #672079">
+                &copy; 2022 - C# Learning System
+            </div>
+        </div>    
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
