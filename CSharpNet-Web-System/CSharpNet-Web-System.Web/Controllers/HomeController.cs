@@ -16,7 +16,7 @@
         }
 
         public async Task<IActionResult> Index()
-        {
+        {       
             var allCourses = await _courseService.GetAllCourses();
 
             return View(allCourses);
@@ -46,7 +46,10 @@
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { 
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                HttpStatusCode = HttpContext.Response.StatusCode
+            });
         }
     }
 }

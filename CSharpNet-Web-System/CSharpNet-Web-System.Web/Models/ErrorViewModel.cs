@@ -5,5 +5,7 @@ namespace CSharpNet_Web_System.Web.Models
         public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+        public int HttpStatusCode { get; set; }
     }
 }
