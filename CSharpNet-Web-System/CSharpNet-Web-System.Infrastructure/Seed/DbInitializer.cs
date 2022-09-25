@@ -42,7 +42,7 @@
                     NormalizedUserName = "ADMIN@EXAMPLE.COM",
                     Email = "admin@example.com",
                     ProfileImageUrl = "admin_avatar.jpg",
-                    
+                    EmailConfirmed = true
                 };
 
                 IdentityResult result = await userManager.CreateAsync(adminUser, "test123");
