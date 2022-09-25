@@ -31,7 +31,7 @@
         {
             var userManager = services.GetRequiredService<UserManager<User>>();
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
-
+           
             if (userManager.Users.Any() == false)
             {
                 User adminUser = new User
@@ -41,7 +41,8 @@
                     UserName = "admin@example.com",
                     NormalizedUserName = "ADMIN@EXAMPLE.COM",
                     Email = "admin@example.com",
-                    ProfileImageUrl = "admin_avatar.jpg"
+                    ProfileImageUrl = "admin_avatar.jpg",
+                    
                 };
 
                 IdentityResult result = await userManager.CreateAsync(adminUser, "test123");
@@ -49,7 +50,7 @@
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();
+                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();                   
                 }
 
                 await dbContext.SaveChangesAsync();

@@ -1,22 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 
@@ -24,7 +24,6 @@ body {
     background-color: #D32F2F;
     font-family: 'Calibri', sans-serif !important;
 }
-
 
 .dropdown-menu .dropdown-item:hover {
     background-color: #223463;
