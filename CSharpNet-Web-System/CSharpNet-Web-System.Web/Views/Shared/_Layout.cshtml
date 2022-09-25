@@ -92,16 +92,23 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+
+            <div class="loader">
+                <div class="inner one"></div>
+                <div class="inner two"></div>
+                <div class="inner three"></div>
+            </div>
+
             @RenderBody()
         </main>
     </div>
 
-    <footer class="text-center text-white fixed-bottom">     
+    <footer class="text-center text-white fixed-bottom">
         <div class="container">
             <div class="text-center p-3" style="background-color: #672079">
                 &copy; 2022 - C# Learning System
             </div>
-        </div>    
+        </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
