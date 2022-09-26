@@ -8,9 +8,11 @@
 
 <div class="container-fluid py-5">
     <h1 class="display-5 fw-bold text-white">
-        Добре дошли в света на C# и .NET
+        Добре дошли в света на <br/> C# и .NET
 
-         <img src="/assets/images/mouse.png" alt="C# mouse"  width="500" height="250" style="float: right"/>
+         <video width="550" height="300" style="float: right" controls>
+            <source src="~/assets/resources/videoplayback.mp4" type="video/mp4">
+        </video>
     </h1>
 
     <p class="col-md-8 fs-4 text-white">
@@ -21,15 +23,13 @@
         Не се колебайте, започнете сега!
     </p>
 
-   
-
-    <button type="button" class="btn btn-lg btn-success text-white">
+    <button type="button" class="btn btn-lg text-white" style="background-color: #AF1C70;">
         <a class="text-white text-decoration-none" asp-controller="Home" asp-action="Details">
-            Виж повече
+            Какво ще науча тук
         </a>
     </button>
 
-    
+
 
 </div>
 
@@ -42,7 +42,7 @@
                 <div class="card-body" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
                     <h5 class="card-title text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">@course.Name</h5>
                     <p class="card-text text-white">@course.Description</p>
-                    <button type="button" class="btn btn-lg btn-success text-white">
+                    <button type="button" class="btn btn-lg text-white" style="background-color: #AF1C70">
                         <a class="text-white text-decoration-none" asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">
                             Към курса
                         </a>

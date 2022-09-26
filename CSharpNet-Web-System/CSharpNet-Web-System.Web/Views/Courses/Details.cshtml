@@ -7,14 +7,14 @@
             <div class="col-md-4">
                 <img src="/assets//images/courses/@Model.ImageUrl" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="col-md-8" style="background-color: #223463">
+            <div class="col-md-8" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
                 <div class="card-body text-white">
                     <h5 class="card-title">@Model.Name</h5>
                     <p class="card-text">@Model.Description</p>
                     @if (User.IsInRole(AdminRole))
                     {
                         <a asp-area="Admin" asp-controller="Tutorials" asp-action="CreateTutorial"
-                       asp-route-courseId="@Model.Id" class="btn btn-lg text-decoration-none text-white" style="background-color: #672079">
+                       asp-route-courseId="@Model.Id" class="btn btn-lg btn-success text-decoration-none text-white">
                             Добави урок
                         </a>
                     }
@@ -27,7 +27,9 @@
     <ol class="list-group list-group-numbered col-md-12">
         @foreach (var tutorial in Model.Tutorials)
         {
-            <li class="list-group-item d-flex justify-content-between align-items-start text-white" style=" border: 1px solid white; background-color: #223463" >
+            <li class="list-group-item d-flex justify-content-between align-items-start text-white" style=" border: 1px solid white;
+                background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
+
                 <div class="ms-2 me-auto text-white">
                     <div class="fw-bold">@tutorial.Title</div>
                     @tutorial.Description
@@ -35,7 +37,7 @@
                 @if (User.IsInRole(AdminRole))
                 {
                     <a asp-area="Admin" asp-controller="Tutorials" asp-action="EditTutorial"
-               asp-route-id="@tutorial.Id" class="btn btn-lg btn-secondary text-decoration-none text-white">
+               asp-route-id="@tutorial.Id" class="btn btn-lg btn-warning text-decoration-none text-white">
                         Редактирай урок
                     </a>
                     <a asp-area="Admin" asp-controller="Tutorials" asp-action="DeleteTutorial"
@@ -46,7 +48,7 @@
                 }
 
                 <a asp-controller="Tutorials" asp-action="Details"
-               asp-route-tutorialId="@tutorial.Id" class="btn btn-lg text-decoration-none text-white" style="background-color: #672079">
+               asp-route-tutorialId="@tutorial.Id" class="btn btn-lg btn-success text-decoration-none text-white">
                     Детайли
                 </a>
 

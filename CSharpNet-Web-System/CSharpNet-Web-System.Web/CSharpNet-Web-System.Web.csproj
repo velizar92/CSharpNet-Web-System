@@ -24,8 +24,4 @@
     <ProjectReference Include="..\CSharpNet-Web-System.Services\CSharpNet-Web-System.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\assets\resources\" />
-  </ItemGroup>
-
 </Project>
