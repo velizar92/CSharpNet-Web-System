@@ -21,6 +21,9 @@ body {
     background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%);
 }
 
+.regLogSpaceUp {
+    margin-top: 7px;
+}
 
 .dropdown-menu .dropdown-item:hover {
     background-color: #AF1C70;
@@ -111,7 +114,7 @@ html {
     height: 100%;
 }
 
-.nav-item{
+.nav-item {
     font-size: 18px;
 }
 
