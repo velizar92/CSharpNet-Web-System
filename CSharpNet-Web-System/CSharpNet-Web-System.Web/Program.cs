@@ -33,6 +33,15 @@ builder.Services.AddDefaultIdentity<User>(options =>
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CSharpNetWebDbContext>();
 
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    // This lambda determines whether user consent for non-essential 
+    // cookies is needed for a given request.
+    options.CheckConsentNeeded = context => true;
+
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+});
+
 builder.Services.AddTransient<ICourseService, CourseService>();
 builder.Services.AddTransient<ITutorialService, TutorialService>();
 builder.Services.AddTransient<IResourceService, ResourceService>();
@@ -64,6 +73,7 @@ app.UseHttpsRedirection();
 SeedDatabase();
 
 app.UseStaticFiles();
+app.UseCookiePolicy();
 
 app.UseRouting();
 

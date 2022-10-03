@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+    var cookieString = consentFeature?.CreateConsentCookie();
+}
+
+@if (showBanner)
+{
+    <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
+        Използваме бисквитки, за да подобрим вашето преживяване в нашия сайт. <a asp-page="/Privacy">Научи повече</a>.
+        <button type="button" class="accept-policy close btn-success" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
+            <span aria-hidden="true">Приеми</span>
+        </button>
+    </div>
+    <script>
+        (function () {
+            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
+            var cookieConsent = document.querySelector("#cookieConsent");
+            button.addEventListener("click", function (event) {
+                document.cookie = button.dataset.cookieString;
+                cookieConsent.setAttribute("hidden", true);
+            }, false);
+        })();
+    </script>
+}
