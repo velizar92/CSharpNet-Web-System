@@ -31,7 +31,7 @@
         {
             var userManager = services.GetRequiredService<UserManager<User>>();
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
-           
+
             if (userManager.Users.Any() == false)
             {
                 User adminUser = new User
@@ -50,7 +50,7 @@
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();                   
+                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();
                 }
 
                 await dbContext.SaveChangesAsync();
@@ -112,7 +112,77 @@
                     Description = "Курсът C# Basics ще ви даде основни познания в програмирането със C#. " +
                     "Започва се от самото начало с това \"Що е то програмен език?\", \"Какво е .NET?\" " +
                     "\"Какво е IDE\"?, \"Какво е Visual Studio и как да го използвате\", \"Какво е променлива?\", " +
-                    "Кои са if/else конструкциите, for/while/do while и foreach циклите и куп други интересни неща. "                  
+                    "Кои са if/else конструкциите, for/while/do while и foreach циклите и куп други интересни неща. ",
+                    Tutorials = new List<Tutorial>()
+                    {
+                        new Tutorial
+                        {
+                            Title = "Въведение в .NET и C#",
+                            Description = "В тази тема ще се запознаем с .NET платформата " +
+                            "и езика C#."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Visual Studio IDE",
+                            Description = "В тази тема ще научим какво е среда за разработка" +
+                            "и по-конкретно ще се запознаем с Visual Studio."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Visual Studio 2022 Community инсталация",
+                            Description = "В тази тема ще покажем как се инсталира Visual Studio 2022 Community."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Създаваме на C# конзолен проект във Visual Studio.",
+                            Description = "В тази тема ще покажем как се създава конзолен" +
+                            "C# проект във Visual Studio."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Архитектура на C# програмите.",
+                            Description = "В тази тема ще покажем каква е архитектурата на " +
+                            "C# програмите като цяло."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Работа с конзолата.",
+                            Description = "В тази тема ще разберем какво е конзолата и как да работим" +
+                            "с нея."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Типове данни, променливи и константи.",
+                            Description = "В тази тема ще разберем как да боравим с различни" +
+                            "типове данни, променливи и константи."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Променливи и работа с конзолата.",
+                            Description = "В тази тема ще затвърдим знанията си за конзолата и" +
+                            " работата с променливи."
+                        },
+                        new Tutorial
+                        {
+                            Title = "If-else конструкции.",
+                            Description = "В тази тема ще научим как да работим с условна логика."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Switch-case конструкциия.",
+                            Description = "В тази тема ще научим как да работим със switch-case."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Цикли.",
+                            Description = "В тази тема ще научим как да работим с цикли."
+                        },
+                        new Tutorial
+                        {
+                            Title = "Вложени цикли.",
+                            Description = "В тази тема ще научим как да работим с вложение цикли."
+                        }
+                    }
                 },
                 new Course
                 {
@@ -120,7 +190,7 @@
                     ImageUrl = "csharp_fund.jpg",
                     Description = "Курсът C# Fundamentals стъпва върху наученото от вас в C# Basics. Тук ще се запознаете с листове, масиви," +
                     "асоциативни масиви и ще разберете какво са класовете и обектите и как те ви помагат. Ще разберете също какво са" +
-                    "методите и как се работи с тях. "                  
+                    "методите и как се работи с тях. "
                 },
                 new Course
                 {
@@ -128,7 +198,7 @@
                     ImageUrl = "csharp_advanced.jpg",
                     Description = "Курсът C# Advanced ще ви даде познания за работата с различни структури от данни като: Стек, Опашка, Хешсет, Речник и др. " +
                     "Ще обърнем внимание на работата с многомерни масиви, а също така и с файлове. Ще се запознаете с функционалното програмиране в C# и какво е това LINQ." +
-                    "Ще затвърдите знаният си, които вече имате за класовете и обектите. Ще се научите също да създавате шаблонни класове. "                  
+                    "Ще затвърдите знаният си, които вече имате за класовете и обектите. Ще се научите също да създавате шаблонни класове. "
                 },
                 new Course
                 {
@@ -137,12 +207,12 @@
                     Description = "Курсът C# OOP ще ви даде познания в Обектно Ориентираното Програмиране. Ще се запознаете с основните стълбове " +
                     "на OOП: Абстракция, Енкапсулация, Наследяване и Полиморфизъм. Ще разберете какво е това \"Exception\" и как да използвате try/catch/finally конструцията за обработване на изключения" +
                     "(Exceptions). Ще разберете що е то Interface и защо е толкова полезен. Ще научите SOLID принципите и ще затвърдите знанията си за това как да ги прилагате. Ще се запознаете с" +
-                    "Unit тестването и с възможността да Mock-вате обекти. Ще се запознаете и с някои Design Patterns. "                             
+                    "Unit тестването и с възможността да Mock-вате обекти. Ще се запознаете и с някои Design Patterns. "
                 },
 
             };
 
-            if (dbContext.Courses.Any() == false) 
+            if (dbContext.Courses.Any() == false)
             {
                 await dbContext.Courses.AddRangeAsync(courses);
                 await dbContext.SaveChangesAsync();
