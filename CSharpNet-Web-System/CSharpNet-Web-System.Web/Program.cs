@@ -36,10 +36,16 @@ builder.Services.AddDefaultIdentity<User>(options =>
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     // This lambda determines whether user consent for non-essential 
-    // cookies is needed for a given request.
+    // cookies is needed for a given request.   
     options.CheckConsentNeeded = context => true;
-
     options.MinimumSameSitePolicy = SameSiteMode.None;
+});
+
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromDays(14);
+    options.Cookie.MaxAge = TimeSpan.FromDays(14);
 });
 
 builder.Services.AddTransient<ICourseService, CourseService>();
