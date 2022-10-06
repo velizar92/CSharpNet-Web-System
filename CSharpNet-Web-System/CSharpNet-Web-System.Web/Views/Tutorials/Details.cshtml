@@ -9,11 +9,11 @@
 
     @if (User.IsInRole(LearnerRole))
     {
-        <a asp-controller="Comments" asp-action="CreateComment" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #672079">
+        <a asp-controller="Comments" asp-action="CreateComment" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #AF1C70;">
             Остави коментар
         </a>
 
-        <a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #672079">
+        <a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #AF1C70;">
             Виж всички коментари
         </a>
 
@@ -35,7 +35,7 @@
     {
         <div class="col">
             <div class="card">
-                <div class="card-body" style="background-color: #223463">
+                <div class="card-body" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
                     @if (resourceUrl.EndsWith(".pptx"))
                     {
                         <img src="~/pptxIcon.png" class="card-img-top" width="100" height="300" />
@@ -61,11 +61,10 @@
 </div>
 
 
-<a asp-controller="Courses" asp-action="Details" asp-route-courseId="@Model.CourseId" class="btn btn-lg text-white" style="background-color: purple">
+<a asp-controller="Courses" asp-action="Details" asp-route-courseId="@Model.CourseId" class="btn btn-lg text-white regLogSpaceUp" style="background-color: darkslateblue ">
     Назад
 </a>
-
-
-<a asp-controller="Issues" asp-action="MyReportedIssues" class="btn btn-lg btn-secondary">
+s
+<a asp-controller="Issues" asp-action="MyReportedIssues" class="btn btn-lg btn-warning regLogSpaceUp">
     Докладвани проблеми
 </a>
