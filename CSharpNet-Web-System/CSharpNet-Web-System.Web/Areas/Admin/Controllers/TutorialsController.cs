@@ -49,7 +49,7 @@
             }
 
             await _fileStorageService.SaveFiles(@"\assets\resources", tutorialFormModel.Files);
-            return RedirectToAction("Details", "Courses", new { courseId });
+            return RedirectToAction("Details", "Courses", new { courseId, Area = "" });
         }
 
 
@@ -103,8 +103,10 @@
                 return BadRequest(resultServiceModel.Message);
             }
 
+            int courseId = tutorial.CourseId;
+
             await _fileStorageService.SaveFiles(@"\assets\resources", tutorialFormModel.Files);
-            return RedirectToAction(nameof(Details), new { id });
+            return RedirectToAction("Details", "Courses", new { courseId, Area = "" });
         }
 
 
@@ -116,7 +118,7 @@
 
             if (resultServiceModel.Result == true)
             {            
-                return RedirectToAction("Details", "Courses", new { courseId });
+                return RedirectToAction("Details", "Courses", new { courseId, Area = "" });
             }
 
             return BadRequest();

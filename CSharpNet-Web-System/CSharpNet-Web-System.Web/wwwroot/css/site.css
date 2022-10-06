@@ -25,6 +25,11 @@ body {
     margin-top: 7px;
 }
 
+.spaceRight {
+    margin-right: 7px;
+}
+
+
 .dropdown-menu .dropdown-item:hover {
     background-color: #AF1C70;
     color: #1976d2

@@ -124,18 +124,18 @@
                         new Tutorial
                         {
                             Title = "Visual Studio IDE",
-                            Description = "В тази тема ще научим какво е среда за разработка" +
+                            Description = "В тази тема ще научим какво е среда за разработка " +
                             "и по-конкретно ще се запознаем с Visual Studio."
                         },
                         new Tutorial
                         {
-                            Title = "Visual Studio 2022 Community инсталация",
+                            Title = "Visual Studio 2022 Community - инсталация",
                             Description = "В тази тема ще покажем как се инсталира Visual Studio 2022 Community."
                         },
                         new Tutorial
                         {
-                            Title = "Създаваме на C# конзолен проект във Visual Studio.",
-                            Description = "В тази тема ще покажем как се създава конзолен" +
+                            Title = "Създаване на C# конзолен проект във Visual Studio.",
+                            Description = "В тази тема ще покажем как се създава конзолен " +
                             "C# проект във Visual Studio."
                         },
                         new Tutorial
@@ -147,20 +147,20 @@
                         new Tutorial
                         {
                             Title = "Работа с конзолата.",
-                            Description = "В тази тема ще разберем какво е конзолата и как да работим" +
+                            Description = "В тази тема ще разберем какво е конзолата и как да работим " +
                             "с нея."
                         },
                         new Tutorial
                         {
                             Title = "Типове данни, променливи и константи.",
-                            Description = "В тази тема ще разберем как да боравим с различни" +
+                            Description = "В тази тема ще разберем как да боравим с различни " +
                             "типове данни, променливи и константи."
                         },
                         new Tutorial
                         {
                             Title = "Променливи и работа с конзолата.",
-                            Description = "В тази тема ще затвърдим знанията си за конзолата и" +
-                            " работата с променливи."
+                            Description = "В тази тема ще затвърдим знанията си за конзолата и " +
+                            "работата с променливи."
                         },
                         new Tutorial
                         {
@@ -169,7 +169,7 @@
                         },
                         new Tutorial
                         {
-                            Title = "Switch-case конструкциия.",
+                            Title = "Switch-case конструкция.",
                             Description = "В тази тема ще научим как да работим със switch-case."
                         },
                         new Tutorial
@@ -180,7 +180,7 @@
                         new Tutorial
                         {
                             Title = "Вложени цикли.",
-                            Description = "В тази тема ще научим как да работим с вложение цикли."
+                            Description = "В тази тема ще научим как да работим с вложени цикли."
                         }
                     }
                 },

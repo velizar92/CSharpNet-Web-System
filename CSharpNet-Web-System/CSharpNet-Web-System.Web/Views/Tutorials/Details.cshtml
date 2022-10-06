@@ -13,10 +13,6 @@
             Остави коментар
         </a>
 
-        <a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #AF1C70;">
-            Виж всички коментари
-        </a>
-
         <a asp-controller="Issues" asp-action="CreateIssue" asp-route-tutorialId="@Model.Id" class="btn btn-danger btn-lg">
             Докладвай проблем
         </a>
@@ -28,7 +24,7 @@
 
     @if (@Model.ResourceUrls.Count() == 0)
     {
-        <h2>There are no resources for this tutorial at the moment.</h2>
+        <h2 class="text-white">В момента няма ресурси за този урок.</h2>
     }
 
     @foreach (var resourceUrl in @Model.ResourceUrls)
@@ -64,7 +60,11 @@
 <a asp-controller="Courses" asp-action="Details" asp-route-courseId="@Model.CourseId" class="btn btn-lg text-white regLogSpaceUp" style="background-color: darkslateblue ">
     Назад
 </a>
-s
+
 <a asp-controller="Issues" asp-action="MyReportedIssues" class="btn btn-lg btn-warning regLogSpaceUp">
     Докладвани проблеми
+</a>
+
+<a asp-controller="Comments" asp-action="AllComments" asp-route-tutorialId="@Model.Id" class="btn btn-lg text-white" style="background-color: #AF1C70;">
+    Виж всички коментари
 </a>
