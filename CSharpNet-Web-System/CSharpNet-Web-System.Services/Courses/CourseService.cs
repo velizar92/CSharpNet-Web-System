@@ -7,6 +7,7 @@
     using Microsoft.EntityFrameworkCore;
     using CSharpNet_Web_System.Models.Models;
     using CSharpNet_Web_System.Services.Courses.Models;
+    using CSharpNet_Web_System.Services.Tutorials.Models;
 
     public class CourseService : ICourseService
     {
@@ -84,17 +85,24 @@
 
         public async Task<CourseDetailsServiceModel> GetCourseDetails(int courseId)
         {
-           var courseDetails = 
-                await _dbContext.Courses
-                          .Where(c => c.Id == courseId)
-                          .Select(x => new CourseDetailsServiceModel
-                          {
-                              Id = x.Id,
-                              Name = x.Name,
-                              Description = x.Description,
-                              ImageUrl = x.ImageUrl,
-                              Tutorials = x.Tutorials
-                          })
+            var courseDetails =
+                 await _dbContext.Courses
+                           .Where(c => c.Id == courseId)
+                           .Select(x => new CourseDetailsServiceModel
+                           {
+                               Id = x.Id,
+                               Name = x.Name,
+                               Description = x.Description,
+                               ImageUrl = x.ImageUrl,
+                               Tutorials = x.Tutorials.Select(t => new TutorialServiceModel
+                               {
+                                   Id = t.Id,
+                                   Title = t.Title,
+                                   CourseId = t.CourseId,
+                                   Description = t.Description,
+                                   Resources = t.Resources
+                               })                               
+                           })
                           .FirstOrDefaultAsync();
 
             return courseDetails;
