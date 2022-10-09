@@ -24,7 +24,9 @@
         [Required]
         [MaxLength(TutorialDescriptionMaxLength)]
         public string Description { get; set; }
-     
+
+        [Url]
+        public string? InternetUrl { get; set; }
 
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }

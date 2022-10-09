@@ -29,6 +29,8 @@
             ErrorMessage = MIN_MAX_STRING_VALIDATION)]
         public string Description { get; set; }
 
+        [Display(Name = "Интернет Адрес")]
+        public string InternetUrl { get; set; }
 
         [Display(Name = "Ресурси")]
         public Resource[]? Resources { get; set; }

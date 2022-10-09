@@ -7,8 +7,8 @@
 
     public interface ITutorialService
     {
-        Task<ResultServiceModel> AddTutorialToCourse(int courseId, string name, string description, List<Resource> resources);
-        Task<ResultServiceModel> EditTutorial(int tutorialId, string name, string description, List<Resource> resources);
+        Task<ResultServiceModel> AddTutorialToCourse(int courseId, string name, string description, string internetUrl, List<Resource> resources);
+        Task<ResultServiceModel> EditTutorial(int tutorialId, string name, string description, string internetUrl, List<Resource> resources);
         Task<ResultServiceModel> DeleteTutorial(int tutorialId);
         Task<TutorialServiceModel> GetTutorialById(int tutorialId);
         Task<TutorialDetailsServiceModel> GetTutorialDetails(int tutorialId);

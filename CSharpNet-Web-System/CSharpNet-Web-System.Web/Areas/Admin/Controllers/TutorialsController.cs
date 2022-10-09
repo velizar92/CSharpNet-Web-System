@@ -40,7 +40,8 @@
             var resultServiceModel = await _tutorialService.AddTutorialToCourse
                                                 (courseId, 
                                                 tutorialFormModel.Title,
-                                                tutorialFormModel.Description,                                              
+                                                tutorialFormModel.Description,  
+                                                tutorialFormModel.InternetUrl,
                                                 resources);
 
             if (resultServiceModel.Result == false)
@@ -68,7 +69,8 @@
                 Id = tutorial.Id,
                 CourseId = tutorial.CourseId,
                 Title = tutorial.Title,
-                Description = tutorial.Description,             
+                Description = tutorial.Description,    
+                InternetUrl = tutorial.InternetUrl,
                 Resources = tutorial.Resources.ToArray(),
             };
 
@@ -95,7 +97,8 @@
             var resources = GetResources(tutorialFormModel.Files);
             var resultServiceModel = await _tutorialService.EditTutorial(id,
                                                             tutorialFormModel.Title,
-                                                            tutorialFormModel.Description,                                                           
+                                                            tutorialFormModel.Description, 
+                                                            tutorialFormModel.InternetUrl,
                                                             resources);
 
             if (resultServiceModel.Result == false)
@@ -133,8 +136,6 @@
        
              return View(tutorialDetails);                 
         }
-
-
 
 
         private List<Resource> GetResources(IEnumerable<IFormFile> resourceFiles)
