@@ -4,6 +4,7 @@
 
     public static class ClaimsPrincipalExtensions
     {
+        // TODO: Add is null check to resolve warning.
         public static string Id(this ClaimsPrincipal user)
         {          
             return user.FindFirst(ClaimTypes.NameIdentifier).Value;

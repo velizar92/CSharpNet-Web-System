@@ -71,6 +71,7 @@
 
             await _userManager.UpdateAsync(user);
 
+            // TODO: what if user update fails (same for create). Still saving image? Using update/create SYNC (extension method maybe for UserManager) or using listener - onUserUpdateSuccess().
             await _fileStorageService.SaveFile(@"\assets\images\users", userFormModel.ProfileImage);          
             return RedirectToAction(nameof(Index));
         }

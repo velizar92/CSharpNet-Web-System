@@ -18,6 +18,7 @@
         {
             var resultSeviceModel = await _commentService.DeleteComment(commentId);
 
+            // TODO: Maybe just to show dialog with error in such cases would be enough --> "Operation was not successful. Reason/Please, try again later."
             if (resultSeviceModel.Result == false)
             {
                 return BadRequest(resultSeviceModel.Message);

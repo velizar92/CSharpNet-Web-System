@@ -49,6 +49,7 @@
                 return BadRequest(resultServiceModel.Message);
             }
 
+            // TODO: Replace with localhost path (with upload). Also define potential debug and release configurations for this (localhost and release url) after testing.
             await _fileStorageService.SaveFiles(@"\assets\resources", tutorialFormModel.Files);
             return RedirectToAction("Details", "Courses", new { courseId, Area = "" });
         }

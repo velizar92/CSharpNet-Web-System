@@ -2,6 +2,7 @@
 {
     public class BaseEntity
     {
+        // TODO: Base entity should also have the unique identifier prop.
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
     }

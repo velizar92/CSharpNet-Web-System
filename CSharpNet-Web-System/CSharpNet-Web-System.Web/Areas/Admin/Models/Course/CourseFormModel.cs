@@ -7,6 +7,7 @@
 
     public class CourseFormModel
     {
+        // TODO: Generate resource files (resx) and use them for labels (not hardcoded in "Display" annotation), validation messages etc. Will be done when UI work started and JS framework is chosen.
         [Required(ErrorMessage = FIELD_REQUIRED)]
         [Display(Name = "Име")]
         public string Name { get; set; }

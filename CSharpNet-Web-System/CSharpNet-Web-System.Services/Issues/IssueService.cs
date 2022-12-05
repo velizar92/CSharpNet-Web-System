@@ -147,6 +147,7 @@
                                         })
                                         .FirstOrDefault();
 
+            // TODO null check or mark as nulllable
             return issueDetails;
         }
 

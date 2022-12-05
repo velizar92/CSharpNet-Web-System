@@ -1,5 +1,6 @@
 ﻿namespace CSharpNet_Web_System.Infrastructure.Constants
 {
+    // TODO Class is to be removed. Probably the same can be accomplished with resource files and placeholders.
     public class ValidationConstants
     {
         public const string FIELD_REQUIRED = "Полето '{0}' е задължително.";

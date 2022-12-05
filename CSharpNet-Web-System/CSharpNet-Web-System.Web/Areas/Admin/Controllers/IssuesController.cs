@@ -34,6 +34,8 @@
             var allReportedIssuesServiceModel = await _issueService.GetAllReportedIssues();
             List<IssueAdminViewModel> allIssuesAdminViewModel = new List<IssueAdminViewModel>();
 
+
+            // TODO: do you have addAll method for collections?
             foreach (var issueServiceModel in allReportedIssuesServiceModel)
             {
                 allIssuesAdminViewModel.Add(

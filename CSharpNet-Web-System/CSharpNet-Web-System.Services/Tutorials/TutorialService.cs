@@ -68,6 +68,8 @@
         public async Task<ResultServiceModel> EditTutorial(int tutorialId, string title, string description, 
             string internetUrl, List<Resource> resources)
         {
+            // TODO: Edit only different props if possible.
+
             var tutorial = await _dbContext.Tutorials.FindAsync(tutorialId);
             if (tutorial == null)
             {
@@ -90,6 +92,8 @@
 
         public async Task<TutorialServiceModel> GetTutorialById(int tutorialId)
         {
+
+            // TODO: InternetUrl might be null
             var tutorial = await _dbContext.Tutorials
                                .Where(t => t.Id == tutorialId)
                                .Select(t => new TutorialServiceModel
@@ -103,12 +107,16 @@
                                })
                                .FirstOrDefaultAsync();
 
+            // TOOD: tutorial might be null
+
             return tutorial;
         }
 
 
         public async Task<TutorialDetailsServiceModel> GetTutorialDetails(int tutorialId)
         {
+            // TODO: Same actions as for the method above.
+
             var tutorialDetails = await _dbContext.Tutorials
                      .Where(t => t.Id == tutorialId)
                      .Select(t => new TutorialDetailsServiceModel
