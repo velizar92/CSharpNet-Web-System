@@ -5,6 +5,7 @@
     using CSharpNet_Web_System.Data;
     using Microsoft.EntityFrameworkCore;
 
+    // TODO: Research on where and how to store website resources. - CSWS-108
     public class ResourceService : IResourceService
     {
         private readonly CSharpNetWebDbContext _dbContext;

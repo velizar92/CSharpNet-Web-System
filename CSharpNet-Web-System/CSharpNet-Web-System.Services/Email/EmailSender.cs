@@ -23,6 +23,9 @@
         {
             if (string.IsNullOrEmpty(Options.SendGridKey))
             {
+                // TODO: Consider making EmailSenderException wrapper or smth.
+                // Have in mind also that errors shown to the User should be translated as well if having multiple languages, so something similar "throw new EmailSenderException("error_resource_translation");"
+                // Actions to be taken after CSWS-102 and CSWS-103
                 throw new Exception("Null SendGridKey");
             }
             await Execute(Options.SendGridKey, subject, message, toEmail);
@@ -32,6 +35,7 @@
         {
             var client = new SendGridClient(apiKey);
 
+            // TODO: Replace this one with an official GMAIL account for the website. - CSWS-106
             var from = new EmailAddress("velizar9209@gmail.com", subject);
             var to = new EmailAddress(toEmail);          
 
@@ -42,6 +46,8 @@
                         message,
                         message
                         );
+
+            // TODO: Research on how to log exceptions in Azure or somewhere else. I.e when email sender is not working. - CSWS-107
 
             // Disable click tracking.
             // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html

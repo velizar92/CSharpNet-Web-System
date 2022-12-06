@@ -7,6 +7,8 @@
 
     public class Tutorial : BaseEntity
     {
+        // TODO: Check warning here
+        // actions to be done with CSWS-100
         public Tutorial()
         {
             Issues = new HashSet<Issue>();

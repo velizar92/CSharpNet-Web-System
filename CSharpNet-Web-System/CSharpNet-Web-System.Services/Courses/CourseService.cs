@@ -40,7 +40,7 @@
             {
                 _dbContext.Courses.Remove(course);
                 await _dbContext.SaveChangesAsync();
-
+                // TODO: Use resources (resx). - CSWS-103
                 return new ResultServiceModel(true, "OK");
             }
 
@@ -50,6 +50,7 @@
 
         public async Task<ResultServiceModel> EditCourse(int courseId, string name, string description, string pictureFileName)
         {
+            // TODO: will be nice if we find a way to pass only param we need to update. - CSWS-105
             var course = await _dbContext.Courses.FindAsync(courseId);
 
             if (course == null)
@@ -104,6 +105,8 @@
                                })                               
                            })
                           .FirstOrDefaultAsync();
+
+            // TODO: this might be null. - CSWS-100
 
             return courseDetails;
         }

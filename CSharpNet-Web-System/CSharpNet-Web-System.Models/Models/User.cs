@@ -10,6 +10,8 @@
 
     public class User : IdentityUser
     {
+        // TODO: Check warning here
+        // CSWS-100
         public User()
         {
             Comments = new HashSet<Comment>();

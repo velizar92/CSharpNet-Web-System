@@ -43,6 +43,7 @@
             string userId = User.Id();
             var user = await _userManagerService.GetUserAsync(HttpContext.User);
 
+            // TODO: Use constants for props. - CSWS-101
             ModelState.Remove("FirstName");
             ModelState.Remove("LastName");
             ModelState.Remove("ProfileImageUrl");

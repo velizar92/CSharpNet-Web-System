@@ -14,6 +14,9 @@
         [MaxLength(IssueTitleMaxLength)]
         public string Title { get; set; }
 
+        // TODO: Go through models and add mark for nullable "?" where warning appears.
+        // Actions to be done - CSWS-100
+
         [Required]
         [MaxLength(IssueDescriptionMaxLength)]
         public string Description { get; set; }
@@ -22,6 +25,8 @@
 
         public DateTime? CreationDate { get; set; }
 
+        // TODO: "ResolvementDate"
+        // Actions to be done - CSWS-100
         public DateTime? ResolvingDate { get; set; }
 
         public IssueStatuses Status { get; set; }

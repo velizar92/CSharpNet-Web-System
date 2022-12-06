@@ -28,6 +28,9 @@
         public async Task<IActionResult> Details(int courseId)
         {
             var courseDetails = await _courseService.GetCourseDetails(courseId);
+
+            // TODO: React on such places if having it as null (dialog) - CSWS-103
+
             return View(courseDetails);
         }
     }
