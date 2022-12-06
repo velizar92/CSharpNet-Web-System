@@ -16,6 +16,7 @@
         {
             // TODO: Lets define DbException class and log "result.Errors" if occured. Also to rename the package name from "Seed" to "DB"/"Database" or smth.
             // Same fits for other DB operations i.e create user from WebSite UI.
+            // Actions to be done in this task - CSWS-102
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var services = serviceScope.ServiceProvider;
@@ -31,12 +32,12 @@
         private async Task SeedAdminUsers(IServiceProvider services)
         {
             // TODO: User manager can be passed as method param as well (already initialized above). Same applies for DB context.
+            // Actions to be done in this task - CSWS-100
             var userManager = services.GetRequiredService<UserManager<User>>();
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
 
             if (userManager.Users.Any() == false)
             {
-                // TODO: It seems that can be simplified with only "new()". @Velizar Do you like this approach?
                 User adminUser = new User
                 {
                     FirstName = "Velizar",
@@ -67,6 +68,7 @@
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
 
             // TODO: Replacing the hardcoded strings with already existing constants (for the roles).
+            // Actions to be done with this task - CSWS-100
             if (roleManager.RoleExistsAsync("Admin").Result == false)
             {
                 IdentityRole adminRole = new IdentityRole();
@@ -90,6 +92,7 @@
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
 
             //TODO: Transfer to constants or Enum.
+            // Actions to be done with this task - CSWS-100          
             List<ResourceType> resourceTypes = new List<ResourceType>
             {
                 new ResourceType{ Name = "PPT Presentation" },
@@ -109,6 +112,7 @@
             var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
 
             // TODO: Export this stuff to resource files when done.
+            // Actions to be done in CSWS-103
             List<Course> courses = new List<Course>()
             {
                 new Course

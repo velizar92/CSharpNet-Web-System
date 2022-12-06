@@ -35,7 +35,7 @@
             List<IssueAdminViewModel> allIssuesAdminViewModel = new List<IssueAdminViewModel>();
 
 
-            // TODO: do you have addAll method for collections?
+            // TODO: do you have addAll method for collections? - CSWS-100
             foreach (var issueServiceModel in allReportedIssuesServiceModel)
             {
                 allIssuesAdminViewModel.Add(

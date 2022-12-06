@@ -7,9 +7,10 @@
 
     public class ResourceType
     {
+        // TODO: Check warning here
+        // actions to be done with CSWS-100
         public ResourceType()
         {
-            // TODO: What is supposed to be the pupose of this hashset? (not used)
             Resources = new HashSet<Resource>();
         }
 

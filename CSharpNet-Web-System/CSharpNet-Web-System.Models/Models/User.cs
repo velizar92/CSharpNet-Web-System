@@ -10,10 +10,10 @@
 
     public class User : IdentityUser
     {
-        // TODO: Important one --> lets unify the ID convention. 'IdentityUser' class is with unique identified GUID, but we have it as Int.
+        // TODO: Check warning here
+        // CSWS-100
         public User()
         {
-            // TODO: Same as for Tutorial class.
             Comments = new HashSet<Comment>();
             Issues = new HashSet<Issue>();
         }

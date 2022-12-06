@@ -1,6 +1,7 @@
 ﻿namespace CSharpNet_Web_System.Models
 {
     // TODO: Maybe should remove the inner classes and not using static imports for the whole class, but just for one constant. Anyway, this is a minor improvement, can even be ignored.
+    // Actions to be done in CSWS-101
     public class DataConstants
     {
         public class User

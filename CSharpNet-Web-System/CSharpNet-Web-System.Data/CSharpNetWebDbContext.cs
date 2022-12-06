@@ -9,7 +9,7 @@
         // TODO According to the official doccumentation for such warnings - CS8618 - we have a different options here -
         // 1. Having default non-empty values for the class members.
         // 2. Initialize them in the constructor.
-        // 3. Marking the members as nullable like this - public DbSet<Course>? Courses { get; set; }.
+        // 3. Marking the members as nullable like this - public DbSet<Course>? Courses { get; set; }. - This approach is to be taken - CSWS-100
 
         // Check this link for reference - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings?f1url=%3FappId%3Droslyn%26k%3Dk(CS8618)
         // Site note: Should be refactored in other classes as well.

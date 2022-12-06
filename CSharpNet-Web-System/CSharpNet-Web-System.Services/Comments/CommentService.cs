@@ -27,7 +27,7 @@
 
             if (turorial == null)
             {
-                // TODO: Use resoruces (resx).
+                // TODO: Use resoruces (resx). - CSWS-103
                 return new ResultServiceModel(false, "Invalid tutorial id.");
             }
 
@@ -41,7 +41,7 @@
             await _dbContext.Comments.AddAsync(comment);
             await _dbContext.SaveChangesAsync();
 
-            // TODO: Use resoruces (resx).
+            // TODO: Use resoruces (resx). - CSWS-103
             return new ResultServiceModel(true, "OK");
         }
 
@@ -76,7 +76,7 @@
                              })
                              .FirstOrDefaultAsync();
 
-            // TODO check for null or mark method as it can return NULL.
+            // TODO check for null or mark method as it can return NULL. - CSWS-100
 
             return comment;
         }
@@ -84,7 +84,6 @@
 
         public async Task<IEnumerable<CommentDetailsServiceModel>> GetTutorialComments(int tutorialId)
         {
-            //TODO: Can we just use "Comment" instead of CommentDetailServiceModel?
             var tutorialComments = await _dbContext.Comments
                                  .Where(c => c.TutorialId == tutorialId)
                                  .OrderByDescending(i => i.CreatedOn)

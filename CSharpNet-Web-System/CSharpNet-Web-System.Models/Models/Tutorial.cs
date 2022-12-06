@@ -7,10 +7,10 @@
 
     public class Tutorial : BaseEntity
     {
+        // TODO: Check warning here
+        // actions to be done with CSWS-100
         public Tutorial()
         {
-            // TODO: Probably it is not necessary to have the hashsets in the object itself, right?
-            // We have foreigh key in Resources, comments and issues, so we can load them on demand from DB when needed (select * from Comments where "tutorialId" == "id")
             Issues = new HashSet<Issue>();
             Resources = new HashSet<Resource>();
             Comments = new HashSet<Comment>();
