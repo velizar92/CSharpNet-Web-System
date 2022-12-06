@@ -15,7 +15,7 @@ Commit messages:
 Raising pull requests:
 
 1. Start your branch from "develop" as base one.
-2. Source branch should follow this convention -> style/CSWS-945-change-home-title-style
+2. Source branch should follow this convention -> style/CSWS-945-change-home-title-apearance (will be dependent on the task labels)
 3. Prepare your implementation and test.
 4. Push your branch and make pull request -> add description if possible (comment). 
 5. Target branch should always be "develop" not "main"
