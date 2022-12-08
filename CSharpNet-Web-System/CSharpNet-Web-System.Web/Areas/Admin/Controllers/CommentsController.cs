@@ -14,7 +14,7 @@
 
 
         [HttpGet]      
-        public async Task<IActionResult> DeleteComment(int commentId)
+        public async Task<IActionResult> DeleteComment(Guid commentId)
         {
             var resultSeviceModel = await _commentService.DeleteComment(commentId);
 

@@ -21,7 +21,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> CreateComment(int tutorialId)
+        public async Task<IActionResult> CreateComment(Guid tutorialId)
         {
             var user = await _userManagerService.GetUserAsync(HttpContext.User);
 
@@ -70,7 +70,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> DeleteComment(int commentId, int lectureId)
+        public async Task<IActionResult> DeleteComment(Guid commentId, Guid lectureId)
         {
             var resultSeviceModel = await _commentService.DeleteComment(commentId);
 
@@ -85,7 +85,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> AllComments(int tutorialId)
+        public async Task<IActionResult> AllComments(Guid tutorialId)
         {
             var allCommentsServiceModel = await _commentService.GetTutorialComments(tutorialId);
             List<CommentViewModel> comments = new List<CommentViewModel>();

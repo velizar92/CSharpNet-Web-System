@@ -2,9 +2,9 @@
 {
     public class CommentDetailsServiceModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
 
         public string Content { get; set; }
 

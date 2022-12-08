@@ -3,7 +3,7 @@
     using CSharpNet_Web_System.Models.Enums;
     public class IssueAdminViewModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }      
         public DateTime? CreatedOn { get; set; }

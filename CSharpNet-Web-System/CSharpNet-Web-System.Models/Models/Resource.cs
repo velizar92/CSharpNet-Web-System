@@ -7,8 +7,6 @@
 
     public class Resource : BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
 
         [Required]
         [MaxLength(ResourceNameMaxLength)]
@@ -20,7 +18,7 @@
 
 
         [ForeignKey(nameof(Tutorial))]
-        public int? TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
         public Tutorial? Tutorial { get; set; }
 
     }

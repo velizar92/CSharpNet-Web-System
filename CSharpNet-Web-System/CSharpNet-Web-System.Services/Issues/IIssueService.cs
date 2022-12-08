@@ -5,18 +5,18 @@
     using System.Threading.Tasks;
     public interface IIssueService
     {
-        Task<ResultServiceModel> CreateIssue(string userId, int tutorialId, string title, string description);
+        Task<ResultServiceModel> CreateIssue(string userId, Guid tutorialId, string title, string description);
 
-        Task<ResultServiceModel> EditIssue(int issueId, string title, string description);
+        Task<ResultServiceModel> EditIssue(Guid issueId, string title, string description);
 
-        Task<ResultServiceModel> DeleteIssue(int issueId);
+        Task<ResultServiceModel> DeleteIssue(Guid issueId);
 
-        Task<ResultServiceModel> FixIssue(int issueId);
-        Task<IssueDetailsServiceModel> GetIssueDetails(int issueId);
+        Task<ResultServiceModel> FixIssue(Guid issueId);
+        Task<IssueDetailsServiceModel> GetIssueDetails(Guid issueId);
 
         Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssues();
 
-        Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssuesForTutorial(int tutorialId);
+        Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssuesForTutorial(Guid tutorialId);
 
         Task<IEnumerable<IssueDetailsServiceModel>> GetMyReportedIssues(string userId);
     }

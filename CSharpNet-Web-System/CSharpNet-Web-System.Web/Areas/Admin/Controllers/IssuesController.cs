@@ -15,7 +15,7 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> FixIssue(int issueId)
+        public async Task<IActionResult> FixIssue(Guid issueId)
         {
             var resultServiceModel = await _issueService.FixIssue(issueId);
 

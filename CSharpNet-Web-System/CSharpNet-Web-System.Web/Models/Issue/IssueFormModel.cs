@@ -7,7 +7,7 @@
     public class IssueFormModel
     {
         [Required]
-        public int TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
 
         [Required(ErrorMessage = FIELD_REQUIRED)]
         [Display(Name = "Заглавие")]

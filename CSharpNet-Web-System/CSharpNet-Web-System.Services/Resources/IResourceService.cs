@@ -4,7 +4,7 @@
     using System.Threading.Tasks;
     public interface IResourceService
     {
-        Task<ResultServiceModel> DeleteResource(int resourceId);
+        Task<ResultServiceModel> DeleteResource(Guid resourceId);
 
         bool CheckIfResourceTypeExists(int resourceTypeId);
 

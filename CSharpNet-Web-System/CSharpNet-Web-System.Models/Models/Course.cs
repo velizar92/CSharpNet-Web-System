@@ -12,9 +12,6 @@
             Tutorials = new HashSet<Tutorial>();
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(CourseNameMaxLength)]
         public string Name { get; set; }

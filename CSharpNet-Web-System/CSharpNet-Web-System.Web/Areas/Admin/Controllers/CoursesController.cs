@@ -42,7 +42,7 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> EditCourse(int courseId)
+        public async Task<IActionResult> EditCourse(Guid courseId)
         {
 
             var course = await _courseService.GetCourseDetails(courseId);
@@ -64,7 +64,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditCourse(int courseId, CourseFormModel courseFormModel)
+        public async Task<IActionResult> EditCourse(Guid courseId, CourseFormModel courseFormModel)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +80,7 @@
 
 
         [HttpGet]       
-        public async Task<IActionResult> DeleteCourse(int courseId)
+        public async Task<IActionResult> DeleteCourse(Guid courseId)
         {        
             await _courseService.DeleteCourse(courseId);
 
@@ -97,7 +97,7 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> Details(int courseId)
+        public async Task<IActionResult> Details(Guid courseId)
         {
             var courseDetails = await _courseService.GetCourseDetails(courseId);
             return View(courseDetails);

@@ -32,7 +32,7 @@
         }
 
 
-        public async Task<ResultServiceModel> DeleteCourse(int courseId)
+        public async Task<ResultServiceModel> DeleteCourse(Guid courseId)
         {
             Course? course = await _dbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
 
@@ -48,7 +48,7 @@
         }
 
 
-        public async Task<ResultServiceModel> EditCourse(int courseId, string name, string description, string pictureFileName)
+        public async Task<ResultServiceModel> EditCourse(Guid courseId, string name, string description, string pictureFileName)
         {
             // TODO: will be nice if we find a way to pass only param we need to update. - CSWS-105
             var course = await _dbContext.Courses.FindAsync(courseId);
@@ -84,7 +84,7 @@
         }
 
 
-        public async Task<CourseDetailsServiceModel> GetCourseDetails(int courseId)
+        public async Task<CourseDetailsServiceModel> GetCourseDetails(Guid courseId)
         {
             var courseDetails =
                  await _dbContext.Courses

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSharpNet_Web_System.Data.Migrations
 {
     [DbContext(typeof(CSharpNetWebDbContext))]
-    [Migration("20221009153315_InitialCreate")]
+    [Migration("20221208202101_Initial-Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,9 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Comment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -40,8 +38,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TutorialId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TutorialId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
@@ -61,11 +59,9 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Course", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -94,11 +90,9 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Issue", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -122,8 +116,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("TutorialId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TutorialId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
@@ -143,11 +137,9 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Resource", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -160,8 +152,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.Property<int>("ResourceTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TutorialId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TutorialId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
@@ -195,14 +187,12 @@ namespace CSharpNet_Web_System.Data.Migrations
 
             modelBuilder.Entity("CSharpNet_Web_System.Models.Models.Tutorial", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -491,7 +481,8 @@ namespace CSharpNet_Web_System.Data.Migrations
                     b.HasOne("CSharpNet_Web_System.Models.Models.Tutorial", "Tutorial")
                         .WithMany("Resources")
                         .HasForeignKey("TutorialId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ResourceType");
 
