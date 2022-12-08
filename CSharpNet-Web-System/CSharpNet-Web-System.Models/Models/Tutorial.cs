@@ -16,8 +16,6 @@
             Comments = new HashSet<Comment>();
         }
 
-        [Key]
-        public int Id { get; set; }
 
         [Required]
         [MaxLength(TutorialTitleMaxLength)]
@@ -31,7 +29,7 @@
         public string? InternetUrl { get; set; }
 
         [ForeignKey(nameof(Course))]
-        public int CourseId { get; set; }
+        public Guid CourseId { get; set; }
         public Course Course { get; set; }
 
 

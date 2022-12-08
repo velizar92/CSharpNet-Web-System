@@ -19,7 +19,7 @@
         }
 
 
-        public async Task<ResultServiceModel> CreateIssue(string userId, int tutorialId, string title, string description)
+        public async Task<ResultServiceModel> CreateIssue(string userId, Guid tutorialId, string title, string description)
         {
             var tutorial = await _dbContext.Tutorials
                              .Where(t => t.Id == tutorialId)
@@ -46,7 +46,7 @@
         }
 
 
-        public async Task<ResultServiceModel> DeleteIssue(int issueId)
+        public async Task<ResultServiceModel> DeleteIssue(Guid issueId)
         {
             var issue = await _dbContext.Issues.FirstOrDefaultAsync(i => i.Id == issueId);
 
@@ -62,7 +62,7 @@
         }
 
 
-        public async Task<ResultServiceModel> FixIssue(int issueId)
+        public async Task<ResultServiceModel> FixIssue(Guid issueId)
         {
             var issue = await _dbContext.Issues.FirstOrDefaultAsync(i => i.Id == issueId);
 
@@ -78,7 +78,7 @@
         }
 
 
-        public async Task<ResultServiceModel> EditIssue(int issueId, string title, string description)
+        public async Task<ResultServiceModel> EditIssue(Guid issueId, string title, string description)
         {
             var issue = await _dbContext.Issues.FirstOrDefaultAsync(i => i.Id == issueId);
 
@@ -115,7 +115,7 @@
         }
 
 
-        public async Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssuesForTutorial(int tutorialId)
+        public async Task<IEnumerable<IssueDetailsServiceModel>> GetAllReportedIssuesForTutorial(Guid tutorialId)
         {
             var allReportedIssuesForTutorial = await _dbContext.Issues
                                  .Where(i => i.TutorialId == tutorialId)
@@ -133,7 +133,7 @@
         }
 
 
-        public async Task<IssueDetailsServiceModel> GetIssueDetails(int issueId)
+        public async Task<IssueDetailsServiceModel> GetIssueDetails(Guid issueId)
         {
             var issue = await _dbContext.Issues.FirstOrDefaultAsync(i => i.Id == issueId);
 

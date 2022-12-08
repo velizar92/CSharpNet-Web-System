@@ -7,12 +7,12 @@
     {
         Task CreateCourse(string name, string description, string pictureFileName);
 
-        Task<ResultServiceModel> EditCourse(int courseId, string name, string description, string pictureFileName);
+        Task<ResultServiceModel> EditCourse(Guid courseId, string name, string description, string pictureFileName);
 
-        Task<ResultServiceModel> DeleteCourse(int courseId);
+        Task<ResultServiceModel> DeleteCourse(Guid courseId);
 
         Task<IEnumerable<CourseServiceModel>> GetAllCourses();
 
-        Task<CourseDetailsServiceModel> GetCourseDetails(int courseId);
+        Task<CourseDetailsServiceModel> GetCourseDetails(Guid courseId);
     }
 }

@@ -6,12 +6,12 @@
 
     public interface ICommentService
     {
-        Task<ResultServiceModel> CreateComment(int tutorialId, string userId, string content);
+        Task<ResultServiceModel> CreateComment(Guid tutorialId, string userId, string content);
 
-        Task<ResultServiceModel> DeleteComment(int commentId);
+        Task<ResultServiceModel> DeleteComment(Guid commentId);
 
-        Task<CommentServiceModel> GetCommentById(int commentId);
+        Task<CommentServiceModel> GetCommentById(Guid commentId);
 
-        Task<IEnumerable<CommentDetailsServiceModel>> GetTutorialComments(int tutorialId);
+        Task<IEnumerable<CommentDetailsServiceModel>> GetTutorialComments(Guid tutorialId);
     }
 }

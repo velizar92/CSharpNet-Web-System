@@ -7,9 +7,9 @@
     using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
     public class TutorialFormModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int CourseId { get; set; }
+        public Guid CourseId { get; set; }
 
 
         [Required(ErrorMessage = FIELD_REQUIRED)]

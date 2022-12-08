@@ -5,10 +5,10 @@ namespace CSharpNet_Web_System.Web.Models.Comment
     public class CommentViewModel
     {
         [Required]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
-        public int TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
 
         [Required]
         public string Content { get; set; }

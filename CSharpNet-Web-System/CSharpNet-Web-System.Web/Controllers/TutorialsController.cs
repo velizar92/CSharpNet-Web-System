@@ -16,7 +16,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Details(int tutorialId)
+        public async Task<IActionResult> Details(Guid tutorialId)
         {
             var tutorialDetails = await _tutorialService.GetTutorialDetails(tutorialId);
 

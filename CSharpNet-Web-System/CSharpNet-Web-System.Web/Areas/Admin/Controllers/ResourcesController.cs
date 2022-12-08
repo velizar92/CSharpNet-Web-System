@@ -15,7 +15,7 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> DeleteResource(int resourceId, int tutorialId)
+        public async Task<IActionResult> DeleteResource(Guid resourceId, Guid tutorialId)
         {    
             var resultServiceModel = await _resourceService.DeleteResource(resourceId);
 

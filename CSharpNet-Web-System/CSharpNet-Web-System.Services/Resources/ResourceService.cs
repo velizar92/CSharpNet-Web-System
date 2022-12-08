@@ -26,7 +26,7 @@
             return true;
         }
 
-        public async Task<ResultServiceModel> DeleteResource(int resourceId)
+        public async Task<ResultServiceModel> DeleteResource(Guid resourceId)
         {
             var resource = await _dbContext.Resources.FirstOrDefaultAsync(r => r.Id == resourceId);
 

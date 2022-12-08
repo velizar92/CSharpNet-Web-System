@@ -23,7 +23,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> CreateIssue(int tutorialId)
+        public async Task<IActionResult> CreateIssue(Guid tutorialId)
         {
             var user = await _userManagerService.GetUserAsync(HttpContext.User);
 
@@ -91,7 +91,7 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Details(int issueId)
+        public async Task<IActionResult> Details(Guid issueId)
         {
             var issueDetails = await _issueService.GetIssueDetails(issueId);
 

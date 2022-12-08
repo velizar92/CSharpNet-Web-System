@@ -28,7 +28,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateTutorial(int courseId, TutorialFormModel tutorialFormModel)
+        public async Task<IActionResult> CreateTutorial(Guid courseId, TutorialFormModel tutorialFormModel)
         {
             if (!ModelState.IsValid)
             {
@@ -56,7 +56,7 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> EditTutorial(int id)
+        public async Task<IActionResult> EditTutorial(Guid id)
         {
             var tutorial = await _tutorialService.GetTutorialById(id);
 
@@ -81,7 +81,7 @@
 
         [HttpPost, DisableRequestSizeLimit]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditTutorial(int id, TutorialFormModel tutorialFormModel)
+        public async Task<IActionResult> EditTutorial(Guid id, TutorialFormModel tutorialFormModel)
         {
             if (ModelState.IsValid == false)
             {
@@ -107,7 +107,7 @@
                 return BadRequest(resultServiceModel.Message);
             }
 
-            int courseId = tutorial.CourseId;
+            Guid courseId = tutorial.CourseId;
 
             await _fileStorageService.SaveFiles(@"\assets\resources", tutorialFormModel.Files);
             return RedirectToAction("Details", "Courses", new { courseId, Area = "" });
@@ -116,7 +116,7 @@
 
 
         [HttpGet]
-         public async Task<IActionResult> DeleteTutorial(int id, int courseId)
+         public async Task<IActionResult> DeleteTutorial(Guid id, Guid courseId)
         {
             var resultServiceModel = await _tutorialService.DeleteTutorial(id);
 
@@ -131,7 +131,7 @@
 
 
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(Guid id)
         {         
             var tutorialDetails = await _tutorialService.GetTutorialDetails(id);
        

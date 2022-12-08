@@ -42,6 +42,6 @@ namespace CSharpNet_Web_System.Web.Models.Comment
 
 
         [Required]
-        public int TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
     }
 }

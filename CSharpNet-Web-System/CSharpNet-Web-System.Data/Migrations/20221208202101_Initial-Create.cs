@@ -55,8 +55,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "Courses",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -191,12 +190,11 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "Tutorials",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     InternetUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -215,11 +213,10 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "Comments",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TutorialId = table.Column<int>(type: "int", nullable: false),
+                    TutorialId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -244,15 +241,14 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "Issues",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ResolvingDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    TutorialId = table.Column<int>(type: "int", nullable: false),
+                    TutorialId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -277,11 +273,10 @@ namespace CSharpNet_Web_System.Data.Migrations
                 name: "Resources",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     ResourceTypeId = table.Column<int>(type: "int", nullable: false),
-                    TutorialId = table.Column<int>(type: "int", nullable: true),
+                    TutorialId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },

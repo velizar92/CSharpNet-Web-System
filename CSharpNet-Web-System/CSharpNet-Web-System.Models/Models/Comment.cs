@@ -6,19 +6,15 @@
     using static DataConstants.Comment;
 
     public class Comment : BaseEntity
-    {
-        [Key]
-        public int Id { get; set; }
-
+    {       
         [Required]
         [MaxLength(CommentContentMaxLength)]
         public string Content { get; set; }
 
         public string UserId { get; set; }
 
-
         [ForeignKey(nameof(Tutorial))]
-        public int TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
         public Tutorial Tutorial { get; set; }
 
     }

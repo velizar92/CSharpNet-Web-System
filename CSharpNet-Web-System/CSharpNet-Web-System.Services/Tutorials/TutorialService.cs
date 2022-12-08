@@ -21,7 +21,7 @@
         }
 
     
-        public async Task<ResultServiceModel> AddTutorialToCourse(int courseId, string title, string description,
+        public async Task<ResultServiceModel> AddTutorialToCourse(Guid courseId, string title, string description,
             string internetUrl, List<Resource> resources)
         {
             var tutorial = new Tutorial
@@ -45,7 +45,7 @@
         }
 
 
-        public async Task<ResultServiceModel> DeleteTutorial(int tutorialId)
+        public async Task<ResultServiceModel> DeleteTutorial(Guid tutorialId)
         {
             var tutorial = await _dbContext.Tutorials.FindAsync(tutorialId);
 
@@ -69,7 +69,7 @@
         }
 
 
-        public async Task<ResultServiceModel> EditTutorial(int tutorialId, string title, string description, 
+        public async Task<ResultServiceModel> EditTutorial(Guid tutorialId, string title, string description, 
             string internetUrl, List<Resource> resources)
         {
             // TODO: Edit only different props if possible. - CSWS-105
@@ -94,7 +94,7 @@
         }
 
 
-        public async Task<TutorialServiceModel> GetTutorialById(int tutorialId)
+        public async Task<TutorialServiceModel> GetTutorialById(Guid tutorialId)
         {
 
             // TODO: InternetUrl might be null - CSWS-100
@@ -117,7 +117,7 @@
         }
 
 
-        public async Task<TutorialDetailsServiceModel> GetTutorialDetails(int tutorialId)
+        public async Task<TutorialDetailsServiceModel> GetTutorialDetails(Guid tutorialId)
         {
             // TODO: Same actions as for the method above. - CSWS-100
 
@@ -138,7 +138,7 @@
         }
 
 
-        public async Task<int?> GetTutorialIdByResourceId(int resourceId)
+        public async Task<Guid?> GetTutorialIdByResourceId(Guid resourceId)
         {
             var resource = await _dbContext.Resources
                           .FirstOrDefaultAsync(r => r.Id == resourceId);
@@ -148,7 +148,7 @@
                 return resource.TutorialId;
             }
                 
-            return -1;
+            return default(Guid);
         }
     }
 }

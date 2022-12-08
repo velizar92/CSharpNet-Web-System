@@ -19,11 +19,10 @@
         }
 
 
-        public async Task<ResultServiceModel> CreateComment(int tutorialId, string userId, string content)
+        public async Task<ResultServiceModel> CreateComment(Guid tutorialId, string userId, string content)
         {
             var turorial = await _dbContext.Tutorials
                             .Where(l => l.Id == tutorialId).FirstOrDefaultAsync();
-
 
             if (turorial == null)
             {
@@ -46,11 +45,10 @@
         }
 
 
-        public async Task<ResultServiceModel> DeleteComment(int commentId)
+        public async Task<ResultServiceModel> DeleteComment(Guid commentId)
         {
             var comment = await _dbContext.Comments
                 .FirstOrDefaultAsync(c => c.Id == commentId);
-
 
             if (comment == null)
             {
@@ -66,7 +64,7 @@
         }
 
 
-        public async Task<CommentServiceModel> GetCommentById(int commentId)
+        public async Task<CommentServiceModel> GetCommentById(Guid commentId)
         {
             var comment = await _dbContext.Comments
                              .Where(c => c.Id == commentId)
@@ -82,7 +80,7 @@
         }
 
 
-        public async Task<IEnumerable<CommentDetailsServiceModel>> GetTutorialComments(int tutorialId)
+        public async Task<IEnumerable<CommentDetailsServiceModel>> GetTutorialComments(Guid tutorialId)
         {
             var tutorialComments = await _dbContext.Comments
                                  .Where(c => c.TutorialId == tutorialId)

@@ -7,8 +7,6 @@
     using static DataConstants.Issue;
     public class Issue : BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
 
         [Required]
         [MaxLength(IssueTitleMaxLength)]
@@ -33,7 +31,7 @@
 
 
         [ForeignKey(nameof(Tutorial))]
-        public int TutorialId { get; set; }
+        public Guid TutorialId { get; set; }
         public Tutorial Tutorial { get; set; }
     }
 }
