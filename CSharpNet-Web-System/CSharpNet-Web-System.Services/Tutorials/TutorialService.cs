@@ -8,6 +8,9 @@
     using CSharpNet_Web_System.Services.Tutorials.Models;
     using Microsoft.EntityFrameworkCore;
 
+    /// <summary>
+    /// This service class is responsible for dealing with Add/Edit/Delete/Get tutorial data.
+    /// </summary>
     public class TutorialService : ITutorialService
     {
         private readonly CSharpNetWebDbContext _dbContext;
@@ -17,6 +20,7 @@
             _dbContext = dbContext;
         }
 
+    
         public async Task<ResultServiceModel> AddTutorialToCourse(int courseId, string title, string description,
             string internetUrl, List<Resource> resources)
         {
