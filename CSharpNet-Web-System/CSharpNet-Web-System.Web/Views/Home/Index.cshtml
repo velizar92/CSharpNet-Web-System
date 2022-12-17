@@ -15,37 +15,80 @@
         Don't be afraid, start now!
     </h2>
 
+    <video controls>
+        <source src="~/assets/resources/videoplayback.mp4" type="video/mp4">
+    </video>
 
+    <button class="moreinfo-button" type="button">
+        <a asp-controller="Home" asp-action="Details">
+            More information
+        </a>
+    </button>
+
+    @*<div class="header-content">
     <div class="author-content">
-        <img class="author-pic" src="/assets//images/zako4.jpg" alt="zako">
-        <h4 class="author-name">Velizar Gerasimov</h4>
-        <div class="stack">
-            <img src="/assets//images/csharp.png" alt="zako">
-        </div>
+    <img class="author-pic" src="/assets//images/zako4.jpg" alt="zako">
+    <h4 class="author-name">Velizar Gerasimov</h4>
+    <div class="stack">
+    <img src="/assets//images/csharp.png" alt="zako">
+    <img src="/assets//images/NET.png" alt="zako">
+    </div>
 
-        <button class="moreinfo-button" type="button">
-            <a asp-controller="Home" asp-action="Details">
-                More information
-            </a>
-        </button>
 
     </div>
+    </div>*@
 </header>
 
 
-<ul class="cards">
-    @foreach (var course in Model)
-    {
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_image"><img src="/assets//images/courses/@course.ImageUrl"></div>
-                <div class="card_content">
-                    <h2 class="card_title">@course.Name</h2>
-                    <p class="card_text">@course.Description</p>
-                    <button class="btn card_btn"><a asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">Read More</a></button>
+<div class="courses-info-container">
+    <h1>
+        Do you want to be a C# software engineer?
+    </h1>
+
+    <h2>
+        If yes...well, you are on the right place. Here you will find a lot of courses and resources that you can use
+        in your learning. We have a courses for C# programming language, working with MS SQL server, Entity Framework Core,
+        working with Git and GitHub and more.
+    </h2>
+
+    <div class="education-images-container">
+        <img src="/assets//images/csharp.png" alt="c#">
+        <img src="/assets//images/NET.png" alt="c#">
+        <img src="/assets//images/ef-core.png" alt="c#">
+        <img src="/assets//images/mssql.jpg" alt="c#">
+        <img src="/assets//images/git-github.png" alt="c#">
+    </div>
+</div>
+
+
+<div class="cards-container">
+    <h1>
+        Our courses
+    </h1>
+
+    <h2>
+        Here you can choose the best course for you depending from your current skills.
+    </h2>
+
+    <ul class="cards">
+        @foreach (var course in Model)
+        {
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/assets//images/courses/@course.ImageUrl"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">@course.Name</h2>
+                        <p class="card_text">@course.Description</p>
+                        <button class="btn card_btn"><a asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">Read More</a></button>
+                        <button class="btn card_btn"><a asp-controller="" asp-action="">Buy</a></button>
+                    </div>
                 </div>
-            </div>
-        </li>
-    }
-</ul>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+
 

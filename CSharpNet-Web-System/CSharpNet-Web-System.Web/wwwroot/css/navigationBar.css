@@ -45,7 +45,7 @@
         }
 
             .navbar-links li a:hover {
-                background-color: rgb(9, 9, 143);
+                background-color: rgb(41,118, 211);
                 transform: scale(1.1);
                 transition: 0.2s;
                 font-weight: bold;
@@ -100,4 +100,8 @@
         .navbar-links.active {
             display: flex;
         }
+
+    header video {
+        width: 100%;
+    }
 }
