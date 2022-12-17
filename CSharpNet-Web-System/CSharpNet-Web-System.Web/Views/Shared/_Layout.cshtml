@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="~/css/backgroundStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/navigationBar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/mainSection.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CSharpNet_Web_System.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -31,7 +33,7 @@
     </nav>
 
 
-    <div class="container">
+    <div>
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
 
@@ -39,13 +41,19 @@
         </main>
     </div>
 
-    @*<footer class="text-center text-white fixed-bottom">
-    <div class="container">
-    <div class="text-center p-3" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-    &copy; 2022 - C# Learning System
-    </div>
-    </div>
-    </footer>*@
+    <footer>
+        <div class="footer-container">
+            &copy; 2022 - E-Learning System
+
+            <div class="footer-siteInfo">
+                <a>About Us</a>
+                <a>Contact</a>
+                <a>Courses</a>
+                <a>YouTube</a>
+            </div>
+            
+        </div>
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
