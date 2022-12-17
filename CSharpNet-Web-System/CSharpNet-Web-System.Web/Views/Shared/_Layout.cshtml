@@ -6,55 +6,51 @@
     <title>@ViewData["Title"] - C# Learning System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/backgroundStyles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navigationBar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CSharpNet_Web_System.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%");>
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/assets//images//logos/index.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                    C# Learning System
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <nav class="navbar">
+        <div class="brand-title"><a asp-area="" asp-controller="Home" asp-action="Index">E-Learning System</a></div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                @await Component.InvokeAsync("HeaderMenu")
 
-                      @await Component.InvokeAsync("HeaderMenu")
+                <partial name="_LoginPartial" />
+            </ul>
+        </div>
+    </nav>
 
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
+
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
-
-            <div class="loader">
-                <div class="inner one"></div>
-                <div class="inner two"></div>
-                <div class="inner three"></div>
-            </div>
 
             @RenderBody()
         </main>
     </div>
 
     @*<footer class="text-center text-white fixed-bottom">
-        <div class="container">
-            <div class="text-center p-3" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-                &copy; 2022 - C# Learning System
-            </div>
-        </div>
+    <div class="container">
+    <div class="text-center p-3" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
+    &copy; 2022 - C# Learning System
+    </div>
+    </div>
     </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/navigationBar.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

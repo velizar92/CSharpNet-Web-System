@@ -5,52 +5,47 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-<div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold text-white">
-        Добре дошли в света на <br/> C# и .NET
-
-         <video width="550" height="300" style="float: right" controls>
-            <source src="~/assets/resources/videoplayback.mp4" type="video/mp4">
-        </video>
+<header>
+    <h1>
+        Welcome in our E-Learning System!
     </h1>
 
-    <p class="col-md-8 fs-4 text-white">
-        Предлагам ви няколко курса, които ще ви дадат необходимите знания, за да навлезете
-        в света на езика C# и .NET екосистемата като цяло.
-        Ще започнем с основите на езика и ще стигнем до използването му като по-напреднали вече.
-        <br>
-        Не се колебайте, започнете сега!
-    </p>
-
-    <button type="button" class="btn btn-lg text-white" style="background-color: #AF1C70;">
-        <a class="text-white text-decoration-none" asp-controller="Home" asp-action="Details">
-            Какво ще науча тук
-        </a>
-    </button>
+    <h2>
+        Here you will find many useful courses about C# and .NET.
+        Don't be afraid, start now!
+    </h2>
 
 
+    <div class="author-content">
+        <img class="author-pic" src="/assets//images/zako4.jpg" alt="zako">
+        <h4 class="author-name">Velizar Gerasimov</h4>
+        <div class="stack">
+            <img src="/assets//images/csharp.png" alt="zako">
+        </div>
 
-</div>
+        <button class="moreinfo-button" type="button">
+            <a asp-controller="Home" asp-action="Details">
+                More information
+            </a>
+        </button>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+    </div>
+</header>
+
+
+<ul class="cards">
     @foreach (var course in Model)
     {
-        <div class="col">
+        <li class="cards_item">
             <div class="card">
-                <img src="/assets//images/courses/@course.ImageUrl" class="card-img-top" width="100" height="300" alt="C# course" />
-                <div class="card-body" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-                    <h5 class="card-title text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">@course.Name</h5>
-                    <p class="card-text text-white">@course.Description</p>
-                    <button type="button" class="btn btn-lg text-white" style="background-color: #AF1C70">
-                        <a class="text-white text-decoration-none" asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">
-                            Към курса
-                        </a>
-                    </button>
+                <div class="card_image"><img src="/assets//images/courses/@course.ImageUrl"></div>
+                <div class="card_content">
+                    <h2 class="card_title">@course.Name</h2>
+                    <p class="card_text">@course.Description</p>
+                    <button class="btn card_btn"><a asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">Read More</a></button>
                 </div>
             </div>
-        </div>
+        </li>
     }
-</div>
-
+</ul>
 
