@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #39bad8;
+    background-color: white;
     color: #efefef;
     padding-top: 15px;
     padding-left: 20px;
@@ -22,6 +22,10 @@
         margin-bottom: 50px;
     }
 
+    .login-container p a {
+        color: #39bad8;
+        text-decoration: none;
+    }
 
 .form {
     width: 30%;
@@ -29,6 +33,7 @@
     background-color: #fff;
     transition: margin-left 0.18s ease;
     border-radius: 10px;
+    border: 1px solid #39bad8;
 }
 
 .active .login {
@@ -153,7 +158,7 @@
     text-align: center;
 }
 
-.remember-me-text{
+.remember-me-text {
     color: black;
 }
 
