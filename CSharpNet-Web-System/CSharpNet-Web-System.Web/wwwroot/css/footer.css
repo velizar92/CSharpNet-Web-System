@@ -1,20 +1,46 @@
-﻿.footer-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    box-shadow: inset 0 0 500px #dfdede;
-    color: black;
-    padding: 15px;
-    font-size: 24px;
+﻿footer {
+    color: #fff;
+    background-color: #39bad8;
 }
 
-footer a {
-    text-decoration: none;
-    color: black
-}
-
-.footer-siteInfo {
+.footer-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+}
 
+    .footer-container .flex-row {
+        display: flex;
+    }
+
+footer ul {
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+
+    footer ul li {
+        padding: 0 15px;
+        margin-bottom: 16px;
+    }
+
+        footer ul li a {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+.flex-row i {
+    cursor: pointer;
+    font-size: 32px;
+}
+
+
+footer p {
+    text-align: center;
 }
