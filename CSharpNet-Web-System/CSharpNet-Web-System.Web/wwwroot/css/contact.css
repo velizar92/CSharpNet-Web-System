@@ -1,0 +1,15 @@
+﻿.contacts-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.flex-row {
+    display: flex;
+}
+
+
+.flex-row i{
+    display: flex;
+    margin-right: 25px;
+}
