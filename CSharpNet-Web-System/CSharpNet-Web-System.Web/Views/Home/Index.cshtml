@@ -79,8 +79,8 @@
                     <div class="card_content">
                         <h2 class="card_title">@course.Name</h2>
                         <p class="card_text">@course.Description</p>
-                        <button class="btn card_btn"><a asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">Read More</a></button>
-                        <button class="btn card_btn"><a asp-controller="" asp-action="">Buy</a></button>
+                        <button class="card_btn"><a asp-controller="Courses" asp-action="Details" asp-route-courseId="@course.Id">Read More</a></button>
+                        <button class="card_btn"><a asp-controller="" asp-action=""><i class="fa fa-cart-plus"></i></a></button>
                     </div>
                 </div>
             </li>
