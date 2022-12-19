@@ -103,7 +103,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
-                    b.Property<DateTime?>("ResolvingDate")
+                    b.Property<DateTime?>("ResolvementDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Status")
@@ -121,7 +121,6 @@ namespace CSharpNet_Web_System.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -461,9 +460,7 @@ namespace CSharpNet_Web_System.Data.Migrations
 
                     b.HasOne("CSharpNet_Web_System.Models.Models.User", null)
                         .WithMany("Issues")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Tutorial");
                 });
