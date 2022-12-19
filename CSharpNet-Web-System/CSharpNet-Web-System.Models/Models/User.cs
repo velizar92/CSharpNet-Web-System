@@ -10,8 +10,6 @@
 
     public class User : IdentityUser
     {
-        // TODO: Check warning here
-        // CSWS-100
         public User()
         {
             Comments = new HashSet<Comment>();
@@ -20,14 +18,14 @@
 
         [Required]
         [MaxLength(FirstNameMaxLength)]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [Required]
         [MaxLength(LastNameMaxLength)]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         [Required]
-        public string ProfileImageUrl { get; set; }
+        public string? ProfileImageUrl { get; set; }
      
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Issue> Issues { get; set; }

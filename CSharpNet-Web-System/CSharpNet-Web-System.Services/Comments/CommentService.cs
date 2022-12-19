@@ -74,8 +74,6 @@
                              })
                              .FirstOrDefaultAsync();
 
-            // TODO check for null or mark method as it can return NULL. - CSWS-100
-
             return comment;
         }
 

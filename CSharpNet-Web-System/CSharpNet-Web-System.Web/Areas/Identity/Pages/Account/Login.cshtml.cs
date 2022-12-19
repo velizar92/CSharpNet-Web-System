@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using CSharpNet_Web_System.Models.Models;
 
-using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
+using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
 
 
 namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account

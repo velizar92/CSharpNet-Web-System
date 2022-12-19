@@ -7,8 +7,7 @@
 
     public class Tutorial : BaseEntity
     {
-        // TODO: Check warning here
-        // actions to be done with CSWS-100
+
         public Tutorial()
         {
             Issues = new HashSet<Issue>();
@@ -19,18 +18,18 @@
 
         [Required]
         [MaxLength(TutorialTitleMaxLength)]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Required]
         [MaxLength(TutorialDescriptionMaxLength)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Url]
         public string? InternetUrl { get; set; }
 
         [ForeignKey(nameof(Course))]
         public Guid CourseId { get; set; }
-        public Course Course { get; set; }
+        public Course? Course { get; set; }
 
 
         public ICollection<Issue> Issues { get; set; }

@@ -3,7 +3,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    using static CSharpNet_Web_System.Infrastructure.Constants.IdentityConstants;
+    using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
 
     [Authorize(Roles = AdminRole)]
     [Area(AdminRole)]

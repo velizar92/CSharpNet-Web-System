@@ -10,28 +10,23 @@
 
         [Required]
         [MaxLength(IssueTitleMaxLength)]
-        public string Title { get; set; }
-
-        // TODO: Go through models and add mark for nullable "?" where warning appears.
-        // Actions to be done - CSWS-100
+        public string? Title { get; set; }
 
         [Required]
         [MaxLength(IssueDescriptionMaxLength)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
         public DateTime? CreationDate { get; set; }
 
-        // TODO: "ResolvementDate"
-        // Actions to be done - CSWS-100
-        public DateTime? ResolvingDate { get; set; }
+        public DateTime? ResolvementDate { get; set; }
 
         public IssueStatuses Status { get; set; }
 
 
         [ForeignKey(nameof(Tutorial))]
         public Guid TutorialId { get; set; }
-        public Tutorial Tutorial { get; set; }
+        public Tutorial? Tutorial { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace CSharpNet_Web_System.Web.Models.Comment
 
     using static CSharpNet_Web_System.Models.DataConstants.Comment;
     using static CSharpNet_Web_System.Models.DataConstants.User;
-    using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
+    using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
 
     public class CommentFormModel
     {

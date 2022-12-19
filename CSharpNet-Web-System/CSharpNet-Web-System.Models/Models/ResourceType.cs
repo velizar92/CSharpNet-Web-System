@@ -7,8 +7,6 @@
 
     public class ResourceType
     {
-        // TODO: Check warning here
-        // actions to be done with CSWS-100
         public ResourceType()
         {
             Resources = new HashSet<Resource>();
@@ -19,7 +17,7 @@
 
         [Required]
         [MaxLength(ResourceTypeNameMaxLength)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public ICollection<Resource> Resources { get; set; }
     }
 }
