@@ -27,8 +27,13 @@
         text-decoration: none;
     }
 
+.form span {
+   margin-top: 20px;
+   display: block;
+}
+
 .form {
-    width: 30%;
+    width: 25%;
     padding: 30px;
     background-color: #fff;
     transition: margin-left 0.18s ease;
@@ -36,9 +41,10 @@
     border: 1px solid #39bad8;
 }
 
-.profile-image-option {
-    margin-top: 30px;
-}
+
+    .profile-image-option {
+        margin-top: 30px;
+    }
 
 .active .login {
     margin-left: -50%;
@@ -79,42 +85,39 @@
 }
 
     .input-field input:is(:focus, :valid) {
-        border-bottom-color: #4070f4;
+        border-bottom-color: #39bad8;
     }
 
 .input-field i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
+    color: #39bad8;
     font-size: 23px;
     transition: all 0.2s ease;
 }
 
+.input-field .fa-lock {
+    font-size: 30px;
+}
+
 .input-field input:is(:focus, :valid) ~ i {
-    color: #4070f4;
+    color: #39bad8;
 }
 
-.input-field i.icon {
-    left: 0;
-}
-
-.input-field i.showHidePw {
-    right: 0;
-    cursor: pointer;
-    padding: 10px;
-}
 
 .form .checkbox-text {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+    color: #39bad8;
 }
 
 .checkbox-text .checkbox-content {
     display: flex;
     align-items: center;
+    margin-left: 0;
 }
 
 .checkbox-content input {
@@ -122,15 +125,6 @@
     accent-color: #4070f4;
 }
 
-.form .text {
-    color: #333;
-    font-size: 14px;
-}
-
-.form a.text {
-    color: #4070f4;
-    text-decoration: none;
-}
 
 .form a:hover {
     text-decoration: underline;
@@ -154,7 +148,7 @@
     }
 
 .button input:hover {
-    background-color: #265df2;
+    background-color: #259DB9;
 }
 
 .form .login-signup {
@@ -163,12 +157,48 @@
 }
 
 .remember-me-text {
-    color: black;
+    color: #39bad8;
+    left: 0;
 }
 
-@media (max-width: 900px) {
+#imageName {
+    color: red;
+}
 
+
+
+@media (max-width: 900px) {
     .login {
         width: 100%;
     }
 }
+
+
+.profile-image-option {
+    display: flex;
+}
+
+#avatar-label {
+    color: white;
+    background-color: #39bad8;
+    margin: auto 0;
+    padding: 5px;
+    display: flex;
+    width: 40%;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+    #avatar-label:hover {
+        cursor: pointer;
+        background-color: #259DB9;
+    }
+
+
+    #imageName {
+        font-weight: bold;
+        color: #39bad8;
+    }
+
+
+
