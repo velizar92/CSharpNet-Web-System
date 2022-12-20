@@ -10,20 +10,21 @@
         <span class="title">Login</span>
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="input-field">
-                <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Enter your email" required />             
+            <div class="input-field">              
+                <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" required />
+                <i class="fa fa-envelope"></i>
             </div>
             <span asp-validation-for="Input.Email" class="text-danger"></span>
 
             <div class="input-field">
-                <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" placeholder="Enter your password" required />
+                <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" placeholder="Password" required />
+                <i class="fa fa-lock"></i>
             </div>
             <span asp-validation-for="Input.Password" class="text-danger"></span>
 
             <div class="checkbox-text">
                 <div class="checkbox-content">
-                    <label class="remember-me-text"asp-for="Input.RememberMe" />
-                    <input asp-for="Input.RememberMe" />
+                    <input class="remember-me-text" asp-for="Input.RememberMe" />
                     @Html.DisplayNameFor(m => m.Input.RememberMe)
                 </div>
             </div>
