@@ -157,7 +157,7 @@ header {
     }
 
         .card_btn:hover {
-            background-color: #39D8A6;
+            background-color: #259DB9;
             color: black;
         }
 
@@ -168,13 +168,14 @@ header {
             color: white;
         }
 
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+}
 
     .cards_item {
         display: flex;
@@ -203,22 +204,22 @@ header {
 
     .card_content {
         padding: 1rem;
-        background-color: #396AD8;
+        background-color: #fff;
         justify-content: center;
         text-align: center;
     }
 
-    .card_title {
-        color: #ffffff;
-        font-size: 1.1rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: capitalize;
-        margin: 0px;
-    }
+.cards-container .card_title {
+    color: black;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0px;
+}
 
     .card_text {
-        color: #ffffff;
+        color: black;
         font-size: 0.875rem;
         line-height: 1.5;
         margin-bottom: 1.25rem;
