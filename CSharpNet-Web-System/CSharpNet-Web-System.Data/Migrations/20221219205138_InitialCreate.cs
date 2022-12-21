@@ -244,9 +244,9 @@ namespace CSharpNet_Web_System.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ResolvingDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ResolvementDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     TutorialId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -259,8 +259,7 @@ namespace CSharpNet_Web_System.Data.Migrations
                         name: "FK_Issues_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Issues_Tutorials_TutorialId",
                         column: x => x.TutorialId,

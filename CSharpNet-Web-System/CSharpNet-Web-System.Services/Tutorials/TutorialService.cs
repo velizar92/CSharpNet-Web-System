@@ -97,7 +97,6 @@
         public async Task<TutorialServiceModel> GetTutorialById(Guid tutorialId)
         {
 
-            // TODO: InternetUrl might be null - CSWS-100
             var tutorial = await _dbContext.Tutorials
                                .Where(t => t.Id == tutorialId)
                                .Select(t => new TutorialServiceModel
@@ -111,16 +110,12 @@
                                })
                                .FirstOrDefaultAsync();
 
-            // TOOD: tutorial might be null - CSWS-100
-
             return tutorial;
         }
 
 
         public async Task<TutorialDetailsServiceModel> GetTutorialDetails(Guid tutorialId)
         {
-            // TODO: Same actions as for the method above. - CSWS-100
-
             var tutorialDetails = await _dbContext.Tutorials
                      .Where(t => t.Id == tutorialId)
                      .Select(t => new TutorialDetailsServiceModel

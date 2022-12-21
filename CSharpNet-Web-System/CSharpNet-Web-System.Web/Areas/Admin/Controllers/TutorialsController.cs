@@ -6,7 +6,7 @@
     using CSharpNet_Web_System.Web.Areas.Admin.Models.Tutorial;
     using CSharpNet_Web_System.Models.Models;
 
-    using static CSharpNet_Web_System.Infrastructure.Constants.HttpMimeTypeConstants;
+    using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
 
     public class TutorialsController : AdminController
     {

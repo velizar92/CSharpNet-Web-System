@@ -106,8 +106,6 @@
                            })
                           .FirstOrDefaultAsync();
 
-            // TODO: this might be null. - CSWS-100
-
             return courseDetails;
         }
     }

@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
+    using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
 
     public class UserFormModel
     {

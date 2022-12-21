@@ -8,6 +8,8 @@
     using CSharpNet_Web_System.Models.Models;
     using CSharpNet_Web_System.Web.Models.Comment;
 
+    using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
+
     public class CommentsController : Controller
     {
         private readonly ICommentService _commentService;
@@ -43,10 +45,9 @@
             string userId = User.Id();
             var user = await _userManagerService.GetUserAsync(HttpContext.User);
 
-            // TODO: Use constants for props. - CSWS-101
-            ModelState.Remove("FirstName");
-            ModelState.Remove("LastName");
-            ModelState.Remove("ProfileImageUrl");
+            ModelState.Remove(FirstName);
+            ModelState.Remove(LastName);
+            ModelState.Remove(ProfileImageUrl);
 
             commentModel.ProfileImageUrl = user.ProfileImageUrl;
             commentModel.FirstName = user.FirstName;

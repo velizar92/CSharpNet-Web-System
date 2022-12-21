@@ -1,11 +1,10 @@
-﻿
-namespace CSharpNet_Web_System.Web.Models.Comment
+﻿namespace CSharpNet_Web_System.Web.Models.Comment
 {
     using System.ComponentModel.DataAnnotations;
 
     using static CSharpNet_Web_System.Models.DataConstants.Comment;
     using static CSharpNet_Web_System.Models.DataConstants.User;
-    using static CSharpNet_Web_System.Infrastructure.Constants.ValidationConstants;
+    using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
 
     public class CommentFormModel
     {

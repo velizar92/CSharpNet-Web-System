@@ -5,6 +5,7 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
     using CSharpNet_Web_System.Data;
+    using CSharpNet_Web_System.Infrastructure;
     using CSharpNet_Web_System.Models.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
@@ -20,22 +21,18 @@
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var services = serviceScope.ServiceProvider;
+                var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
                 var userManager = services.GetRequiredService<UserManager<User>>();
 
-                await SeedResourceTypes(services);
-                await SeedRoles(services);
-                await SeedAdminUsers(services);
-                await SeedCourses(services);
+                await SeedResourceTypes(dbContext);
+                await SeedRoles(services, dbContext, userManager);
+                await SeedAdminUsers(dbContext, userManager);
+                await SeedCourses(dbContext);
             }
         }
 
-        private async Task SeedAdminUsers(IServiceProvider services)
+        private async Task SeedAdminUsers(CSharpNetWebDbContext dbContext, UserManager<User> userManager)
         {
-            // TODO: User manager can be passed as method param as well (already initialized above). Same applies for DB context.
-            // Actions to be done in this task - CSWS-100
-            var userManager = services.GetRequiredService<UserManager<User>>();
-            var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
-
             if (userManager.Users.Any() == false)
             {
                 User adminUser = new User
@@ -50,11 +47,11 @@
                 };
 
                 IdentityResult result = await userManager.CreateAsync(adminUser, "test123");
-                await userManager.AddClaimAsync(adminUser, new Claim("ProfileImageUrl", adminUser.ProfileImageUrl));
+                await userManager.AddClaimAsync(adminUser, new Claim(InfrastructureConstants.ProfileImageUrl, adminUser.ProfileImageUrl));
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();
+                    userManager.AddToRoleAsync(adminUser, InfrastructureConstants.AdminRole).Wait();
                 }
 
                 await dbContext.SaveChangesAsync();
@@ -62,24 +59,21 @@
         }
 
 
-        private async Task SeedRoles(IServiceProvider services)
+        private async Task SeedRoles(IServiceProvider services, CSharpNetWebDbContext dbContext, UserManager<User> userManager)
         {
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-            var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
 
-            // TODO: Replacing the hardcoded strings with already existing constants (for the roles).
-            // Actions to be done with this task - CSWS-100
-            if (roleManager.RoleExistsAsync("Admin").Result == false)
+            if (roleManager.RoleExistsAsync(InfrastructureConstants.AdminRole).Result == false)
             {
                 IdentityRole adminRole = new IdentityRole();
-                adminRole.Name = "Admin";
+                adminRole.Name = InfrastructureConstants.AdminRole;
                 IdentityResult roleResult = await roleManager.CreateAsync(adminRole);
             }
 
-            if (roleManager.RoleExistsAsync("Learner").Result == false)
+            if (roleManager.RoleExistsAsync(InfrastructureConstants.LearnerRole).Result == false)
             {
                 IdentityRole learnerRole = new IdentityRole();
-                learnerRole.Name = "Learner";
+                learnerRole.Name = InfrastructureConstants.LearnerRole;
                 IdentityResult roleResult = await roleManager.CreateAsync(learnerRole);
             }
 
@@ -87,17 +81,13 @@
         }
 
 
-        private async Task SeedResourceTypes(IServiceProvider services)
+        private async Task SeedResourceTypes(CSharpNetWebDbContext dbContext)
         {
-            var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
-
-            //TODO: Transfer to constants or Enum.
-            // Actions to be done with this task - CSWS-100          
             List<ResourceType> resourceTypes = new List<ResourceType>
             {
-                new ResourceType{ Name = "PPT Presentation" },
-                new ResourceType{ Name = "Video MP4" },
-                new ResourceType{ Name = "PDF Document" },
+                new ResourceType{ Name = InfrastructureConstants.Presentation },
+                new ResourceType{ Name = InfrastructureConstants.Video },
+                new ResourceType{ Name = InfrastructureConstants.PdfDocument },
             };
 
             if (dbContext.ResourceTypes.Any() == false)
@@ -107,10 +97,8 @@
             }
         }
 
-        private async Task SeedCourses(IServiceProvider services)
+        private async Task SeedCourses(CSharpNetWebDbContext dbContext)
         {
-            var dbContext = services.GetRequiredService<CSharpNetWebDbContext>();
-
             // TODO: Export this stuff to resource files when done.
             // Actions to be done in CSWS-103
             List<Course> courses = new List<Course>()
@@ -129,7 +117,7 @@
                         {
                             Title = "Въведение в .NET и C#",
                             Description = "В тази тема ще се запознаем с .NET платформата " +
-                            "и езика C#.",                          
+                            "и езика C#.",
                         },
                         new Tutorial
                         {
