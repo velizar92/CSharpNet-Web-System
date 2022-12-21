@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
+using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
 
 namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account.Manage
 {

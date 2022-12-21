@@ -1,6 +1,7 @@
 ﻿namespace CSharpNet_Web_System.Infrastructure.Extensions
 {
     using System.Security.Claims;
+    using CSharpNet_Web_System.Infrastructure;
 
     public static class ClaimsPrincipalExtensions
     {
@@ -16,7 +17,7 @@
 
         public static bool IsAdmin(this ClaimsPrincipal user)
         {
-            return user.IsInRole(Constants.InfrastructureConstants.AdminRole);
+            return user.IsInRole(InfrastructureConstants.AdminRole);
         }
     }
 }

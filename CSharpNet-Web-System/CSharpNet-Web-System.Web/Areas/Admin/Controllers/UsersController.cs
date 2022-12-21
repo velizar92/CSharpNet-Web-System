@@ -8,7 +8,7 @@
     using Microsoft.EntityFrameworkCore;
     using System.Security.Claims;
 
-    using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
+    using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
     public class UsersController : AdminController
     {
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpNet_Web_System.Infrastructure.Constants
+namespace CSharpNet_Web_System.Infrastructure
 {
     public class InfrastructureConstants
     {

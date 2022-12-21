@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using static CSharpNet_Web_System.Models.DataConstants.Tutorial;
-    using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
+    using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
     public class TutorialFormModel
     {
         public Guid Id { get; set; }

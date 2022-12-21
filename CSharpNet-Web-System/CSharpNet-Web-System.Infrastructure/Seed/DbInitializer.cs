@@ -5,6 +5,7 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
     using CSharpNet_Web_System.Data;
+    using CSharpNet_Web_System.Infrastructure;
     using CSharpNet_Web_System.Models.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
@@ -46,11 +47,11 @@
                 };
 
                 IdentityResult result = await userManager.CreateAsync(adminUser, "test123");
-                await userManager.AddClaimAsync(adminUser, new Claim(Constants.InfrastructureConstants.ProfileImageUrl, adminUser.ProfileImageUrl));
+                await userManager.AddClaimAsync(adminUser, new Claim(InfrastructureConstants.ProfileImageUrl, adminUser.ProfileImageUrl));
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(adminUser, Constants.InfrastructureConstants.AdminRole).Wait();
+                    userManager.AddToRoleAsync(adminUser, InfrastructureConstants.AdminRole).Wait();
                 }
 
                 await dbContext.SaveChangesAsync();
@@ -62,17 +63,17 @@
         {
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-            if (roleManager.RoleExistsAsync(Constants.InfrastructureConstants.AdminRole).Result == false)
+            if (roleManager.RoleExistsAsync(InfrastructureConstants.AdminRole).Result == false)
             {
                 IdentityRole adminRole = new IdentityRole();
-                adminRole.Name = Constants.InfrastructureConstants.AdminRole;
+                adminRole.Name = InfrastructureConstants.AdminRole;
                 IdentityResult roleResult = await roleManager.CreateAsync(adminRole);
             }
 
-            if (roleManager.RoleExistsAsync(Constants.InfrastructureConstants.LearnerRole).Result == false)
+            if (roleManager.RoleExistsAsync(InfrastructureConstants.LearnerRole).Result == false)
             {
                 IdentityRole learnerRole = new IdentityRole();
-                learnerRole.Name = Constants.InfrastructureConstants.LearnerRole;
+                learnerRole.Name = InfrastructureConstants.LearnerRole;
                 IdentityResult roleResult = await roleManager.CreateAsync(learnerRole);
             }
 
@@ -84,9 +85,9 @@
         {
             List<ResourceType> resourceTypes = new List<ResourceType>
             {
-                new ResourceType{ Name = Constants.InfrastructureConstants.Presentation },
-                new ResourceType{ Name = Constants.InfrastructureConstants.Video },
-                new ResourceType{ Name = Constants.InfrastructureConstants.PdfDocument },
+                new ResourceType{ Name = InfrastructureConstants.Presentation },
+                new ResourceType{ Name = InfrastructureConstants.Video },
+                new ResourceType{ Name = InfrastructureConstants.PdfDocument },
             };
 
             if (dbContext.ResourceTypes.Any() == false)

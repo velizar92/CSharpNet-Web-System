@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
-using static CSharpNet_Web_System.Infrastructure.Constants.InfrastructureConstants;
+using static CSharpNet_Web_System.Infrastructure.InfrastructureConstants;
 
 namespace CSharpNet_Web_System.Web.Areas.Identity.Pages.Account
 {
