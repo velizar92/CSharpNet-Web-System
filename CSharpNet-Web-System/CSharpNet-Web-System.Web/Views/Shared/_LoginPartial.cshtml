@@ -6,7 +6,7 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
+    <li>
         <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
             Здравей @User.Identity?.Name!
             <img style="border-radius: 50%" src="~/assets/images/users/@User.FindFirst("ProfileImageUrl")?.Value" width="30" height="30" />
@@ -14,7 +14,7 @@
     </li>
     <li>
         <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit">Изход</button>
+            <button class="logout-btn" type="submit">Изход</button>
         </form>
     </li>
 }
