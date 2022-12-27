@@ -5,30 +5,39 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3 class="text-white">@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-warning"></div>
-            <div class="form-floating">
-                <input asp-for="Username" class="form-control" disabled />
-                <label asp-for="Username" class="form-label"></label>
-            </div>          
-            <div class="form-floating regLogSpaceUp">
-                <input asp-for="Input.Name" class="form-control" />
-                <label asp-for="Input.Name" class="form-label"></label>
-                <span asp-validation-for="Input.Name" class="text-warning"></span>
-            </div>          
-              <div class="form-floating regLogSpaceUp">
-                <input asp-for="Input.LastName" class="form-control" />
-                <label asp-for="Input.LastName" class="form-label"></label>
-                <span asp-validation-for="Input.LastName" class="text-warning"></span>
-            </div>        
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg text-white regLogSpaceUp" style="background-color: #AF1C70;">Запази</button>
+
+<div class="login-register-container">
+    <div class="form login">
+        <span class="title"> Промени акаунт опциите си</span>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <div class="input-field">
+                    <input asp-for="Username" placeholder="Име">
+                </div>
+                <span asp-validation-for="Username"></span>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="Input.Name" placeholder="Име">
+                </div>
+                <span asp-validation-for="Input.Name"></span>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="Input.LastName" placeholder="Фамилия">
+                </div>
+                <span asp-validation-for="Input.LastName"></span>
+            </div>
+
+            <div class="input-field button">
+                <input type="submit" value="Потвърди">
+            </div>
         </form>
     </div>
 </div>
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

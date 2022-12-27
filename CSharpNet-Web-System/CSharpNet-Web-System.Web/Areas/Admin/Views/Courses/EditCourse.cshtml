@@ -1,39 +1,36 @@
 ﻿@using CSharpNet_Web_System.Web.Areas.Admin.Models.Course
 @model CourseFormModel
 
-<div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/assets//images/csharp_basics.png" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-            <div class="card-body text-white">
-                <h5 class="card-title">Редактирай курс</h5>
-                <p class="card-text">В тази секция можеш да редактираш този курс.</p>
+
+<div class="login-register-container">
+    <div class="form login">
+        <span class="title">Редактирай курс</span>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <div class="input-field">
+                    <input asp-for="Name" placeholder="Име">
+                </div>
+                <span asp-validation-for="Name" class="danger-text"></span>
             </div>
-        </div>
+            <div>
+                <div>
+                    <textarea asp-for="Description" placeholder="Описание"></textarea>
+                </div>
+                <span asp-validation-for="Description" class="danger-text"></span>
+            </div>
+
+            <div class="profile-image-option">
+
+                <input id="inputBox" asp-for="PictureFile" style="display: none;" type="file" name="file" accept="image/png, image/jpg, image/gif, image/jpeg" />
+                <label id="avatar-label" for="inputBox">
+                    Качи снимка
+                </label>
+                <span asp-validation-for="PictureFile" id="imageName" class="danger-text"></span>
+            </div>
+
+            <div class="input-field button">
+                <input type="submit" value="Потвърди">
+            </div>
+        </form>
     </div>
 </div>
-
-<form method="post" enctype="multipart/form-data">
-
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label text-white">Име</label>
-        <input asp-for="Name" class="form-control text-white" placeholder="Some Name" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="Name" class="small text-warning"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Description" class="form-label text-white">Описание</label>
-        <textarea rows="20" asp-for="Description" class="form-control text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%"></textarea>
-        <span asp-validation-for="Description" class="small text-warning"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="PictureFile" class="form-label text-white">Снимка аватар</label>
-        <input asp-for="PictureFile" type="file" name="PictureFile" class="form-control text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="PictureFile" class="small text-warning"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Потвърди</button>
-</form>

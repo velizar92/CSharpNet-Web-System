@@ -27,10 +27,6 @@
         text-decoration: none;
     }
 
-.form span {
-   margin-top: 20px;
-   display: block;
-}
 
 .form {
     width: 25%;
@@ -41,10 +37,22 @@
     border: 1px solid #39bad8;
 }
 
-
-    .profile-image-option {
-        margin-top: 30px;
+    .form span {
+        margin-top: 20px;
+        display: block;
     }
+
+    .form textarea {
+        border: 2px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        height: 300px;
+        resize: none;
+    }
+
+.profile-image-option {
+    margin-top: 30px;
+}
 
 .active .login {
     margin-left: -50%;
@@ -189,16 +197,14 @@
     justify-content: center;
     align-items: center;
 }
+
     #avatar-label:hover {
         cursor: pointer;
         background-color: #259DB9;
     }
 
 
-    #imageName {
-        font-weight: bold;
-        color: #39bad8;
-    }
-
-
-
+#imageName {
+    font-weight: bold;
+    color: #39bad8;
+}

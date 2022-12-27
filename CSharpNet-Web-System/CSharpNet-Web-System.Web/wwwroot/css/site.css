@@ -124,5 +124,8 @@ html {
     font-size: 18px;
 }
 
+.danger-text {
+    color: red;
+}
 
 

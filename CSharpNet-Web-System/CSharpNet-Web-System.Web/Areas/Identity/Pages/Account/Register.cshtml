@@ -9,36 +9,36 @@
         <span class="title">Register</span>
 
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="danger-text"></div>
             <div class="input-field">
                 <input asp-for="Input.FirstName" autocomplete="firstname" aria-required="true" placeholder="First name" required />
                 <i class="fa fa-user"></i>
             </div>
-            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            <span asp-validation-for="Input.FirstName" class="danger-text"></span>
 
             <div class="input-field">
                 <input asp-for="Input.LastName" autocomplete="lastname" aria-required="true" placeholder="Last name" required />
                 <i class="fa fa-user"></i>
             </div>
-            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            <span asp-validation-for="Input.LastName" class="danger-text"></span>
 
             <div class="input-field">
                 <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" required />
                 <i class="fa fa-envelope"></i>
             </div>
-            <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <span asp-validation-for="Input.Email" class="danger-text"></span>
 
             <div class="input-field">
                 <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" required />
                 <i class="fa fa-lock"></i>
             </div>
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <span asp-validation-for="Input.Password" class="danger-text"></span>
 
             <div class="input-field">
                 <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Repeat Password" required />
                 <i class="fa fa-lock"></i>
             </div>
-            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            <span asp-validation-for="Input.ConfirmPassword" class="danger-text"></span>
 
             <div class="profile-image-option">
 

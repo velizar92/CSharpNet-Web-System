@@ -1,52 +1,58 @@
 ﻿@model UserFormModel
 
-<div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/assets//images/csharp_basics.png" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-            <div class="card-body text-white">
-                <h5 class="card-title">Създай потребител</h5>
-                <p class="card-text">В тази секция можеш да създадеш потребител.</p>
+<div class="login-register-container">
+    <div class="form login">
+        <span class="title">Създай потребител</span>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <div class="input-field">
+                    <input asp-for="FirstName" placeholder="Име" required>
+                    <i class="fa fa-user"></i>
+                </div>
+                <span asp-validation-for="FirstName"></span>
             </div>
-        </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="LastName" placeholder="Фамилия" required>
+                    <i class="fa fa-user"></i>
+                </div>
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="Email" placeholder="Имейл" required>
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="Password" placeholder="Парола" required>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="ConfirmPassword" placeholder="Потвърди парола" required>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+
+            <div class="profile-image-option">
+
+                <input id="inputBox" asp-for="ProfileImage" style="display: none;" type="file" name="file" accept="image/png, image/jpg, image/gif, image/jpeg" />
+                <label id="avatar-label" for="inputBox">
+                    Качи снимка
+                </label>
+                <span id="imageName"></span>
+            </div>
+
+            <div class="input-field button">
+                <input type="submit" value="Потвърди">
+            </div>
+        </form>
     </div>
 </div>
 
-<form method="post" enctype="multipart/form-data">
-
-    <div class="mb-3">
-        <label asp-for="FirstName" class="form-label text-white">Име</label>
-        <input asp-for="FirstName" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="FirstName" class="small text-warning"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="LastName" class="form-label text-white">Фамилия</label>
-        <input asp-for="LastName" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="LastName" class="small text-warning"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Email" class="form-label text-white">Имейл</label>
-        <input asp-for="Email" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="Email" class="small text-warning"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Password" class="form-label text-white">Парола</label>
-        <input asp-for="Password" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="Password" class="small text-warning"></span>
-    </div>
-     <div class="mb-3">
-        <label asp-for="ConfirmPassword" class="form-label text-white">Потвърди парола</label>
-        <input asp-for="ConfirmPassword" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="ConfirmPassword" class="small text-warning"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="ProfileImage" class="form-label text-white">Снимка аватар</label>
-        <input asp-for="ProfileImage" type="file" name="ProfileImage" class="form-control text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="ProfileImage" class="small text-warning"></span>
-    </div>
-
-    <button type="submit" class="btn btn-success">Потвърди</button>
-</form>
