@@ -1,9 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
 
-html {
-    font-size: 14px;
-}
-
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -13,6 +9,7 @@ html {
 html {
     position: relative;
     min-height: 100%;
+    font-size: 14px;
 }
 
 body {
@@ -20,14 +17,6 @@ body {
     font-family: Verdana, sans-serif !important;
     background-color: white;
     ;
-}
-
-.regLogSpaceUp {
-    margin-top: 7px;
-}
-
-.spaceRight {
-    margin-right: 7px;
 }
 
 
