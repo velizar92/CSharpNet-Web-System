@@ -4,8 +4,8 @@
     int lineIndex = 1;
 }
 
-<table class="table text-white">
-    <thead class="thead-light">
+<table class="items-table">
+    <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Име на курс</th>                            
@@ -17,11 +17,16 @@
         @foreach (var course in Model)
         {
             <tr>
-                <th scope="row">@lineIndex</th>
+                <td>@lineIndex</td>
                 <td>@course.Name</td>                             
-                <td>                  
-                    <a asp-area="Admin" asp-controller="Courses" asp-action="EditCourse" asp-route-courseId="@course.Id" class="btn btn-secondary text-white">Редактирай курс</a>
-                    <a asp-area="Admin" asp-controller="Courses" asp-action="DeleteCourse" asp-route-courseId="@course.Id" class="btn btn-danger">Изтрий курс</a>                
+                <td>
+                    <button class="btn-edit">
+                        <a asp-area="Admin" asp-controller="Courses" asp-action="EditCourse" asp-route-courseId="@course.Id">Редактирай</a>
+                    </button>
+                    <button class="btn-delete">
+                        <a asp-area="Admin" asp-controller="Courses" asp-action="DeleteCourse" asp-route-courseId="@course.Id">Изтрий</a>
+
+                    </button>
                 </td>
             </tr>
 
