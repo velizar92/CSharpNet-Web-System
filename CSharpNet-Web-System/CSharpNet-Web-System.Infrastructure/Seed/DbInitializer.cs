@@ -26,12 +26,12 @@
 
                 await SeedResourceTypes(dbContext);
                 await SeedRoles(services, dbContext, userManager);
-                await SeedAdminUsers(dbContext, userManager);
+                await SeedUsers(dbContext, userManager);
                 await SeedCourses(dbContext);
             }
         }
 
-        private async Task SeedAdminUsers(CSharpNetWebDbContext dbContext, UserManager<User> userManager)
+        private async Task SeedUsers(CSharpNetWebDbContext dbContext, UserManager<User> userManager)
         {
             if (userManager.Users.Any() == false)
             {
@@ -46,12 +46,27 @@
                     EmailConfirmed = true
                 };
 
-                IdentityResult result = await userManager.CreateAsync(adminUser, "test123");
-                await userManager.AddClaimAsync(adminUser, new Claim(InfrastructureConstants.ProfileImageUrl, adminUser.ProfileImageUrl));
+                User learnerUser = new User
+                {
+                    FirstName = "Mario",
+                    LastName = "Gerasimov",
+                    UserName = "mario@example.com",
+                    NormalizedUserName = "MARIO@EXAMPLE.COM",
+                    Email = "mario@example.com",
+                    ProfileImageUrl = "user.jpg",
+                    EmailConfirmed = true
+                };
 
-                if (result.Succeeded)
+                IdentityResult adminResult = await userManager.CreateAsync(adminUser, "test123");
+                IdentityResult learnerResult = await userManager.CreateAsync(learnerUser, "test123");
+
+                await userManager.AddClaimAsync(adminUser, new Claim(InfrastructureConstants.ProfileImageUrl, adminUser.ProfileImageUrl));
+                await userManager.AddClaimAsync(learnerUser, new Claim(InfrastructureConstants.ProfileImageUrl, learnerUser.ProfileImageUrl));
+
+                if (adminResult.Succeeded && learnerResult.Succeeded)
                 {
                     userManager.AddToRoleAsync(adminUser, InfrastructureConstants.AdminRole).Wait();
+                    userManager.AddToRoleAsync(learnerUser, InfrastructureConstants.LearnerRole).Wait();
                 }
 
                 await dbContext.SaveChangesAsync();
