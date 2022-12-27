@@ -169,11 +169,6 @@
     left: 0;
 }
 
-#imageName {
-    color: red;
-}
-
-
 
 @media (max-width: 900px) {
     .login {
@@ -186,7 +181,7 @@
     display: flex;
 }
 
-#avatar-label {
+.avatar-label {
     color: white;
     background-color: #39bad8;
     margin: auto 0;
@@ -198,7 +193,7 @@
     align-items: center;
 }
 
-    #avatar-label:hover {
+    .avatar-label:hover {
         cursor: pointer;
         background-color: #259DB9;
     }
