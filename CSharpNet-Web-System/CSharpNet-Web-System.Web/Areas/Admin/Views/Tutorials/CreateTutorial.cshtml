@@ -1,44 +1,42 @@
 ﻿@model TutorialFormModel
 
-<div class="card mb-3 text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/assets//images/tutorial_creation.jpg" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Създай урок</h5>
-                <p class="card-text">В тази секция можеш да създадеш урок, който да е още една стъпка към успеха на последователите ти.</p>
+<div class="form-container-container">
+    <div class="form login">
+        <span class="title">Създай урок</span>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <div class="input-field">
+                    <input asp-for="Title" placeholder="Име">
+                    <i class="fa fa-book"></i>
+                </div>
+                <span asp-validation-for="Title" class="danger-text"></span>
             </div>
-        </div>
+            <div>
+                <div>
+                    <textarea asp-for="Description" placeholder="Описание"></textarea>
+                </div>
+                <span asp-validation-for="Description" class="danger-text"></span>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input asp-for="InternetUrl" placeholder="Интернет адрес">
+                    <i class='fa fa-internet-explorer'></i>
+                </div>
+                <span asp-validation-for="InternetUrl" class="danger-text"></span>
+            </div>
+
+            <div class="profile-image-option">
+
+                <input id="inputBox" asp-for="Files" style="display: none;" type="file" name="Files" />
+                <label class="avatar-label" for="inputBox">
+                    Качи ресурси
+                </label>
+                <span asp-validation-for="Files" id="imageName" class="danger-text"></span>
+            </div>
+
+            <div class="input-field button">
+                <input type="submit" value="Потвърди">
+            </div>
+        </form>
     </div>
 </div>
-
-<form method="post" enctype="multipart/form-data">
-
-    <div class="mb-3">
-        <label asp-for="Title" class="form-label text-white">Име</label>
-        <input asp-for="Title" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%">
-        <span asp-validation-for="Title" class="small text-warning"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Description" class="form-label text-white">Описание</label>
-        <textarea rows= "10" asp-for="Description" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%"></textarea> 
-        <span asp-validation-for="Description" class="small text-warning"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="InternetUrl" class="form-label text-white">Интернет Адрес</label>
-        <textarea rows= "10" asp-for="InternetUrl" class="form-control text-white" placeholder="" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%"></textarea> 
-        <span asp-validation-for="InternetUrl" class="small text-warning"></span>
-    </div>
-   
-    <div class="mb-3">
-        <label asp-for="Files" class="form-label text-white">Локални ресурси</label>
-        <input asp-for="Files" type="file" name="Files" class="form-control text-white" style="background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%" multiple>
-        <span asp-validation-for="Files" class="small text-warning"></span>
-    </div>
-
-    <button type="submit" class="btn btn-success text-white">Потвърди</button>
-</form>
