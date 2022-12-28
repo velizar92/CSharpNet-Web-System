@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\assets\images\users\user.jpg" />
-    <_ContentIncludedByDefault Remove="wwwroot\css\home.css" />
   </ItemGroup>
 
   <ItemGroup>

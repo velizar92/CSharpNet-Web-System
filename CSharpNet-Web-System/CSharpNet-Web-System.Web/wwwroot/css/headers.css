@@ -1,0 +1,48 @@
+﻿/*--------------lightblue-header---------------*/
+
+.lightblue-header {
+    background-color: #39bad8;
+    color: #efefef;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-shadow: inset 0 0 500px #39bad8;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 7px 7px rgba(54, 150, 173, 0.9);
+}
+
+    .lightblue-header h1 {
+        text-align: center;
+        font-size: 4rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        padding: 2rem;
+        box-shadow: 0 0 15px white;
+        border-radius: 15px;
+    }
+
+    .lightblue-header h2 {
+        font-size: 2.5rem;
+        padding: 3rem;
+        text-align: center;
+        text-shadow: 0 0 25px white;
+    }
+
+    .lightblue-header video {
+        border-radius: 15px;
+        margin-bottom: 10px;
+        width: 50%;
+    }
+
+@media (max-width: 900px) {
+
+    .lightblue-header video {
+        width: 100%;
+    }
+}
+
+/*---------------------------------------*/

@@ -1,0 +1,48 @@
+﻿/*--------------Buttons---------------*/
+.btn-edit {
+    background-color: darkblue;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+    .btn-edit:hover {
+        background-color: purple;
+    }
+
+    .btn-edit a {
+        text-decoration: none;
+        color: white;
+    }
+
+.btn-delete {
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+    .btn-delete:hover {
+        background-color: black;
+    }
+
+    .btn-delete a {
+        text-decoration: none;
+        color: white;
+    }
+
+.btn-details {
+    color: white;
+    text-decoration: none;
+    background-color: #259DB9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+    .btn-details:hover {
+        background-color: white;
+        color: #39bad8;
+        font-weight: bold;
+    }
+
+/*---------------------------------*/

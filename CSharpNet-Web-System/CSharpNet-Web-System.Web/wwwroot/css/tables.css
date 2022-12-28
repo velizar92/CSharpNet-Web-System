@@ -1,4 +1,5 @@
-﻿.items-table {
+﻿/*--------------Tables---------------*/
+.items-table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 65%;
@@ -10,73 +11,35 @@
     .items-table td, #customers th {
         border: 1px solid #ddd;
         padding: 8px;
+        font-weight: bold;
     }
 
-    .items-table tr:nth-child(even) {
-        background-color: #D5D5D5;
-        color: black;
+    .items-table tr {
+        background-color:;
     }
+
+
+        .items-table tr:nth-child(even) {
+            background-color: #39bad8;
+            color: white;
+        }
 
     .items-table th {
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: left;
         background-color: #259DB9;
         color: white;
         padding: 20px;
+        text-align: center;
     }
 
     .items-table td {
         padding: 20px;
-        text-align: left;
+        text-align: center;
     }
 
-        .items-table .content-align-center {
-            text-align: center;
-        }
-
-        .btn-edit {
-            background-color: darkblue;
-            padding: 5px;
-            border-radius: 10px;
-            font-size: 20px;
-        }
-
-    .btn-edit:hover {
-        background-color: purple;
+    .items-table .content-align-center {
+        text-align: center;
     }
 
-    .btn-edit a {
-        text-decoration: none;
-        color: white;
-    }
-
-.btn-delete {
-    background-color: red;
-    padding: 5px;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
-    .btn-delete:hover {
-        background-color: black;
-    }
-
-    .btn-delete a {
-        text-decoration: none;
-        color: white;
-    }
-
-.btn-details {
-    color: white;
-    text-decoration: none;
-    background-color: #259DB9;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-    .btn-details:hover {
-        background-color: red;
-        color: white;
-    }
-
+/*---------------------------------*/
