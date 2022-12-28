@@ -1,8 +1,9 @@
 ﻿.items-table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 70%;
+    width: 65%;
     margin: 0 auto;
+    margin-top: 50px;
     font-size: 20px;
 }
 
@@ -12,28 +13,34 @@
     }
 
     .items-table tr:nth-child(even) {
-        background-color: #39bad8;
-        color: white;
+        background-color: #D5D5D5;
+        color: black;
     }
 
     .items-table th {
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: center;
+        text-align: left;
         background-color: #259DB9;
         color: white;
+        padding: 20px;
     }
 
     .items-table td {
-        text-align: center;
+        padding: 20px;
+        text-align: left;
     }
 
-.btn-edit {
-    background-color: darkblue;
-    padding: 5px;
-    border-radius: 10px;
-    font-size: 20px;
-}
+        .items-table .content-align-center {
+            text-align: center;
+        }
+
+        .btn-edit {
+            background-color: darkblue;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
 
     .btn-edit:hover {
         background-color: purple;
@@ -60,5 +67,16 @@
         color: white;
     }
 
+.btn-details {
+    color: white;
+    text-decoration: none;
+    background-color: #259DB9;
+    padding: 10px;
+    border-radius: 10px;
+}
 
+    .btn-details:hover {
+        background-color: red;
+        color: white;
+    }
 
